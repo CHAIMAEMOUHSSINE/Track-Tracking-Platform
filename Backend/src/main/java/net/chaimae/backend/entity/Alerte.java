@@ -1,6 +1,7 @@
 package net.chaimae.backend.entity;
 import jakarta.persistence.*;
 import lombok.*;
+import net.chaimae.backend.enums.StatutAlerte;
 
 import java.time.LocalDateTime;
 
@@ -14,7 +15,6 @@ public class Alerte {
     @Enumerated(EnumType.STRING)
     @Builder.Default
     private StatutAlerte statut = StatutAlerte.OUVERTE;
-
     /** Temps total constaté du parcours, en minutes */
     private Long tempsTotalMinutes;
 

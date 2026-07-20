@@ -13,6 +13,8 @@ public class Passage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "camion_id", nullable = false)
     private Camion camion;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "point_controle_id", nullable = false)
