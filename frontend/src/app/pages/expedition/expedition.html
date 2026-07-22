@@ -1,15 +1,304 @@
-<section class="service-page">
-  <div class="service-header">
-    <p class="eyebrow">Service Expédition</p>
-    <h2>Retards liés au chargement</h2>
-    <p>Interface destinée au suivi de l’avancement du chargement des camions et des justifications.</p>
+<!-- ================= HEADER ================= -->
+
+<div class="header">
+
+  <div>
+    <h2>
+      <i class="fas fa-truck-loading"></i>
+      Service Expédition
+    </h2>
+
+    <p>Gestion du chargement des camions de ciment</p>
   </div>
 
-  <div class="service-list">
-    <article class="service-card" *ngFor="let alert of alerts">
-      <strong>{{ alert.truck }}</strong>
-      <span>{{ alert.reason }}</span>
-      <small>{{ alert.status }} · {{ alert.action }}</small>
-    </article>
+  <button class="refresh" (click)="refresh()">
+    <i class="fas fa-rotate-right"></i>
+    Actualiser
+  </button>
+
+</div>
+
+<!-- ================= KPI ================= -->
+
+<div class="kpi-container">
+
+  <div class="kpi blue">
+    <i class="fas fa-truck"></i>
+
+    <div>
+      <h3>{{ kpis().total }}</h3>
+      <span>Camions aujourd'hui</span>
+    </div>
   </div>
-</section>
+
+  <div class="kpi green">
+    <i class="fas fa-box"></i>
+
+    <div>
+      <h3>{{ kpis().enChargement }}</h3>
+      <span>En chargement</span>
+    </div>
+  </div>
+
+  <div class="kpi orange">
+    <i class="fas fa-stopwatch"></i>
+
+    <div>
+      <h3>{{ kpis().tempsMoyen }} min</h3>
+      <span>Temps moyen</span>
+    </div>
+  </div>
+
+  <div class="kpi red">
+    <i class="fas fa-triangle-exclamation"></i>
+
+    <div>
+      <h3>{{ kpis().retards }}</h3>
+      <span>Retards</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ================= CONTENT ================= -->
+
+<div class="content">
+
+  <!-- ================= TABLE ================= -->
+
+  <div class="table-card">
+
+    <div class="table-header">
+
+      <h3>Camions à charger</h3>
+
+      <input
+        type="text"
+        [(ngModel)]="recherche"
+        placeholder="Rechercher un camion...">
+
+    </div>
+
+    <table>
+
+      <thead>
+
+      <tr>
+        <th>Plaque</th>
+        <th>Produit</th>
+        <th>Chauffeur</th>
+        <th>Destination</th>
+        <th>Quai</th>
+        <th>Temps</th>
+        <th>Progression</th>
+        <th>État</th>
+      </tr>
+
+      </thead>
+
+      <tbody>
+
+      <tr *ngFor="let truck of camionsFiltres()">
+
+        <td>{{ truck.plate }}</td>
+        <td>{{ truck.product }}</td>
+        <td>{{ truck.chauffeur }}</td>
+        <td>{{ truck.destination }}</td>
+        <td>{{ truck.quai }}</td>
+        <td>{{ truck.temps }} min</td>
+
+        <td>
+
+          <div class="progress">
+
+            <div
+              class="progress-value"
+              [ngClass]="truck.color"
+              [style.width.%]="truck.progress">
+
+            </div>
+
+          </div>
+
+        </td>
+
+        <td>
+
+            <span
+              class="badge"
+              [ngClass]="truck.color">
+
+              {{ truck.status }}
+
+            </span>
+
+        </td>
+
+      </tr>
+
+      <tr *ngIf="camionsFiltres().length === 0">
+
+        <td colspan="8" class="empty">
+
+          Aucun camion trouvé.
+
+        </td>
+
+      </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <!-- ================= RIGHT PANEL ================= -->
+
+  <div class="right-panel">
+
+    <!-- ALERTES -->
+
+    <div class="card">
+
+      <h3>
+
+        <i class="fas fa-bell"></i>
+
+        Alertes
+
+      </h3>
+
+      <div
+        class="alert"
+        *ngFor="let alert of alerts()">
+
+        <div>
+
+          <strong>{{ alert.truck }}</strong>
+
+          <p>{{ alert.reason }}</p>
+
+        </div>
+
+        <button>
+
+          Voir
+
+        </button>
+
+      </div>
+
+      <p
+        class="empty-inline"
+        *ngIf="alerts().length === 0">
+
+        Aucune alerte.
+
+      </p>
+
+    </div>
+
+    <!-- OCCUPATION -->
+
+    <div class="card">
+
+      <h3>
+
+        <i class="fas fa-warehouse"></i>
+
+        Occupation des quais
+
+      </h3>
+
+      <div
+        class="dock"
+        *ngFor="let dock of docks">
+
+        <span>{{ dock.nom }}</span>
+
+        <div class="progress">
+
+          <div
+            class="progress-value"
+            [ngClass]="dock.couleur"
+            [style.width.%]="dock.pct">
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- JUSTIFICATION -->
+
+    <div class="card">
+
+      <h3>
+
+        <i class="fas fa-file-signature"></i>
+
+        Justification
+
+      </h3>
+
+      <label>Camion</label>
+
+      <input
+        type="text"
+        [(ngModel)]="camionJustification"
+        placeholder="CAM-025">
+
+      <label>Cause du retard</label>
+
+      <textarea
+        rows="5"
+        [(ngModel)]="causeJustification"
+        placeholder="Décrire la cause du retard...">
+      </textarea>
+
+      <button
+        class="save"
+        (click)="saveJustification()">
+
+        <i class="fas fa-floppy-disk"></i>
+
+        Enregistrer
+
+      </button>
+
+      <p
+        class="confirmation"
+        *ngIf="messageConfirmation()">
+
+        {{ messageConfirmation() }}
+
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ================= CHART ================= -->
+
+<div class="chart-card">
+
+  <h3>
+
+    <i class="fas fa-chart-line"></i>
+
+    Évolution du temps de chargement
+
+  </h3>
+
+  <canvas
+    baseChart
+    [data]="chartData"
+    [options]="chartOptions"
+    [type]="'line'">
+  </canvas>
+
+</div>

@@ -1,15 +1,352 @@
-<section class="service-page">
-  <div class="service-header">
-    <p class="eyebrow">Service Production</p>
-    <h2>Alertes liées au stock</h2>
-    <p>Interface réservée au suivi des indisponibilités de stock et des justifications.</p>
+<div class="production-page">
+
+  <!-- ================= HEADER ================= -->
+
+  <div class="header">
+
+    <div>
+
+      <h2>
+        <i class="fas fa-industry"></i>
+        Service Production
+      </h2>
+
+      <p>
+        Supervision de la production et du stock de ciment
+      </p>
+
+    </div>
+
+    <button class="refresh" (click)="refresh()">
+
+      <i class="fas fa-rotate-right"></i>
+
+      Actualiser
+
+    </button>
+
   </div>
 
-  <div class="service-list">
-    <article class="service-card" *ngFor="let alert of alerts">
-      <strong>{{ alert.truck }}</strong>
-      <span>{{ alert.reason }}</span>
-      <small>{{ alert.status }} · {{ alert.action }}</small>
-    </article>
+  <!-- ================= KPI ================= -->
+
+  <div class="kpi-container">
+
+    <div class="kpi blue">
+
+      <i class="fas fa-boxes-stacked"></i>
+
+      <div>
+
+        <h3>{{ totalProduits }}</h3>
+
+        <span>Produits</span>
+
+      </div>
+
+    </div>
+
+    <div class="kpi green">
+
+      <i class="fas fa-industry"></i>
+
+      <div>
+
+        <h3>{{ productionJour }}</h3>
+
+        <span>Production du jour (T)</span>
+
+      </div>
+
+    </div>
+
+    <div class="kpi orange">
+
+      <i class="fas fa-warehouse"></i>
+
+      <div>
+
+        <h3>{{ stockDisponible }}</h3>
+
+        <span>Stock disponible (T)</span>
+
+      </div>
+
+    </div>
+
+    <div class="kpi red">
+
+      <i class="fas fa-triangle-exclamation"></i>
+
+      <div>
+
+        <h3>{{ ruptures }}</h3>
+
+        <span>Produits en rupture</span>
+
+      </div>
+
+    </div>
+
   </div>
-</section>
+
+  <!-- ================= CONTENT ================= -->
+
+  <div class="content">
+
+    <!-- ================= TABLE ================= -->
+
+    <div class="table-card">
+
+      <div class="table-header">
+
+        <h3>Production des produits</h3>
+
+        <input
+          type="text"
+          [(ngModel)]="recherche"
+          placeholder="Rechercher un produit...">
+
+      </div>
+
+      <table>
+
+        <thead>
+
+        <tr>
+
+          <th>Produit</th>
+
+          <th>Ligne</th>
+
+          <th>Production</th>
+
+          <th>Objectif</th>
+
+          <th>Stock</th>
+
+          <th>Progression</th>
+
+          <th>État</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        <tr *ngFor="let produit of produitsFiltres">
+
+          <td>
+
+            <strong>{{ produit.nom }}</strong>
+
+          </td>
+
+          <td>{{ produit.ligne }}</td>
+
+          <td>{{ produit.production }} {{ produit.unite }}</td>
+
+          <td>{{ produit.objectif }} {{ produit.unite }}</td>
+
+          <td>{{ produit.stock }} {{ produit.unite }}</td>
+
+          <td style="width:220px">
+
+            <div class="progress">
+
+              <div
+                class="progress-value"
+                [ngClass]="produit.color"
+                [style.width.%]="(produit.production / produit.objectif) * 100">
+
+              </div>
+
+            </div>
+
+          </td>
+
+          <td>
+
+              <span
+                class="badge"
+                [ngClass]="produit.color">
+
+                {{ produit.statut }}
+
+              </span>
+
+          </td>
+
+        </tr>
+
+        <tr *ngIf="produitsFiltres.length==0">
+
+          <td colspan="7" class="empty">
+
+            Aucun produit trouvé.
+
+          </td>
+
+        </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <!-- ================= RIGHT PANEL ================= -->
+
+    <div class="right-panel">
+
+      <!-- ALERTES -->
+
+      <div class="card">
+
+        <h3>
+
+          <i class="fas fa-bell"></i>
+
+          Alertes de production
+
+        </h3>
+
+        <div
+          class="alert"
+          *ngFor="let a of alertes">
+
+          <div>
+
+            <strong>{{ a.produit }}</strong>
+
+            <p>{{ a.message }}</p>
+
+          </div>
+
+          <button>
+
+            Voir
+
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- LIGNES -->
+
+      <div class="card">
+
+        <h3>
+
+          <i class="fas fa-gears"></i>
+
+          Lignes de production
+
+        </h3>
+
+        <div
+          class="line"
+          *ngFor="let ligne of lignes">
+
+          <div>
+
+            <strong>{{ ligne.nom }}</strong>
+
+            <p>{{ ligne.responsable }}</p>
+
+          </div>
+
+          <span
+            class="badge"
+            [ngClass]="ligne.color">
+
+            {{ ligne.statut }}
+
+          </span>
+
+        </div>
+
+      </div>
+
+      <!-- FORM -->
+
+      <div class="card">
+
+        <h3>
+
+          <i class="fas fa-plus-circle"></i>
+
+          Nouvelle demande
+
+        </h3>
+
+        <label>Produit</label>
+
+        <select [(ngModel)]="demande.produit">
+
+          <option value="">Sélectionner</option>
+
+          <option>CPJ 35</option>
+
+          <option>CPJ 45</option>
+
+          <option>CPA 55</option>
+
+          <option>CLC</option>
+
+        </select>
+
+        <label>Quantité</label>
+
+        <input
+          type="number"
+          [(ngModel)]="demande.quantite">
+
+        <label>Priorité</label>
+
+        <select [(ngModel)]="demande.priorite">
+
+          <option value="">Choisir</option>
+
+          <option>Normale</option>
+
+          <option>Haute</option>
+
+          <option>Urgente</option>
+
+        </select>
+
+        <label>Commentaire</label>
+
+        <textarea
+          rows="4"
+          [(ngModel)]="demande.commentaire">
+
+        </textarea>
+
+        <button
+          class="save"
+          (click)="lancerProduction()">
+
+          <i class="fas fa-paper-plane"></i>
+
+          Envoyer
+
+        </button>
+
+        <p
+          class="success-message"
+          *ngIf="message">
+
+          {{ message }}
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,35 +1,406 @@
-:host { display: block; }
-
-.service-page {
-  display: grid;
-  gap: 18px;
+:host{
+  display:block;
+  padding:24px;
+  background:#f4f6f9;
+  min-height:100vh;
+  font-family:'Segoe UI',sans-serif;
 }
 
-.service-header {
-  padding: 24px 28px;
-  border-radius: 24px;
-  background: #ffffff;
-  box-shadow: 0 18px 40px rgba(15, 29, 51, 0.08);
+/* ================= PAGE ================= */
+
+.production-page{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
 }
 
-.eyebrow {
-  margin: 0 0 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 0.74rem;
-  color: #60708a;
+/* ================= HEADER ================= */
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-.service-list {
-  display: grid;
-  gap: 14px;
+.header h2{
+  margin:0;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:28px;
+  color:#17375e;
 }
 
-.service-card {
-  padding: 18px 20px;
-  border-radius: 18px;
-  background: #fff;
-  box-shadow: 0 12px 30px rgba(15, 29, 51, 0.08);
-  display: grid;
-  gap: 6px;
+.header p{
+  margin-top:6px;
+  color:#6b7280;
+}
+
+.refresh{
+  background:#17375e;
+  color:white;
+  border:none;
+  padding:12px 22px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:600;
+  transition:.3s;
+}
+
+.refresh:hover{
+  background:#0f2745;
+}
+
+/* ================= KPI ================= */
+
+.kpi-container{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.kpi{
+  background:white;
+  border-radius:18px;
+  padding:22px;
+  display:flex;
+  align-items:center;
+  gap:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  transition:.25s;
+}
+
+.kpi:hover{
+  transform:translateY(-5px);
+}
+
+.kpi i{
+  width:60px;
+  height:60px;
+  border-radius:15px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  font-size:26px;
+}
+
+.blue i{
+  background:#1565c0;
+}
+
+.green i{
+  background:#43a047;
+}
+
+.orange i{
+  background:#fb8c00;
+}
+
+.red i{
+  background:#e53935;
+}
+
+.kpi h3{
+  margin:0;
+  font-size:28px;
+  color:#17375e;
+}
+
+.kpi span{
+  color:#666;
+}
+
+/* ================= CONTENT ================= */
+
+.content{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:24px;
+}
+
+/* ================= TABLE ================= */
+
+.table-card{
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.table-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px;
+}
+
+.table-header h3{
+  margin:0;
+  color:#17375e;
+}
+
+.table-header input{
+  width:260px;
+  padding:10px 14px;
+  border-radius:10px;
+  border:1px solid #d9d9d9;
+}
+
+.table-header input:focus{
+  outline:none;
+  border-color:#1565c0;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+thead{
+  background:#17375e;
+}
+
+thead th{
+  color:white;
+  text-align:left;
+  padding:15px;
+  font-size:13px;
+}
+
+tbody td{
+  padding:16px;
+  border-bottom:1px solid #ececec;
+}
+
+tbody tr:hover{
+  background:#f7fbff;
+}
+
+.empty{
+  text-align:center;
+  padding:35px;
+  color:#888;
+}
+
+/* ================= PROGRESS BAR ================= */
+
+.progress{
+  width:100%;
+  height:12px;
+  background:#e8edf5;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.progress-value{
+  height:100%;
+  border-radius:10px;
+}
+
+.progress-value.success{
+  background:#43a047;
+}
+
+.progress-value.warning{
+  background:#fb8c00;
+}
+
+.progress-value.danger{
+  background:#e53935;
+}
+
+/* ================= BADGES ================= */
+
+.badge{
+  padding:7px 14px;
+  border-radius:20px;
+  color:white;
+  font-size:12px;
+  font-weight:600;
+}
+
+.badge.success{
+  background:#43a047;
+}
+
+.badge.warning{
+  background:#fb8c00;
+}
+
+.badge.danger{
+  background:#e53935;
+}
+
+/* ================= RIGHT PANEL ================= */
+
+.right-panel{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.card{
+  background:white;
+  border-radius:18px;
+  padding:22px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.card h3{
+  margin-top:0;
+  color:#17375e;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:18px;
+}
+
+/* ================= ALERTS ================= */
+
+.alert{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 0;
+  border-bottom:1px solid #ececec;
+}
+
+.alert:last-child{
+  border:none;
+}
+
+.alert p{
+  margin:4px 0 0;
+  color:#666;
+  font-size:13px;
+}
+
+.alert button{
+  background:#17375e;
+  color:white;
+  border:none;
+  padding:8px 14px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.alert button:hover{
+  background:#0f2745;
+}
+
+/* ================= LINES ================= */
+
+.line{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #ececec;
+  padding:12px 0;
+}
+
+.line:last-child{
+  border:none;
+}
+
+.line p{
+  margin:4px 0 0;
+  color:#666;
+  font-size:13px;
+}
+
+/* ================= FORM ================= */
+
+label{
+  display:block;
+  margin-top:15px;
+  margin-bottom:8px;
+  font-weight:600;
+  color:#444;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  padding:11px;
+  border-radius:10px;
+  border:1px solid #ddd;
+  box-sizing:border-box;
+}
+
+textarea{
+  resize:vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  outline:none;
+  border-color:#1565c0;
+}
+
+.save{
+  margin-top:18px;
+  width:100%;
+  border:none;
+  background:#43a047;
+  color:white;
+  padding:13px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:15px;
+  font-weight:600;
+  transition:.3s;
+}
+
+.save:hover{
+  background:#2e7d32;
+}
+
+.success-message{
+  margin-top:15px;
+  color:#2e7d32;
+  font-weight:600;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1200px){
+
+  .content{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:900px){
+
+  .kpi-container{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:650px){
+
+  .header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:20px;
+  }
+
+  .table-header{
+    flex-direction:column;
+    gap:15px;
+  }
+
+  .table-header input{
+    width:100%;
+  }
+
+  .kpi-container{
+    grid-template-columns:1fr;
+  }
+
 }

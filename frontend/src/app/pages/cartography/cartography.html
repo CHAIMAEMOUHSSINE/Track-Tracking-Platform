@@ -1,42 +1,402 @@
-<section class="page-header">
-  <div>
-    <p class="eyebrow">Cartographie</p>
-    <h2>Zone usine de Meknès uniquement</h2>
-    <p>Carte restreinte au périmètre opérationnel local, sans vue nationale du Maroc.</p>
-  </div>
+<div class="cartography-page">
 
-  <div class="summary-card">
-    <strong>Zone couverte</strong>
-    <span>Meknès et ses axes logistiques</span>
-  </div>
-</section>
 
-<section class="map-layout">
-  <article class="map-panel">
-    <div id="meknes-map" class="map-canvas"></div>
-  </article>
+  <!-- HEADER -->
+  <section class="header-card">
 
-  <aside class="side-panel">
-    <div class="info-card">
-      <p class="panel-label">Périmètre</p>
-      <strong>Usine Holcim Meknès</strong>
-      <span>Suivi concentré sur les entrées, sorties et flux de camionnage local.</span>
+    <div>
+      <span class="eyebrow">
+        HOLCIM MAROC
+      </span>
+
+      <h2>
+        <i class="fas fa-map-location-dot"></i>
+        Cartographie temps réel
+      </h2>
+
+      <p>
+        Suivi intelligent des camions - Usine Holcim Meknès
+      </p>
+
     </div>
 
-    <div class="info-card">
-      <p class="panel-label">Points de contrôle</p>
-      <ul>
-        <li>Entrée principale usine</li>
-        <li>Zone de chargement</li>
-        <li>Sortie poids lourds</li>
-      </ul>
+
+    <button class="refresh-btn">
+
+      <i class="fas fa-rotate"></i>
+
+      Actualiser
+
+    </button>
+
+
+  </section>
+
+
+
+
+  <!-- STATISTICS -->
+
+  <section class="kpi-grid">
+
+
+    <div class="kpi-card blue">
+
+      <i class="fas fa-truck"></i>
+
+      <div>
+
+        <h3>{{total}}</h3>
+
+        <span>
+          Total camions
+        </span>
+
+      </div>
+
     </div>
 
-    <div class="info-card legend-card">
-      <p class="panel-label">Légende</p>
-      <div class="legend-row"><span class="legend-dot red"></span><span>Plus de 45 min</span></div>
-      <div class="legend-row"><span class="legend-dot orange"></span><span>Proche de 45 min</span></div>
-      <div class="legend-row"><span class="legend-dot green"></span><span>Dans le temps</span></div>
+
+
+    <div class="kpi-card green">
+
+      <i class="fas fa-circle-check"></i>
+
+      <div>
+
+        <h3>{{green}}</h3>
+
+        <span>
+          Dans le délai
+        </span>
+
+      </div>
+
     </div>
-  </aside>
-</section>
+
+
+
+    <div class="kpi-card orange">
+
+      <i class="fas fa-clock"></i>
+
+      <div>
+
+        <h3>{{orange}}</h3>
+
+        <span>
+          Proche limite
+        </span>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="kpi-card red">
+
+      <i class="fas fa-triangle-exclamation"></i>
+
+      <div>
+
+        <h3>{{red}}</h3>
+
+        <span>
+          Retard
+        </span>
+
+      </div>
+
+    </div>
+
+
+  </section>
+
+
+
+
+
+  <!-- LEGEND -->
+
+  <section class="legend-card">
+
+
+    <div class="legend-item">
+
+      <span class="dot green-dot"></span>
+
+      <span>
+        Temps normal
+      </span>
+
+    </div>
+
+
+    <div class="legend-item">
+
+      <span class="dot orange-dot"></span>
+
+      <span>
+        Approche 45 min
+      </span>
+
+    </div>
+
+
+
+    <div class="legend-item">
+
+      <span class="dot red-dot"></span>
+
+      <span>
+        Dépassement
+      </span>
+
+    </div>
+
+
+    <div class="legend-item">
+
+      <i class="fas fa-industry"></i>
+
+      <span>
+        Usine Holcim Meknès
+      </span>
+
+    </div>
+
+
+  </section>
+
+
+
+
+
+
+
+  <!-- MAP -->
+
+  <section class="map-card">
+
+
+    <div id="map"></div>
+
+
+  </section>
+
+
+
+
+
+
+
+  <!-- SELECTED TRUCK -->
+
+  <section
+    class="truck-details"
+    *ngIf="selectedTruck">
+
+
+    <h3>
+
+      <i class="fas fa-truck"></i>
+
+      {{selectedTruck.id}}
+
+    </h3>
+
+
+
+    <div class="details-grid">
+
+
+      <div>
+
+        <label>
+          Chauffeur
+        </label>
+
+        <strong>
+          {{selectedTruck.driver}}
+        </strong>
+
+      </div>
+
+
+
+
+      <div>
+
+        <label>
+          Produit
+        </label>
+
+        <strong>
+          {{selectedTruck.product}}
+        </strong>
+
+      </div>
+
+
+
+
+      <div>
+
+        <label>
+          Destination
+        </label>
+
+        <strong>
+          {{selectedTruck.destination}}
+        </strong>
+
+      </div>
+
+
+
+
+      <div>
+
+        <label>
+          Temps
+        </label>
+
+        <strong>
+          {{selectedTruck.time}} min
+        </strong>
+
+      </div>
+
+
+
+    </div>
+
+
+
+    <button
+      class="focus-btn"
+      (click)="focusTruck()">
+
+
+      <i class="fas fa-location-crosshairs"></i>
+
+      Centrer le camion
+
+
+    </button>
+
+
+
+  </section>
+
+
+
+
+
+
+
+  <!-- TRUCK LIST -->
+
+  <section class="table-card">
+
+
+    <h3>
+      Liste des camions
+    </h3>
+
+
+    <table>
+
+
+      <thead>
+
+      <tr>
+
+        <th>
+          Camion
+        </th>
+
+        <th>
+          Chauffeur
+        </th>
+
+        <th>
+          Produit
+        </th>
+
+        <th>
+          Temps
+        </th>
+
+        <th>
+          Etat
+        </th>
+
+
+      </tr>
+
+      </thead>
+
+
+
+      <tbody>
+
+
+      <tr *ngFor="let truck of trucks">
+
+
+        <td>
+          {{truck.id}}
+        </td>
+
+
+        <td>
+          {{truck.driver}}
+        </td>
+
+
+        <td>
+          {{truck.product}}
+        </td>
+
+
+        <td>
+          {{truck.time}} min
+        </td>
+
+
+
+        <td>
+
+
+            <span
+              class="status"
+              [ngClass]="truck.status">
+
+
+              {{truck.status}}
+
+
+            </span>
+
+
+        </td>
+
+
+      </tr>
+
+
+      </tbody>
+
+
+    </table>
+
+
+  </section>
+
+
+
+
+
+</div>

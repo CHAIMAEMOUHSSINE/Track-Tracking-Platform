@@ -1,15 +1,343 @@
-<section class="service-page">
-  <div class="service-header">
-    <p class="eyebrow">Service Maintenance</p>
-    <h2>Alertes techniques et réparations</h2>
-    <p>Interface dédiée aux pannes, aux estimations de réparation et à la clôture des interventions.</p>
+<div class="maintenance-page">
+
+  <!-- ================= HEADER ================= -->
+
+  <div class="header">
+
+    <div>
+      <h2>
+        <i class="fas fa-screwdriver-wrench"></i>
+        Service Maintenance
+      </h2>
+
+      <p>
+        Supervision des équipements industriels de l'usine Holcim Meknès
+      </p>
+    </div>
+
+    <button class="refresh" (click)="refresh()">
+      <i class="fas fa-rotate"></i>
+      Actualiser
+    </button>
+
   </div>
 
-  <div class="service-list">
-    <article class="service-card" *ngFor="let alert of alerts">
-      <strong>{{ alert.truck }}</strong>
-      <span>{{ alert.reason }}</span>
-      <small>{{ alert.status }} · {{ alert.action }}</small>
-    </article>
+  <!-- ================= KPI ================= -->
+
+  <div class="kpi-container">
+
+    <div class="kpi blue">
+
+      <i class="fas fa-industry"></i>
+
+      <div>
+
+        <h3>{{ totalEquipments }}</h3>
+
+        <span>Équipements</span>
+
+      </div>
+
+    </div>
+
+    <div class="kpi green">
+
+      <i class="fas fa-circle-check"></i>
+
+      <div>
+
+        <h3>{{ activeEquipments }}</h3>
+
+        <span>En service</span>
+
+      </div>
+
+    </div>
+
+    <div class="kpi orange">
+
+      <i class="fas fa-screwdriver"></i>
+
+      <div>
+
+        <h3>{{ maintenanceEquipments }}</h3>
+
+        <span>Maintenance</span>
+
+      </div>
+
+    </div>
+
+    <div class="kpi red">
+
+      <i class="fas fa-triangle-exclamation"></i>
+
+      <div>
+
+        <h3>{{ breakdownEquipments }}</h3>
+
+        <span>Pannes critiques</span>
+
+      </div>
+
+    </div>
+
   </div>
-</section>
+
+  <!-- ================= CONTENT ================= -->
+
+  <div class="content">
+
+    <!-- ================= TABLE ================= -->
+
+    <div class="table-card">
+
+      <div class="table-header">
+
+        <h3>Liste des équipements</h3>
+
+        <input
+          type="text"
+          [(ngModel)]="search"
+          placeholder="Rechercher un équipement...">
+
+      </div>
+
+      <table>
+
+        <thead>
+
+        <tr>
+
+          <th>Équipement</th>
+          <th>Zone</th>
+          <th>Type</th>
+          <th>Technicien</th>
+          <th>Dernière maintenance</th>
+          <th>État</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        <tr *ngFor="let eq of filteredEquipments">
+
+          <td>
+
+            <strong>{{ eq.name }}</strong>
+
+          </td>
+
+          <td>{{ eq.zone }}</td>
+
+          <td>{{ eq.type }}</td>
+
+          <td>{{ eq.technician }}</td>
+
+          <td>{{ eq.lastMaintenance }}</td>
+
+          <td>
+
+              <span
+                class="badge"
+                [ngClass]="eq.statusClass">
+
+                {{ eq.status }}
+
+              </span>
+
+          </td>
+
+        </tr>
+
+        <tr *ngIf="filteredEquipments.length==0">
+
+          <td colspan="6" class="empty">
+
+            Aucun équipement trouvé.
+
+          </td>
+
+        </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <!-- ================= RIGHT PANEL ================= -->
+
+    <div class="right-panel">
+
+      <!-- INCIDENTS -->
+
+      <div class="card">
+
+        <h3>
+
+          <i class="fas fa-bell"></i>
+
+          Incidents en cours
+
+        </h3>
+
+        <div
+          class="incident"
+          *ngFor="let incident of incidents">
+
+          <div>
+
+            <strong>
+
+              {{ incident.equipment }}
+
+            </strong>
+
+            <p>
+
+              {{ incident.problem }}
+
+            </p>
+
+          </div>
+
+          <span class="priority">
+
+            {{ incident.priority }}
+
+          </span>
+
+        </div>
+
+      </div>
+
+      <!-- TECHNICIANS -->
+
+      <div class="card">
+
+        <h3>
+
+          <i class="fas fa-user-gear"></i>
+
+          Techniciens
+
+        </h3>
+
+        <div
+          class="tech"
+          *ngFor="let tech of technicians">
+
+          <div>
+
+            <strong>
+
+              {{ tech.name }}
+
+            </strong>
+
+            <p>
+
+              {{ tech.speciality }}
+
+            </p>
+
+          </div>
+
+          <span
+            class="status"
+
+            [class.available]="tech.available"
+
+            [class.busy]="!tech.available">
+
+            {{ tech.available ? 'Disponible' : 'Occupé' }}
+
+          </span>
+
+        </div>
+
+      </div>
+
+      <!-- NEW INTERVENTION -->
+
+      <div class="card">
+
+        <h3>
+
+          <i class="fas fa-file-circle-plus"></i>
+
+          Nouvelle intervention
+
+        </h3>
+
+        <label>Équipement</label>
+
+        <input
+          type="text"
+          [(ngModel)]="intervention.equipment">
+
+        <label>Type</label>
+
+        <select [(ngModel)]="intervention.type">
+
+          <option value="">Choisir...</option>
+
+          <option>Mécanique</option>
+
+          <option>Électrique</option>
+
+          <option>Hydraulique</option>
+
+          <option>Automation</option>
+
+        </select>
+
+        <label>Priorité</label>
+
+        <select [(ngModel)]="intervention.priority">
+
+          <option value="">Choisir...</option>
+
+          <option>Normale</option>
+
+          <option>Haute</option>
+
+          <option>Critique</option>
+
+        </select>
+
+        <label>Description</label>
+
+        <textarea
+          rows="5"
+          [(ngModel)]="intervention.description">
+        </textarea>
+
+        <button
+          class="save"
+          (click)="createIntervention()">
+
+          <i class="fas fa-floppy-disk"></i>
+
+          Enregistrer
+
+        </button>
+
+        <p
+          class="success"
+          *ngIf="message">
+
+          {{ message }}
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
