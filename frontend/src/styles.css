@@ -1,0 +1,21 @@
+/* Global application styles */
+
+.truck-marker-shell {
+	background: transparent !important;
+	border: 0 !important;
+}
+
+.truck-marker {
+	width: 34px;
+	height: 34px;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	color: #fff;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22);
+	border: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+.truck-marker i {
+	font-size: 0.8rem;
+}

@@ -1,0 +1,111 @@
+:host {
+  display: block;
+}
+
+.page-header,
+.info-card,
+.map-panel {
+  border-radius: 24px;
+  border: 1px solid rgba(8, 17, 31, 0.08);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 18px 40px rgba(15, 29, 51, 0.08);
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: end;
+  padding: 24px 28px;
+  margin-bottom: 20px;
+}
+
+.eyebrow,
+.panel-label {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.74rem;
+  color: #60708a;
+}
+
+.summary-card {
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(0, 59, 142, 0.12), rgba(0, 87, 214, 0.08));
+  color: #0b1a33;
+}
+
+.summary-card span,
+.page-header p,
+.info-card span {
+  color: #60708a;
+}
+
+.map-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.5fr;
+  gap: 18px;
+}
+
+.map-panel {
+  padding: 14px;
+}
+
+.map-canvas {
+  height: 620px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.side-panel {
+  display: grid;
+  gap: 16px;
+}
+
+.info-card {
+  padding: 22px;
+}
+
+.info-card ul {
+  margin: 14px 0 0;
+  padding-left: 18px;
+  color: #0b1a33;
+}
+
+.legend-card {
+  display: grid;
+  gap: 10px;
+}
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #0b1a33;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.red {
+  background: #e53935;
+}
+
+.orange {
+  background: #f9a825;
+}
+
+.green {
+  background: #00c853;
+}
+
+@media (max-width: 1100px) {
+  .map-layout {
+    grid-template-columns: 1fr;
+  }
+}

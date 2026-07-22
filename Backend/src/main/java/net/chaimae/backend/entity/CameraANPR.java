@@ -12,6 +12,8 @@ public class CameraANPR {
     private Long id;
     private String nom;
     private String emplacement;
+
+    @Builder.Default
     private StatutCamera statut = StatutCamera.ACTIVE;
 
     @ManyToOne(fetch = FetchType.LAZY)

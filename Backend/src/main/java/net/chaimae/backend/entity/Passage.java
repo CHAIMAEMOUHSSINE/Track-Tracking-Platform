@@ -13,6 +13,7 @@ public class Passage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private LocalDateTime dateHeure;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "camion_id", nullable = false)
     private Camion camion;

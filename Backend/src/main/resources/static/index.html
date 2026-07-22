@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truck Tracking | Connexion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body data-page="login">
+<main class="shell auth-shell">
+    <section class="hero-panel">
+        <div class="brand-mark">TT</div>
+        <p class="eyebrow">Truck Tracking Platform</p>
+        <h1>Visualisez, contrôlez et sécurisez chaque passage camion en temps réel.</h1>
+        <p class="hero-copy">Connectez-vous pour suivre les passages, consulter les alertes, et accéder au tableau de bord opérationnel.</p>
+
+        <div class="feature-grid">
+            <article>
+                <strong>Temps réel</strong>
+                <span>Traçabilité instantanée des camions et des points de contrôle.</span>
+            </article>
+            <article>
+                <strong>Alertes</strong>
+                <span>Détection des dépassements et justificatifs centralisés.</span>
+            </article>
+            <article>
+                <strong>Dashboard</strong>
+                <span>Une vue claire des KPI pour l’équipe terrain et management.</span>
+            </article>
+        </div>
+    </section>
+
+    <section class="auth-card">
+        <div class="card-topline">Accès sécurisé</div>
+        <h2>Connexion</h2>
+        <p class="muted">Utilisez vos identifiants pour entrer dans la plateforme.</p>
+
+        <form id="loginForm" class="form-stack" novalidate>
+            <label>
+                <span>Email</span>
+                <input id="email" type="email" name="email" placeholder="nom@entreprise.com" autocomplete="email" required>
+            </label>
+
+            <label>
+                <span>Mot de passe</span>
+                <input id="password" type="password" name="password" placeholder="••••••••" autocomplete="current-password" required>
+            </label>
+
+            <div id="loginError" class="message error" hidden></div>
+            <button class="primary-btn" type="submit">Entrer dans la plateforme</button>
+        </form>
+
+        <div class="helper-row">
+            <span>Backend API: /api/auth/login</span>
+            <button id="demoFill" type="button" class="ghost-btn">Charger un exemple</button>
+        </div>
+    </section>
+</main>
+<script src="/js/app.js"></script>
+</body>
+</html>

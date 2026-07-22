@@ -45,7 +45,6 @@ public class AlerteService {
                 .orElseThrow(() -> new ResourceNotFoundException("Service introuvable"));
 
         Justification justification = Justification.builder()
-                .cause(request.cause())
                 .commentaire(request.commentaire())
                 .date(LocalDateTime.now())
                 .service(service)
@@ -67,7 +66,6 @@ public class AlerteService {
         if (justification == null) {
             throw new BusinessException("Aucune justification existante pour cette alerte");
         }
-        justification.setCause(request.cause());
         justification.setCommentaire(request.commentaire());
         justificationRepository.save(justification);
         return toResponse(alerte);
@@ -80,7 +78,7 @@ public class AlerteService {
                 alerte.getDateHeure(),
                 alerte.getTempsTotalMinutes(),
                 alerte.getStatut(),
-                alerte.getJustification() != null ? alerte.getJustification().getCause().name() : null
+                alerte.getJustification() != null ? alerte.getJustification().getCommentaire() : null
         );
     }
 }

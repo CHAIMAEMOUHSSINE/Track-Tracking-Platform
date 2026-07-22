@@ -7,13 +7,13 @@ import net.chaimae.backend.dto.RegisterRequest;
 import net.chaimae.backend.entity.Utilisateur;
 import net.chaimae.backend.exception.BusinessException;
 import net.chaimae.backend.exception.ResourceNotFoundException;
+import net.chaimae.backend.entity.Service;
 import net.chaimae.backend.repository.ServiceRepository;
 import net.chaimae.backend.repository.UtilisateurRepository;
 import net.chaimae.backend.security.JwtService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
 
 @org.springframework.stereotype.Service
 @RequiredArgsConstructor

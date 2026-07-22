@@ -3,9 +3,9 @@ package net.chaimae.backend.repository;
 import net.chaimae.backend.entity.Alerte;
 import net.chaimae.backend.enums.StatutAlerte;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.awt.print.Pageable;
 import java.time.LocalDateTime;
 import java.util.List;
 

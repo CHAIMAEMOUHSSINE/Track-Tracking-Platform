@@ -1,0 +1,146 @@
+:host {
+  display: block;
+}
+
+.login-container {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at top left, rgba(0, 59, 142, 0.32), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(0, 200, 83, 0.18), transparent 30%),
+    linear-gradient(135deg, #08111f 0%, #0f1d33 52%, #14233d 100%);
+}
+
+.login-surface {
+  width: min(1120px, 100%);
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr;
+  gap: 28px;
+  padding: 24px;
+}
+
+.login-hero,
+.login-card {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+}
+
+.login-hero {
+  padding: 42px;
+  color: #f6f9ff;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 520px;
+}
+
+.brand-logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 0.78rem;
+  color: #8fc7ff;
+  margin-bottom: 18px;
+}
+
+.login-hero h1 {
+  font-size: clamp(2.3rem, 4vw, 4.2rem);
+  line-height: 1.05;
+  max-width: 11ch;
+  margin: 0 0 18px;
+}
+
+.login-hero p {
+  max-width: 56ch;
+  color: rgba(246, 249, 255, 0.78);
+  font-size: 1.02rem;
+}
+
+.login-card {
+  background: rgba(255, 255, 255, 0.96);
+  padding: 38px;
+  align-self: center;
+}
+
+.card-header {
+  margin-bottom: 30px;
+}
+
+.card-header h2 {
+  margin: 0 0 6px;
+  font-size: 1.75rem;
+  color: #0b1a33;
+}
+
+.card-header span {
+  color: #60708a;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #152238;
+}
+
+input {
+  width: 100%;
+  padding: 15px 16px;
+  border: 1px solid #d9e2ef;
+  border-radius: 16px;
+  background: #f8fbff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #003b8e;
+  box-shadow: 0 0 0 4px rgba(0, 59, 142, 0.14);
+  background: #fff;
+}
+
+button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 15px 18px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #003b8e 0%, #0057d6 100%);
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow: 0 16px 32px rgba(0, 59, 142, 0.26);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 36px rgba(0, 59, 142, 0.32);
+}
+
+@media (max-width: 900px) {
+  .login-surface {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .login-hero {
+    min-height: auto;
+  }
+}

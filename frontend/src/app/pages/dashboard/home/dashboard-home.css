@@ -1,0 +1,250 @@
+:host {
+  display: block;
+}
+
+.hero-panel,
+.panel,
+.stat-card {
+  border: 1px solid rgba(8, 17, 31, 0.08);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 18px 40px rgba(15, 29, 51, 0.08);
+}
+
+.hero-panel {
+  padding: 26px 28px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: end;
+  margin-bottom: 22px;
+  background: linear-gradient(145deg, rgba(9, 21, 46, 0.98), rgba(15, 29, 51, 0.92));
+  color: #f6f9ff;
+}
+
+.eyebrow,
+.panel-kicker {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.74rem;
+  color: #8fc7ff;
+}
+
+.hero-panel h2,
+.panel h3 {
+  margin: 0;
+}
+
+.hero-panel p {
+  max-width: 62ch;
+  color: rgba(246, 249, 255, 0.76);
+}
+
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(110px, 1fr));
+  gap: 14px;
+}
+
+.hero-metrics div {
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hero-metrics span,
+.stat-card p {
+  display: block;
+  color: rgba(246, 249, 255, 0.72);
+  font-size: 0.88rem;
+}
+
+.hero-metrics strong,
+.stat-card h3 {
+  display: block;
+  font-size: 1.55rem;
+  margin-top: 6px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.stat-card {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 22px;
+}
+
+.stat-card p {
+  color: #60708a;
+  margin-bottom: 4px;
+}
+
+.stat-card span {
+  color: #6e7c90;
+  font-size: 0.9rem;
+}
+
+.stat-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+.tone-blue .stat-icon { background: linear-gradient(135deg, #003b8e, #0057d6); }
+.tone-red .stat-icon { background: linear-gradient(135deg, #c62828, #ff4d5d); }
+.tone-green .stat-icon { background: linear-gradient(135deg, #00897b, #00c853); }
+.tone-amber .stat-icon { background: linear-gradient(135deg, #9b5a00, #ff9f1a); }
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 18px;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.panel {
+  padding: 24px;
+}
+
+.chart-panel {
+  min-height: 360px;
+}
+
+.chart-wrap {
+  position: relative;
+  height: 280px;
+}
+
+.donut-wrap {
+  height: 300px;
+}
+
+.panel-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.panel-header i {
+  font-size: 1.15rem;
+  color: #003b8e;
+}
+
+.alert-list {
+  display: grid;
+  gap: 14px;
+}
+
+.alert-item {
+  display: flex;
+  gap: 12px;
+  align-items: start;
+}
+
+.alert-item strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.alert-item p {
+  margin: 0;
+  color: #60708a;
+}
+
+.alert-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-top: 6px;
+  flex: 0 0 auto;
+}
+
+.critical { background: #e53935; }
+.warning { background: #f9a825; }
+.info { background: #1e88e5; }
+
+.fleet-table {
+  display: grid;
+  gap: 8px;
+}
+
+.fleet-row {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr 0.8fr 0.7fr;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #f9fbff;
+}
+
+.fleet-head {
+  background: transparent;
+  padding: 0 16px 10px;
+  color: #6e7c90;
+  font-size: 0.86rem;
+}
+
+.truck-id {
+  font-weight: 700;
+  color: #0b1a33;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.pill.success { background: rgba(0, 200, 83, 0.14); color: #008d45; }
+.pill.warning { background: rgba(249, 168, 37, 0.14); color: #a86900; }
+.pill.danger { background: rgba(229, 57, 53, 0.14); color: #ba1f1b; }
+
+@media (max-width: 1200px) {
+  .stats-grid,
+  .dashboard-grid,
+  .charts-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-panel,
+  .dashboard-grid,
+  .stats-grid,
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-panel {
+    display: grid;
+  }
+
+  .fleet-row {
+    grid-template-columns: 1fr;
+  }
+}

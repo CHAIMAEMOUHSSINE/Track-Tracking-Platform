@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truck Tracking | Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body data-page="dashboard">
+<main class="shell dashboard-shell">
+    <aside class="sidebar">
+        <div>
+            <div class="brand-mark small">TT</div>
+            <p class="eyebrow">Truck Tracking</p>
+            <h1 id="userGreeting">Bienvenue</h1>
+            <p id="userMeta" class="muted">Chargement des informations de session…</p>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#overview">Vue d’ensemble</a>
+            <a href="/api/dashboard/stats" target="_blank" rel="noreferrer">API KPI</a>
+            <a href="/swagger-ui/index.html" target="_blank" rel="noreferrer">Swagger</a>
+            <a href="/api/camions" target="_blank" rel="noreferrer">Camions</a>
+            <a href="/api/alertes" target="_blank" rel="noreferrer">Alertes</a>
+        </nav>
+
+        <button id="logoutBtn" class="ghost-btn danger" type="button">Se déconnecter</button>
+    </aside>
+
+    <section class="content" id="overview">
+        <header class="content-header">
+            <div>
+                <p class="eyebrow">Centre de contrôle</p>
+                <h2>Tableau de bord opérationnel</h2>
+            </div>
+            <div class="status-pill" id="sessionStatus">Session active</div>
+        </header>
+
+        <section id="statsGrid" class="stats-grid">
+            <article class="stat-card placeholder"></article>
+            <article class="stat-card placeholder"></article>
+            <article class="stat-card placeholder"></article>
+            <article class="stat-card placeholder"></article>
+        </section>
+
+        <section class="panel split-panel">
+            <div>
+                <div class="panel-head">
+                    <h3>Répartition par état</h3>
+                    <span class="muted">VERT / ORANGE / ROUGE</span>
+                </div>
+                <div id="stateBars" class="state-bars"></div>
+            </div>
+            <div class="insight-box">
+                <p class="eyebrow">Connexion backend</p>
+                <h3>Les données affichées proviennent de <code>/api/dashboard/stats</code>.</h3>
+                <p class="muted">Le jeton de session est stocké localement après connexion et transmis aux requêtes authentifiées.</p>
+                <a class="primary-link" href="/api/dashboard/stats" target="_blank" rel="noreferrer">Ouvrir la réponse JSON</a>
+            </div>
+        </section>
+    </section>
+</main>
+<script src="/js/app.js"></script>
+</body>
+</html>

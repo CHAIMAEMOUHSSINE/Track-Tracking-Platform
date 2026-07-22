@@ -1,0 +1,22 @@
+<aside class="sidebar">
+  <div class="menu-section">
+    <p class="section-label">Navigation</p>
+    <a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="menu-item">
+      <i class="fas fa-chart-line"></i>
+      <span>Dashboard</span>
+    </a>
+
+    <a routerLink="/dashboard/cartographie" routerLinkActive="active" class="menu-item">
+      <i class="fas fa-map-location-dot"></i>
+      <span>Cartographie Meknès</span>
+    </a>
+  </div>
+
+  <div class="menu-section footer-section">
+    <p class="section-label">Session</p>
+    <a routerLink="/login" class="menu-item logout">
+      <i class="fas fa-right-from-bracket"></i>
+      <span>Déconnexion</span>
+    </a>
+  </div>
+</aside>

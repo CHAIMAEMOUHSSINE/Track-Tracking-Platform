@@ -1,0 +1,115 @@
+<section class="hero-panel">
+  <div>
+    <p class="eyebrow">Vue d'ensemble</p>
+    <h2>Centre de contrôle flotte et exploitation</h2>
+    <p>
+      Indicateurs clés, alertes opérationnelles et suivi des camions pour la zone de Meknès.
+    </p>
+  </div>
+
+  <div class="hero-metrics">
+    <div>
+      <span>Zone</span>
+      <strong>Meknès, Maroc</strong>
+    </div>
+    <div>
+      <span>Disponibilité</span>
+      <strong>94.8%</strong>
+    </div>
+    <div>
+      <span>Camions sur site</span>
+      <strong>16</strong>
+    </div>
+  </div>
+</section>
+
+<section class="stats-grid">
+  <article class="stat-card" *ngFor="let stat of stats" [class]="'stat-card tone-' + stat.tone">
+    <div class="stat-icon">
+      <i class="fas" [ngClass]="stat.icon"></i>
+    </div>
+    <div>
+      <p>{{ stat.label }}</p>
+      <h3>{{ stat.value }}</h3>
+      <span>{{ stat.delta }} vs hier</span>
+    </div>
+  </article>
+</section>
+
+<section class="charts-grid">
+  <article class="panel chart-panel">
+    <div class="panel-header">
+      <div>
+        <p class="panel-kicker">Courbe</p>
+        <h3>Tendance des livraisons</h3>
+      </div>
+      <i class="fas fa-chart-line"></i>
+    </div>
+    <div class="chart-wrap">
+      <canvas #trendChart></canvas>
+    </div>
+  </article>
+
+  <article class="panel chart-panel">
+    <div class="panel-header">
+      <div>
+        <p class="panel-kicker">Répartition</p>
+        <h3>Camions par statut</h3>
+      </div>
+      <i class="fas fa-chart-pie"></i>
+    </div>
+    <div class="chart-wrap donut-wrap">
+      <canvas #statusChart></canvas>
+    </div>
+  </article>
+</section>
+
+<section class="dashboard-grid">
+  <article class="panel">
+    <div class="panel-header">
+      <div>
+        <p class="panel-kicker">Alertes</p>
+        <h3>Flux opérationnel</h3>
+      </div>
+      <i class="fas fa-bell"></i>
+    </div>
+
+    <div class="alert-list">
+      <div class="alert-item" *ngFor="let alert of alerts">
+        <span [class]="'alert-dot ' + alert.level"></span>
+        <div>
+          <strong>{{ alert.title }}</strong>
+          <p>{{ alert.detail }}</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="panel wide-panel">
+    <div class="panel-header">
+      <div>
+        <p class="panel-kicker">Flotte</p>
+        <h3>Numéros de camions et statuts</h3>
+      </div>
+      <i class="fas fa-truck-fast"></i>
+    </div>
+
+    <div class="fleet-table">
+      <div class="fleet-row fleet-head">
+        <span>Camion</span>
+        <span>Chauffeur</span>
+        <span>Statut</span>
+        <span>Charge</span>
+        <span>ETA</span>
+      </div>
+
+      <div class="fleet-row" *ngFor="let truck of fleet">
+        <span class="truck-id">{{ truck.id }}</span>
+        <span>{{ truck.driver }}</span>
+        <span><span [class]="'pill ' + truck.mood">{{ truck.status }}</span></span>
+        <span>{{ truck.load }}</span>
+        <span>{{ truck.eta }}</span>
+      </div>
+    </div>
+  </article>
+</section>

@@ -6,6 +6,7 @@ import net.chaimae.backend.enums.StatutAlerte;
 import java.time.LocalDateTime;
 
 @Entity
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
 public class Alerte {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
