@@ -1,0 +1,15 @@
+<section class="service-page">
+  <div class="service-header">
+    <p class="eyebrow">Service Expédition</p>
+    <h2>Retards liés au chargement</h2>
+    <p>Interface destinée au suivi de l’avancement du chargement des camions et des justifications.</p>
+  </div>
+
+  <div class="service-list">
+    <article class="service-card" *ngFor="let alert of alerts">
+      <strong>{{ alert.truck }}</strong>
+      <span>{{ alert.reason }}</span>
+      <small>{{ alert.status }} · {{ alert.action }}</small>
+    </article>
+  </div>
+</section>

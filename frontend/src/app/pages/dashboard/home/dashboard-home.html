@@ -3,7 +3,7 @@
     <p class="eyebrow">Vue d'ensemble</p>
     <h2>Centre de contrôle flotte et exploitation</h2>
     <p>
-      Indicateurs clés, alertes opérationnelles et suivi des camions pour la zone de Meknès.
+      Indicateurs clés, alertes opérationnelles, notifications temps réel et suivi des camions pour la zone de Meknès.
     </p>
   </div>
 
@@ -13,25 +13,23 @@
       <strong>Meknès, Maroc</strong>
     </div>
     <div>
-      <span>Disponibilité</span>
-      <strong>94.8%</strong>
+      <span>Temps moyen</span>
+      <strong>{{ stats.tempsMoyenParcoursMinutes }} min</strong>
     </div>
     <div>
-      <span>Camions sur site</span>
-      <strong>16</strong>
+      <span>Taux retards</span>
+      <strong>{{ stats.pourcentageRetards }}%</strong>
     </div>
   </div>
 </section>
 
 <section class="stats-grid">
-  <article class="stat-card" *ngFor="let stat of stats" [class]="'stat-card tone-' + stat.tone">
-    <div class="stat-icon">
-      <i class="fas" [ngClass]="stat.icon"></i>
-    </div>
+  <article class="stat-card" *ngFor="let stat of kpis" [class]="'stat-card tone-' + stat.tone">
+    <div class="stat-icon"><i class="fas" [ngClass]="stat.icon"></i></div>
     <div>
       <p>{{ stat.label }}</p>
-      <h3>{{ stat.value }}</h3>
-      <span>{{ stat.delta }} vs hier</span>
+      <h3>{{ stat.value() }}</h3>
+      <span>mise à jour automatique</span>
     </div>
   </article>
 </section>
@@ -62,6 +60,19 @@
       <canvas #statusChart></canvas>
     </div>
   </article>
+
+  <article class="panel chart-panel">
+    <div class="panel-header">
+      <div>
+        <p class="panel-kicker">Services</p>
+        <h3>Répartition des alertes</h3>
+      </div>
+      <i class="fas fa-sitemap"></i>
+    </div>
+    <div class="chart-wrap">
+      <canvas #serviceChart></canvas>
+    </div>
+  </article>
 </section>
 
 <section class="dashboard-grid">
@@ -69,17 +80,17 @@
     <div class="panel-header">
       <div>
         <p class="panel-kicker">Alertes</p>
-        <h3>Flux opérationnel</h3>
+        <h3>Alertes actives</h3>
       </div>
       <i class="fas fa-bell"></i>
     </div>
 
     <div class="alert-list">
       <div class="alert-item" *ngFor="let alert of alerts">
-        <span [class]="'alert-dot ' + alert.level"></span>
+        <span class="alert-dot" [class]="'alert-dot ' + alert.statut.toLowerCase()"></span>
         <div>
-          <strong>{{ alert.title }}</strong>
-          <p>{{ alert.detail }}</p>
+          <strong>{{ alert.immatriculation }} - {{ alert.service }}</strong>
+          <p>{{ alert.etape }} | {{ alert.tempsTotalMinutes }} min | Priorité {{ alert.priorite }}</p>
         </div>
       </div>
     </div>
@@ -88,27 +99,59 @@
   <article class="panel wide-panel">
     <div class="panel-header">
       <div>
-        <p class="panel-kicker">Flotte</p>
-        <h3>Numéros de camions et statuts</h3>
+        <p class="panel-kicker">Suivi</p>
+        <h3>Tableau des camions</h3>
       </div>
       <i class="fas fa-truck-fast"></i>
     </div>
 
-    <div class="fleet-table">
-      <div class="fleet-row fleet-head">
-        <span>Camion</span>
-        <span>Chauffeur</span>
+    <div class="tracking-tools">
+      <input type="text" [(ngModel)]="trackingFilter" placeholder="Rechercher une plaque..." />
+      <select [(ngModel)]="statusFilter">
+        <option>Tous</option>
+        <option>VERT</option>
+        <option>ORANGE</option>
+        <option>ROUGE</option>
+      </select>
+    </div>
+
+    <div class="fleet-table tracking-table">
+      <div class="fleet-row fleet-head tracking-head">
+        <span>Plaque</span>
+        <span>Heure</span>
+        <span>Étape</span>
+        <span>Temps passé</span>
         <span>Statut</span>
-        <span>Charge</span>
-        <span>ETA</span>
+        <span>Responsable</span>
       </div>
 
-      <div class="fleet-row" *ngFor="let truck of fleet">
-        <span class="truck-id">{{ truck.id }}</span>
-        <span>{{ truck.driver }}</span>
-        <span><span [class]="'pill ' + truck.mood">{{ truck.status }}</span></span>
-        <span>{{ truck.load }}</span>
-        <span>{{ truck.eta }}</span>
+      <div class="fleet-row tracking-row" *ngFor="let truck of filteredTrackers">
+        <span class="truck-id">{{ truck.immatriculation }}</span>
+        <span>{{ truck.heureEntree }}</span>
+        <span>{{ truck.pointControleActuel }}</span>
+        <span>{{ truck.tempsEcouleMinutes }} min</span>
+        <span><span class="pill" [class]="'pill ' + truck.statut.toLowerCase()">{{ truck.statut }}</span></span>
+        <span>{{ truck.responsable }}</span>
+        <small class="justification" *ngIf="truck.justification">{{ truck.justification }}</small>
+      </div>
+    </div>
+  </article>
+</section>
+
+<section class="dashboard-grid lower-grid">
+  <article class="panel">
+    <div class="panel-header">
+      <div>
+        <p class="panel-kicker">Notifications</p>
+        <h3>Événements récents</h3>
+      </div>
+      <i class="fas fa-satellite-dish"></i>
+    </div>
+
+    <div class="notification-list">
+      <div class="notification-item" *ngFor="let notification of notifications">
+        <span class="notification-bullet"></span>
+        <p>{{ notification }}</p>
       </div>
     </div>
   </article>

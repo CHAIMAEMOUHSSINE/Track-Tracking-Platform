@@ -1,0 +1,35 @@
+:host { display: block; }
+
+.service-page {
+  display: grid;
+  gap: 18px;
+}
+
+.service-header {
+  padding: 24px 28px;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 18px 40px rgba(15, 29, 51, 0.08);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.74rem;
+  color: #60708a;
+}
+
+.service-list {
+  display: grid;
+  gap: 14px;
+}
+
+.service-card {
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(15, 29, 51, 0.08);
+  display: grid;
+  gap: 6px;
+}

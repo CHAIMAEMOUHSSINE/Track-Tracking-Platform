@@ -74,6 +74,13 @@
   margin-bottom: 22px;
 }
 
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr 0.9fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
 .stat-card {
   display: flex;
   gap: 16px;
@@ -149,6 +156,22 @@
   color: #003b8e;
 }
 
+.tracking-tools {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.tracking-tools input,
+.tracking-tools select {
+  width: 100%;
+  border: 1px solid #d9e2ef;
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: #f9fbff;
+}
+
 .alert-list {
   display: grid;
   gap: 14px;
@@ -178,9 +201,13 @@
   flex: 0 0 auto;
 }
 
-.critical { background: #e53935; }
-.warning { background: #f9a825; }
-.info { background: #1e88e5; }
+.alert-dot.active {
+  background: #e53935;
+}
+
+.alert-dot.justifiee {
+  background: #1e88e5;
+}
 
 .fleet-table {
   display: grid;
@@ -204,6 +231,15 @@
   font-size: 0.86rem;
 }
 
+.tracking-head,
+.tracking-row {
+  grid-template-columns: 1fr 0.7fr 1.2fr 0.8fr 0.8fr 0.9fr;
+}
+
+.tracking-row {
+  align-items: start;
+}
+
 .truck-id {
   font-weight: 700;
   color: #0b1a33;
@@ -223,6 +259,36 @@
 .pill.success { background: rgba(0, 200, 83, 0.14); color: #008d45; }
 .pill.warning { background: rgba(249, 168, 37, 0.14); color: #a86900; }
 .pill.danger { background: rgba(229, 57, 53, 0.14); color: #ba1f1b; }
+.pill.vert { background: rgba(0, 200, 83, 0.14); color: #008d45; }
+.pill.orange { background: rgba(249, 168, 37, 0.14); color: #a86900; }
+.pill.rouge { background: rgba(229, 57, 53, 0.14); color: #ba1f1b; }
+
+.notification-list {
+  display: grid;
+  gap: 12px;
+}
+
+.notification-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #f9fbff;
+}
+
+.notification-bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #003b8e;
+}
+
+.justification {
+  grid-column: 1 / -1;
+  color: #60708a;
+  margin-top: -4px;
+}
 
 @media (max-width: 1200px) {
   .stats-grid,
@@ -245,6 +311,15 @@
   }
 
   .fleet-row {
+    grid-template-columns: 1fr;
+  }
+
+  .tracking-tools {
+    grid-template-columns: 1fr;
+  }
+
+  .tracking-head,
+  .tracking-row {
     grid-template-columns: 1fr;
   }
 }

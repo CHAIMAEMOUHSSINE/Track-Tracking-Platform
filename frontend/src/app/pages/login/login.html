@@ -15,6 +15,11 @@
         <span>Accès opérateur</span>
       </div>
 
+      <div class="auth-hint">
+        <i class="fas fa-shield-halved"></i>
+        <span>Authentification JWT avec redirection automatique selon le rôle.</span>
+      </div>
+
       <form (ngSubmit)="login()">
         <div class="form-group">
           <label for="email">Email professionnel</label>
@@ -38,8 +43,12 @@
             required>
         </div>
 
-        <button type="submit">Se connecter</button>
+        <button type="submit" [disabled]="loading">{{ loading ? 'Connexion...' : 'Se connecter' }}</button>
       </form>
+
+      <button type="button" class="link-button" (click)="recoverPassword()">Mot de passe oublié</button>
+
+      <p class="feedback" *ngIf="errorMessage">{{ errorMessage }}</p>
     </section>
   </div>
 </div>
