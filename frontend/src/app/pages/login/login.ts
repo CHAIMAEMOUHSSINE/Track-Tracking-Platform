@@ -61,7 +61,7 @@ export class LoginComponent {
   }
 
   recoverPassword(): void {
-    this.errorMessage = 'La récupération de mot de passe doit être connectée au backend si le flux existe.';
+    this.errorMessage = 'veuillez contacter l\'administrateur pour réinitialiser votre mot de passe.';
   }
 
 }

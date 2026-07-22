@@ -5,20 +5,17 @@
       <p class="eyebrow">Trucking Intelligence</p>
       <h1>Pilotage des flux camions en temps réel</h1>
       <p>
-        Un espace de supervision clair pour suivre la flotte, les alertes et la cartographie logistique.
+        Un espace de supervision pour suivre la flotte, les alertes et la cartographie logistique.
       </p>
     </section>
 
     <section class="login-card">
       <div class="card-header">
-        <h2>Connexion sécurisée</h2>
-        <span>Accès opérateur</span>
+        <h2>Connexion</h2>
+        <p>Veuillez vous connecter avec votre email professionnel.</p>
       </div>
 
-      <div class="auth-hint">
-        <i class="fas fa-shield-halved"></i>
-        <span>Authentification JWT avec redirection automatique selon le rôle.</span>
-      </div>
+
 
       <form (ngSubmit)="login()">
         <div class="form-group">
@@ -28,7 +25,7 @@
             type="email"
             [(ngModel)]="email"
             name="email"
-            placeholder="prenom.nom@holcim.ma"
+            placeholder="Entrez votre email"
             required>
         </div>
 
@@ -39,7 +36,7 @@
             type="password"
             [(ngModel)]="password"
             name="password"
-            placeholder="••••••••"
+            placeholder="Entrez votre password"
             required>
         </div>
 
