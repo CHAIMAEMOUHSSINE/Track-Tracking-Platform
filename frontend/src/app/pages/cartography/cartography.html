@@ -1,402 +1,107 @@
 <div class="cartography-page">
 
-
   <!-- HEADER -->
   <section class="header-card">
-
     <div>
-      <span class="eyebrow">
-        HOLCIM MAROC
-      </span>
-
-      <h2>
-        <i class="fas fa-map-location-dot"></i>
-        Cartographie temps réel
-      </h2>
-
-      <p>
-        Suivi intelligent des camions - Usine Holcim Meknès
-      </p>
-
+      <span class="eyebrow">HOLCIM MAROC</span>
+      <h2><i class="fas fa-map-location-dot"></i> Cartographie temps réel</h2>
+      <p>Suivi intelligent des camions — Usine Holcim Meknès</p>
     </div>
 
-
-    <button class="refresh-btn">
-
-      <i class="fas fa-rotate"></i>
-
+    <button class="refresh-btn" (click)="refresh()" [disabled]="isRefreshing()">
+      <i class="fas fa-rotate" [class.spinning]="isRefreshing()"></i>
       Actualiser
-
     </button>
-
-
   </section>
 
-
-
-
-  <!-- STATISTICS -->
-
+  <!-- KPI -->
   <section class="kpi-grid">
-
-
     <div class="kpi-card blue">
-
       <i class="fas fa-truck"></i>
-
-      <div>
-
-        <h3>{{total}}</h3>
-
-        <span>
-          Total camions
-        </span>
-
-      </div>
-
+      <div><h3>{{ kpis().total }}</h3><span>Total camions</span></div>
     </div>
-
-
-
     <div class="kpi-card green">
-
       <i class="fas fa-circle-check"></i>
-
-      <div>
-
-        <h3>{{green}}</h3>
-
-        <span>
-          Dans le délai
-        </span>
-
-      </div>
-
+      <div><h3>{{ kpis().green }}</h3><span>Dans le délai</span></div>
     </div>
-
-
-
     <div class="kpi-card orange">
-
       <i class="fas fa-clock"></i>
-
-      <div>
-
-        <h3>{{orange}}</h3>
-
-        <span>
-          Proche limite
-        </span>
-
-      </div>
-
+      <div><h3>{{ kpis().orange }}</h3><span>Proche limite</span></div>
     </div>
-
-
-
     <div class="kpi-card red">
-
       <i class="fas fa-triangle-exclamation"></i>
-
-      <div>
-
-        <h3>{{red}}</h3>
-
-        <span>
-          Retard
-        </span>
-
-      </div>
-
+      <div><h3>{{ kpis().red }}</h3><span>Retard</span></div>
     </div>
-
-
   </section>
 
-
-
-
-
-  <!-- LEGEND -->
-
+  <!-- LEGENDE + FILTRES -->
   <section class="legend-card">
+    <div class="legend-item"><span class="dot green-dot"></span><span>Temps normal</span></div>
+    <div class="legend-item"><span class="dot orange-dot"></span><span>Approche 45 min</span></div>
+    <div class="legend-item"><span class="dot red-dot"></span><span>Dépassement</span></div>
+    <div class="legend-item"><i class="fas fa-industry"></i><span>Usine Holcim Meknès</span></div>
 
-
-    <div class="legend-item">
-
-      <span class="dot green-dot"></span>
-
-      <span>
-        Temps normal
-      </span>
-
+    <div class="filter-chips">
+      <button class="chip" [class.active]="filtre() === 'tous'" (click)="setFiltre('tous')">Tous</button>
+      <button class="chip green" [class.active]="filtre() === 'green'" (click)="setFiltre('green')">Vert</button>
+      <button class="chip orange" [class.active]="filtre() === 'orange'" (click)="setFiltre('orange')">Orange</button>
+      <button class="chip red" [class.active]="filtre() === 'red'" (click)="setFiltre('red')">Rouge</button>
     </div>
-
-
-    <div class="legend-item">
-
-      <span class="dot orange-dot"></span>
-
-      <span>
-        Approche 45 min
-      </span>
-
-    </div>
-
-
-
-    <div class="legend-item">
-
-      <span class="dot red-dot"></span>
-
-      <span>
-        Dépassement
-      </span>
-
-    </div>
-
-
-    <div class="legend-item">
-
-      <i class="fas fa-industry"></i>
-
-      <span>
-        Usine Holcim Meknès
-      </span>
-
-    </div>
-
-
   </section>
-
-
-
-
-
-
 
   <!-- MAP -->
-
   <section class="map-card">
-
-
     <div id="map"></div>
-
-
   </section>
 
-
-
-
-
-
-
-  <!-- SELECTED TRUCK -->
-
-  <section
-    class="truck-details"
-    *ngIf="selectedTruck">
-
-
-    <h3>
-
-      <i class="fas fa-truck"></i>
-
-      {{selectedTruck.id}}
-
-    </h3>
-
-
-
-    <div class="details-grid">
-
-
-      <div>
-
-        <label>
-          Chauffeur
-        </label>
-
-        <strong>
-          {{selectedTruck.driver}}
-        </strong>
-
+  <!-- CAMION SÉLECTIONNÉ -->
+  @if (selectedTruck(); as truck) {
+    <section class="truck-details">
+      <div class="truck-details-header">
+        <h3><i class="fas fa-truck"></i> {{ truck.id }}</h3>
+        <button class="close-btn" (click)="closeDetail()"><i class="fas fa-xmark"></i></button>
       </div>
 
-
-
-
-      <div>
-
-        <label>
-          Produit
-        </label>
-
-        <strong>
-          {{selectedTruck.product}}
-        </strong>
-
+      <div class="details-grid">
+        <div><label>Chauffeur</label><strong>{{ truck.driver }}</strong></div>
+        <div><label>Produit</label><strong>{{ truck.product }}</strong></div>
+        <div><label>Destination</label><strong>{{ truck.destination }}</strong></div>
+        <div><label>Temps</label><strong>{{ truck.time }} min</strong></div>
       </div>
 
+      <button class="focus-btn" (click)="selectTruck(truck)">
+        <i class="fas fa-location-crosshairs"></i>
+        Centrer le camion
+      </button>
+    </section>
+  }
 
-
-
-      <div>
-
-        <label>
-          Destination
-        </label>
-
-        <strong>
-          {{selectedTruck.destination}}
-        </strong>
-
-      </div>
-
-
-
-
-      <div>
-
-        <label>
-          Temps
-        </label>
-
-        <strong>
-          {{selectedTruck.time}} min
-        </strong>
-
-      </div>
-
-
-
+  <!-- LISTE DES CAMIONS -->
+  <section class="table-card">
+    <div class="table-header">
+      <h3>Liste des camions</h3>
+      <input type="text" placeholder="Rechercher un camion..."
+             [ngModel]="recherche()" (ngModelChange)="recherche.set($event)" />
     </div>
 
-
-
-    <button
-      class="focus-btn"
-      (click)="focusTruck()">
-
-
-      <i class="fas fa-location-crosshairs"></i>
-
-      Centrer le camion
-
-
-    </button>
-
-
-
-  </section>
-
-
-
-
-
-
-
-  <!-- TRUCK LIST -->
-
-  <section class="table-card">
-
-
-    <h3>
-      Liste des camions
-    </h3>
-
-
     <table>
-
-
       <thead>
-
-      <tr>
-
-        <th>
-          Camion
-        </th>
-
-        <th>
-          Chauffeur
-        </th>
-
-        <th>
-          Produit
-        </th>
-
-        <th>
-          Temps
-        </th>
-
-        <th>
-          Etat
-        </th>
-
-
-      </tr>
-
+      <tr><th>Camion</th><th>Chauffeur</th><th>Produit</th><th>Temps</th><th>État</th></tr>
       </thead>
-
-
-
       <tbody>
-
-
-      <tr *ngFor="let truck of trucks">
-
-
-        <td>
-          {{truck.id}}
-        </td>
-
-
-        <td>
-          {{truck.driver}}
-        </td>
-
-
-        <td>
-          {{truck.product}}
-        </td>
-
-
-        <td>
-          {{truck.time}} min
-        </td>
-
-
-
-        <td>
-
-
-            <span
-              class="status"
-              [ngClass]="truck.status">
-
-
-              {{truck.status}}
-
-
-            </span>
-
-
-        </td>
-
-
-      </tr>
-
-
+        @for (truck of trucksFiltres(); track truck.id) {
+          <tr (click)="selectTruck(truck)" [class.selected-row]="selectedTruck()?.id === truck.id">
+            <td class="mono">{{ truck.id }}</td>
+            <td>{{ truck.driver }}</td>
+            <td>{{ truck.product }}</td>
+            <td>{{ truck.time }} min</td>
+            <td><span class="status" [class]="truck.status">{{ truck.status }}</span></td>
+          </tr>
+        } @empty {
+          <tr><td colspan="5" class="empty">Aucun camion trouvé</td></tr>
+        }
       </tbody>
-
-
     </table>
-
-
   </section>
-
-
-
-
 
 </div>

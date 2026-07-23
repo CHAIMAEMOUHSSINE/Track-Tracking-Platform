@@ -1,823 +1,144 @@
-:host {
-  display: block;
-}
+:host { display: block; }
 
+.cartography-page { display: flex; flex-direction: column; gap: 22px; padding: 20px; background: #f4f7fb; }
 
-/* =========================
-   GLOBAL CONTAINER
-========================= */
-
-.cartography-page {
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 22px;
-
-  padding: 20px;
-
-  background: #f4f7fb;
-
-}
-
-
-
-/* =========================
-   HEADER
-========================= */
-
-
+/* ===== HEADER ===== */
 .header-card {
-
-  background: white;
-
-  border-radius: 20px;
-
-  padding: 25px 30px;
-
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-
+  background: white; border-radius: 20px; padding: 25px 30px;
+  display: flex; justify-content: space-between; align-items: center;
   box-shadow: 0 10px 30px rgba(0,0,0,.08);
-
 }
-
-
-.eyebrow {
-
-  font-size: 12px;
-
-  letter-spacing: .18em;
-
-  color:#718096;
-
-  font-weight:700;
-
-}
-
-
-.header-card h2 {
-
-  margin:8px 0;
-
-  color:#17375E;
-
-  font-size:28px;
-
-}
-
-
-.header-card p {
-
-  margin:0;
-
-  color:#667085;
-
-}
-
-
+.eyebrow { font-size: 12px; letter-spacing: .18em; color: #718096; font-weight: 700; }
+.header-card h2 { margin: 8px 0; color: #17375E; font-size: 26px; display: flex; align-items: center; gap: 10px; }
+.header-card p { margin: 0; color: #667085; }
 
 .refresh-btn {
-
-
-  background:#17375E;
-
-  color:white;
-
-  border:none;
-
-  padding:12px 22px;
-
-  border-radius:10px;
-
-  cursor:pointer;
-
-  font-weight:600;
-
-  display:flex;
-
-  gap:10px;
-
-  align-items:center;
-
+  background: #17375E; color: white; border: none; padding: 12px 22px;
+  border-radius: 10px; cursor: pointer; font-weight: 600;
+  display: flex; gap: 10px; align-items: center;
 }
+.refresh-btn:hover { background: #24558d; }
+.refresh-btn:disabled { opacity: .7; cursor: not-allowed; }
+.spinning { animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
 
-
-.refresh-btn:hover {
-
-  background:#24558d;
-
-}
-
-
-
-
-
-
-/* =========================
-        KPI
-========================= */
-
-
-.kpi-grid {
-
-
-  display:grid;
-
-  grid-template-columns:repeat(4,1fr);
-
-  gap:18px;
-
-}
-
-
-
+/* ===== KPI ===== */
+.kpi-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
 .kpi-card {
-
-
-  background:white;
-
-  border-radius:18px;
-
-  padding:20px;
-
-  display:flex;
-
-  align-items:center;
-
-  gap:18px;
-
-  box-shadow:0 8px 25px rgba(0,0,0,.07);
-
-  transition:.2s;
-
+  background: white; border-radius: 18px; padding: 20px;
+  display: flex; align-items: center; gap: 18px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.07); transition: .2s;
 }
+.kpi-card:hover { transform: translateY(-4px); }
+.kpi-card i { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 22px; }
+.kpi-card h3 { margin: 0; font-size: 26px; color: #17375E; }
+.kpi-card span { color: #718096; font-size: 13px; }
+.kpi-card.blue i { background: #1565c0; }
+.kpi-card.green i { background: #2e7d32; }
+.kpi-card.orange i { background: #f9a825; }
+.kpi-card.red i { background: #d32f2f; }
 
-
-.kpi-card:hover {
-
-  transform:translateY(-4px);
-
-}
-
-
-
-.kpi-card i {
-
-
-  width:55px;
-
-  height:55px;
-
-  border-radius:50%;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  color:white;
-
-  font-size:22px;
-
-}
-
-
-
-
-.kpi-card h3 {
-
-  margin:0;
-
-  font-size:28px;
-
-  color:#17375E;
-
-}
-
-
-.kpi-card span {
-
-  color:#718096;
-
-  font-size:13px;
-
-}
-
-
-
-
-.kpi-card.blue i {
-
-  background:#1565c0;
-
-}
-
-
-.kpi-card.green i {
-
-  background:#2e7d32;
-
-}
-
-
-.kpi-card.orange i {
-
-  background:#f9a825;
-
-}
-
-
-.kpi-card.red i {
-
-  background:#d32f2f;
-
-}
-
-
-
-
-
-
-
-/* =========================
-       LEGEND
-========================= */
-
-
+/* ===== LEGENDE + FILTRES ===== */
 .legend-card {
+  background: white; padding: 18px 22px; border-radius: 18px;
+  display: flex; align-items: center; gap: 26px; flex-wrap: wrap;
+  box-shadow: 0 8px 25px rgba(0,0,0,.07);
+}
+.legend-item { display: flex; align-items: center; gap: 10px; color: #17375E; font-weight: 600; font-size: 13px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+.green-dot { background: #2e7d32; }
+.orange-dot { background: #f9a825; }
+.red-dot { background: #d32f2f; }
 
+.filter-chips { display: flex; gap: 8px; margin-left: auto; }
+.chip {
+  border: 1px solid #e2e8f0; background: white; padding: 6px 14px;
+  border-radius: 999px; font-size: 12px; font-weight: 600; cursor: pointer; color: #667085;
+}
+.chip:hover { border-color: #17375E; }
+.chip.active { background: #17375E; color: white; border-color: #17375E; }
+.chip.green.active { background: #2e7d32; border-color: #2e7d32; }
+.chip.orange.active { background: #f9a825; border-color: #f9a825; }
+.chip.red.active { background: #d32f2f; border-color: #d32f2f; }
 
-  background:white;
+/* ===== MAP ===== */
+.map-card { background: white; border-radius: 22px; padding: 15px; box-shadow: 0 10px 35px rgba(0,0,0,.1); }
+#map { width: 100%; height: 650px; border-radius: 18px; overflow: hidden; }
 
-  padding:18px 22px;
-
-  border-radius:18px;
-
-  display:flex;
-
-  gap:30px;
-
-  flex-wrap:wrap;
-
-  box-shadow:0 8px 25px rgba(0,0,0,.07);
-
+::ng-deep .checkpoint {
+  width: 30px; height: 30px; border-radius: 50%; color: white;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid white; box-shadow: 0 3px 8px rgba(0,0,0,.3); font-size: 12px;
 }
 
-
-
-.legend-item {
-
-
-  display:flex;
-
-  align-items:center;
-
-  gap:10px;
-
-  color:#17375E;
-
-  font-weight:600;
-
-  font-size:14px;
-
-}
-
-
-
-
-.dot {
-
-
-  width:14px;
-
-  height:14px;
-
-  border-radius:50%;
-
-  display:inline-block;
-
-}
-
-
-
-.green-dot {
-
-  background:#2e7d32;
-
-}
-
-
-.orange-dot {
-
-  background:#f9a825;
-
-}
-
-
-.red-dot {
-
-  background:#d32f2f;
-
-}
-
-
-
-
-
-
-/* =========================
-           MAP
-========================= */
-
-
-.map-card {
-
-
-  background:white;
-
-  border-radius:22px;
-
-  padding:15px;
-
-  box-shadow:0 10px 35px rgba(0,0,0,.1);
-
-}
-
-
-
-#map {
-
-
-  width:100%;
-
-  height:650px;
-
-  border-radius:18px;
-
-  overflow:hidden;
-
-}
-
-
-
-
-
-
-/* =========================
-      TRUCK DETAILS
-========================= */
-
-
-.truck-details {
-
-
-  background:white;
-
-  border-radius:20px;
-
-  padding:25px;
-
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
-
-}
-
-
-
-.truck-details h3 {
-
-
-  margin-top:0;
-
-  color:#17375E;
-
-}
-
-
-
-.details-grid {
-
-
-  display:grid;
-
-  grid-template-columns:repeat(4,1fr);
-
-  gap:20px;
-
-  margin:20px 0;
-
-}
-
-
-
-.details-grid label {
-
-
-  display:block;
-
-  color:#718096;
-
-  font-size:12px;
-
-  margin-bottom:5px;
-
-}
-
-
-
-.details-grid strong {
-
-
-  color:#17375E;
-
-  font-size:15px;
-
-}
-
-
+/* ===== DÉTAIL CAMION ===== */
+.truck-details { background: white; border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,.08); }
+.truck-details-header { display: flex; align-items: center; justify-content: space-between; }
+.truck-details-header h3 { margin: 0; color: #17375E; display: flex; align-items: center; gap: 8px; }
+.close-btn { background: none; border: none; color: #718096; font-size: 16px; cursor: pointer; }
+.close-btn:hover { color: #d32f2f; }
+
+.details-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; margin: 20px 0; }
+.details-grid label { display: block; color: #718096; font-size: 12px; margin-bottom: 5px; }
+.details-grid strong { color: #17375E; font-size: 15px; }
 
 .focus-btn {
-
-
-  background:#17375E;
-
-  color:white;
-
-  border:none;
-
-  padding:12px 20px;
-
-  border-radius:10px;
-
-  cursor:pointer;
-
-  display:flex;
-
-  align-items:center;
-
-  gap:10px;
-
+  background: #17375E; color: white; border: none; padding: 12px 20px;
+  border-radius: 10px; cursor: pointer; display: flex; align-items: center; gap: 10px;
 }
+.focus-btn:hover { background: #24558d; }
 
+/* ===== TABLE ===== */
+.table-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.08); }
+.table-header { display: flex; align-items: center; justify-content: space-between; padding: 20px; border-bottom: 1px solid #eee; }
+.table-header h3 { margin: 0; color: #17375E; }
+.table-header input { border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 12px; font-size: 13px; width: 220px; }
+.table-header input:focus { outline: none; border-color: #17375E; }
 
+table { width: 100%; border-collapse: collapse; }
+thead { background: #17375E; color: white; }
+th { padding: 15px; text-align: left; font-size: 13px; }
+td { padding: 15px; border-bottom: 1px solid #eee; color: #344054; }
+tbody tr { cursor: pointer; }
+tbody tr:hover { background: #f7f9fc; }
+tbody tr.selected-row { background: #eaf1fb; }
+.empty { text-align: center; color: #718096; padding: 30px; cursor: default; }
 
-.focus-btn:hover {
+.status { padding: 6px 14px; border-radius: 20px; color: white; font-size: 12px; font-weight: 600; text-transform: capitalize; }
+.status.green { background: #2e7d32; }
+.status.orange { background: #f9a825; }
+.status.red { background: #d32f2f; }
 
-  background:#24558d;
-
+/* ===== ICÔNE CAMION SUR LA CARTE ===== */
+::ng-deep .truck-icon { background: none; border: none; }
+::ng-deep .truck {
+  width: 38px; height: 38px; border-radius: 50%; color: white;
+  display: flex; align-items: center; justify-content: center;
+  border: 3px solid white; box-shadow: 0 5px 15px rgba(0,0,0,.35);
+  transition: width .15s, height .15s;
 }
-
-
-
-
-
-
-/* =========================
-          TABLE
-========================= */
-
-
-.table-card {
-
-
-  background:white;
-
-  border-radius:20px;
-
-  overflow:hidden;
-
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
-
-}
-
-
-
-.table-card h3 {
-
-
-  padding:20px;
-
-  margin:0;
-
-  color:#17375E;
-
-  border-bottom:1px solid #eee;
-
-}
-
-
-
-table {
-
-
-  width:100%;
-
-  border-collapse:collapse;
-
-}
-
-
-
-thead {
-
-
-  background:#17375E;
-
-  color:white;
-
-}
-
-
-
-th {
-
-
-  padding:15px;
-
-  text-align:left;
-
-  font-size:13px;
-
-}
-
-
-
-td {
-
-
-  padding:15px;
-
-  border-bottom:1px solid #eee;
-
-  color:#344054;
-
-}
-
-
-
-tbody tr:hover {
-
-
-  background:#f7f9fc;
-
-}
-
-
-
-
-
-/* =========================
-        STATUS
-========================= */
-
-
-.status {
-
-
-  padding:6px 14px;
-
-  border-radius:20px;
-
-  color:white;
-
-  font-size:12px;
-
-  font-weight:600;
-
-  text-transform:capitalize;
-
-}
-
-
-
-.status.green {
-
-  background:#2e7d32;
-
-}
-
-
-
-.status.orange {
-
-  background:#f9a825;
-
-}
-
-
-
-.status.red {
-
-  background:#d32f2f;
-
-}
-
-
-
-
-
-
-/* =========================
-       LEAFLET TRUCK ICON
-========================= */
-
-
-.truck-icon {
-
-
-  background:none;
-
-  border:none;
-
-}
-
-
-
-.truck {
-
-
-  width:38px;
-
-  height:38px;
-
-  border-radius:50%;
-
-  color:white;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  border:3px solid white;
-
-  box-shadow:0 5px 15px rgba(0,0,0,.35);
-
-}
-
-
-
-.truck.green {
-
-
-  background:#2e7d32;
-
-}
-
-
-
-.truck.orange {
-
-
-  background:#f9a825;
-
-  animation:pulseOrange 2s infinite;
-
-}
-
-
-
-.truck.red {
-
-
-  background:#d32f2f;
-
-  animation:pulseRed 1.3s infinite;
-
-}
-
-
-
+::ng-deep .truck.green { background: #2e7d32; }
+::ng-deep .truck.orange { background: #f9a825; animation: pulseOrange 2s infinite; }
+::ng-deep .truck.red { background: #d32f2f; animation: pulseRed 1.3s infinite; }
+::ng-deep .truck.selected { border: 4px solid #1e88b8; box-shadow: 0 0 0 6px rgba(30,136,184,.25); }
 
 @keyframes pulseRed {
-
-
-  0% {
-
-    box-shadow:0 0 0 0 rgba(211,47,47,.7);
-
-  }
-
-
-  70% {
-
-    box-shadow:0 0 0 20px rgba(211,47,47,0);
-
-  }
-
-
-  100% {
-
-    box-shadow:0 0 0 0 rgba(211,47,47,0);
-
-  }
-
+  0% { box-shadow: 0 0 0 0 rgba(211,47,47,.7); }
+  70% { box-shadow: 0 0 0 20px rgba(211,47,47,0); }
+  100% { box-shadow: 0 0 0 0 rgba(211,47,47,0); }
 }
+@keyframes pulseOrange { 50% { transform: scale(1.15); } }
 
-
-
-
-@keyframes pulseOrange {
-
-
-  50% {
-
-    transform:scale(1.15);
-
-  }
-
-
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1200px) {
+  .kpi-grid { grid-template-columns: repeat(2,1fr); }
+  .details-grid { grid-template-columns: repeat(2,1fr); }
 }
-
-
-
-
-
-
-/* =========================
-       RESPONSIVE
-========================= */
-
-
-@media(max-width:1200px){
-
-
-  .kpi-grid {
-
-    grid-template-columns:repeat(2,1fr);
-
-  }
-
-
-
-  .details-grid {
-
-    grid-template-columns:repeat(2,1fr);
-
-  }
-
-
-}
-
-
-
-
-@media(max-width:700px){
-
-
-  .header-card {
-
-
-    flex-direction:column;
-
-    align-items:flex-start;
-
-    gap:20px;
-
-  }
-
-
-
-  .kpi-grid {
-
-
-    grid-template-columns:1fr;
-
-  }
-
-
-
-  .details-grid {
-
-
-    grid-template-columns:1fr;
-
-  }
-
-
-
-  .legend-card {
-
-
-    flex-direction:column;
-
-    gap:15px;
-
-  }
-
-
-  #map {
-
-
-    height:450px;
-
-  }
-
-
+@media (max-width: 700px) {
+  .header-card { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .kpi-grid { grid-template-columns: 1fr; }
+  .details-grid { grid-template-columns: 1fr; }
+  .legend-card { flex-direction: column; align-items: flex-start; gap: 15px; }
+  .filter-chips { margin-left: 0; }
+  #map { height: 450px; }
 }
