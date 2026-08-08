@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { FleetDataService } from '../../core/services/fleet-data.service';
 
 interface Equipment {
   id: number;
@@ -33,6 +34,8 @@ interface Technician {
   styleUrl: './maintenance.css'
 })
 export class MaintenanceComponent {
+
+  private readonly fleet = inject(FleetDataService);
 
   search = '';
 
@@ -212,6 +215,11 @@ export class MaintenanceComponent {
 
     this.message = "Intervention enregistrée avec succès.";
 
+    this.fleet.publishActivity(
+      'Maintenance',
+      `${this.intervention.equipment} - ${this.intervention.type} - ${this.intervention.priority}`
+    );
+
     setTimeout(() => {
 
       this.message = '';
@@ -234,7 +242,7 @@ export class MaintenanceComponent {
 
   refresh(){
 
-    console.log("Actualisation...");
+    this.fleet.publishActivity('Maintenance', 'Actualisation de la page maintenance');
 
   }
 

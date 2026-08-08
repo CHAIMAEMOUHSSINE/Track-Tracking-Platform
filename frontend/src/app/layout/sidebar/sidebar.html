@@ -1,27 +1,34 @@
-<aside class="sidebar">
+<aside class="sidebar" [class.collapsed]="collapsed()">
+
+  <button class="toggle-btn" (click)="toggle()" [title]="collapsed() ? 'Déplier le menu' : 'Replier le menu'">
+    <i class="fas" [class.fa-angles-left]="!collapsed()" [class.fa-angles-right]="collapsed()"></i>
+  </button>
+
   <div class="menu-section">
     <p class="section-label">Navigation</p>
-    <a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="menu-item">
+
+    <a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+       class="menu-item" title="Dashboard">
       <i class="fas fa-chart-line"></i>
       <span>Dashboard</span>
     </a>
 
-    <a routerLink="/dashboard/cartographie" routerLinkActive="active" class="menu-item">
+    <a routerLink="/dashboard/cartographie" routerLinkActive="active" class="menu-item" title="Cartographie">
       <i class="fas fa-map-location-dot"></i>
-      <span>Cartographie </span>
+      <span>Cartographie</span>
     </a>
 
-    <a routerLink="/dashboard/production" routerLinkActive="active" class="menu-item">
+    <a routerLink="/dashboard/production" routerLinkActive="active" class="menu-item" title="Service Production">
       <i class="fas fa-industry"></i>
-      <span> Service Production</span>
+      <span>Service Production</span>
     </a>
 
-    <a routerLink="/dashboard/maintenance" routerLinkActive="active" class="menu-item">
+    <a routerLink="/dashboard/maintenance" routerLinkActive="active" class="menu-item" title="Service Maintenance">
       <i class="fas fa-screwdriver-wrench"></i>
       <span>Service Maintenance</span>
     </a>
 
-    <a routerLink="/dashboard/expedition" routerLinkActive="active" class="menu-item">
+    <a routerLink="/dashboard/expedition" routerLinkActive="active" class="menu-item" title="Service Expédition">
       <i class="fas fa-box-open"></i>
       <span>Service Expédition</span>
     </a>
@@ -29,7 +36,7 @@
 
   <div class="menu-section footer-section">
     <p class="section-label">Session</p>
-    <a routerLink="/login" class="menu-item logout">
+    <a routerLink="/login" class="menu-item logout" title="Déconnexion">
       <i class="fas fa-right-from-bracket"></i>
       <span>Déconnexion</span>
     </a>

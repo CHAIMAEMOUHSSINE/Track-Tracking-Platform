@@ -1,0 +1,12 @@
+id,nom,prenom,email,role
+1,Semlali,Mohamed,mohamed.semlali@holcim.ma,RH
+2,Idrissi,Omar,omar.idrissi@holcim.ma,RH
+3,Bouzid,Khalid,khalid.bouzid@holcim.ma,RH
+4,El Amrani,Mohamed,mohamed.elamrani@holcim.ma,AGENT_COMMERCIAL
+5,Alaoui,Omar,omar.alaoui@holcim.ma,AGENT_COMMERCIAL
+6,Naji,Khalid,khalid.naji@holcim.ma,EXPEDITION
+7,Chraibi,Khalid,khalid.chraibi@holcim.ma,EXPEDITION
+8,Tazi,Anas,anas.tazi@holcim.ma,PRODUCTION
+9,Karimi,Fatima,fatima.karimi@holcim.ma,PRODUCTION
+10,Benali,Amal,amal.benali@holcim.ma,MAINTENANCE
+11,Karimi,Omar,omar.karimi@holcim.ma,MAINTENANCE

@@ -1,5 +1,39 @@
 /* Global application styles */
 
+html,
+body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	background:
+	  radial-gradient(circle at top left, rgba(0, 87, 214, 0.12), transparent 32%),
+	  linear-gradient(180deg, #eef3fb 0%, #f7f9fc 48%, #eef2f7 100%);
+	color: #0b1a33;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+button,
+input,
+textarea,
+select {
+	font: inherit;
+}
+
+a {
+	color: inherit;
+}
+
+app-root {
+	display: block;
+	min-height: 100%;
+}
+
 .truck-marker-shell {
 	background: transparent !important;
 	border: 0 !important;

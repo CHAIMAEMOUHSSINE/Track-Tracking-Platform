@@ -1,0 +1,106 @@
+[
+  {
+    "id": 1,
+    "camionId": 4,
+    "immatriculation": "9830-E-96",
+    "dateHeure": "2026-07-17T07:58:00",
+    "tempsTotalMinutes": 63,
+    "statut": "OUVERTE"
+  },
+  {
+    "id": 2,
+    "camionId": 6,
+    "immatriculation": "2743-E-82",
+    "dateHeure": "2026-07-19T12:24:00",
+    "tempsTotalMinutes": 53,
+    "statut": "OUVERTE"
+  },
+  {
+    "id": 3,
+    "camionId": 11,
+    "immatriculation": "7570-A-22",
+    "dateHeure": "2026-07-22T10:17:00",
+    "tempsTotalMinutes": 59,
+    "statut": "JUSTIFIEE",
+    "causeJustification": "PROBLEME_PESEE"
+  },
+  {
+    "id": 4,
+    "camionId": 14,
+    "immatriculation": "3584-H-70",
+    "dateHeure": "2026-07-21T08:55:00",
+    "tempsTotalMinutes": 59,
+    "statut": "JUSTIFIEE",
+    "causeJustification": "FORTE_AFFLUENCE"
+  },
+  {
+    "id": 5,
+    "camionId": 16,
+    "immatriculation": "1590-F-75",
+    "dateHeure": "2026-07-18T10:28:00",
+    "tempsTotalMinutes": 46,
+    "statut": "JUSTIFIEE",
+    "causeJustification": "AUTRE"
+  },
+  {
+    "id": 6,
+    "camionId": 17,
+    "immatriculation": "5065-E-21",
+    "dateHeure": "2026-07-21T19:46:00",
+    "tempsTotalMinutes": 51,
+    "statut": "JUSTIFIEE",
+    "causeJustification": "PROBLEME_PESEE"
+  },
+  {
+    "id": 7,
+    "camionId": 27,
+    "immatriculation": "5133-B-61",
+    "dateHeure": "2026-07-22T10:45:00",
+    "tempsTotalMinutes": 52,
+    "statut": "JUSTIFIEE",
+    "causeJustification": "FORTE_AFFLUENCE"
+  },
+  {
+    "id": 8,
+    "camionId": 29,
+    "immatriculation": "9728-G-85",
+    "dateHeure": "2026-07-18T14:52:00",
+    "tempsTotalMinutes": 67,
+    "statut": "JUSTIFIEE",
+    "causeJustification": "AUTRE"
+  },
+  {
+    "id": 9,
+    "camionId": 31,
+    "immatriculation": "1166-D-11",
+    "dateHeure": "2026-07-17T07:01:00",
+    "tempsTotalMinutes": 56,
+    "statut": "OUVERTE"
+  },
+  {
+    "id": 10,
+    "camionId": 33,
+    "immatriculation": "4727-F-23",
+    "dateHeure": "2026-07-18T19:29:00",
+    "tempsTotalMinutes": 58,
+    "statut": "OUVERTE"
+  },
+  {
+    "id": 11,
+    "camionId": 35,
+    "immatriculation": "8253-E-76",
+    "dateHeure": "2026-07-21T16:51:00",
+    "tempsTotalMinutes": 46,
+    "statut": "JUSTIFIEE",
+    "causeJustification": "FORTE_AFFLUENCE"
+  },
+  {
+    "id": 12,
+    "camionId": 40,
+    "immatriculation": "9494-F-80",
+    "dateHeure": "2026-07-18T13:58:00",
+    "tempsTotalMinutes": 51,
+    "statut": "JUSTIFIEE",
+    "causeJustification": "MACHINE_EN_PANNE"
+  }
+]

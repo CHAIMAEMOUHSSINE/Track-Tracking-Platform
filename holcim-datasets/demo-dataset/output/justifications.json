@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "alerteId": 3,
+    "cause": "PROBLEME_PESEE",
+    "commentaire": "Écart de poids détecté, second passage au pont-bascule requis.",
+    "date": "2026-07-22T10:25:00",
+    "service": "MAINTENANCE",
+    "renseignePar": "Amal Benali"
+  },
+  {
+    "id": 2,
+    "alerteId": 4,
+    "cause": "FORTE_AFFLUENCE",
+    "commentaire": "Pic d'affluence au pont-bascule, plusieurs camions en file.",
+    "date": "2026-07-21T09:16:00",
+    "service": "MAINTENANCE",
+    "renseignePar": "Omar Karimi"
+  },
+  {
+    "id": 3,
+    "alerteId": 5,
+    "cause": "AUTRE",
+    "commentaire": "Retard administratif lié aux documents de transport.",
+    "date": "2026-07-18T11:24:00",
+    "service": "EXPEDITION",
+    "renseignePar": "Khalid Chraibi"
+  },
+  {
+    "id": 4,
+    "alerteId": 6,
+    "cause": "PROBLEME_PESEE",
+    "commentaire": "Écart de poids détecté, second passage au pont-bascule requis.",
+    "date": "2026-07-21T19:52:00",
+    "service": "EXPEDITION",
+    "renseignePar": "Khalid Chraibi"
+  },
+  {
+    "id": 5,
+    "alerteId": 7,
+    "cause": "FORTE_AFFLUENCE",
+    "commentaire": "Pic d'affluence au pont-bascule, plusieurs camions en file.",
+    "date": "2026-07-22T11:39:00",
+    "service": "PRODUCTION",
+    "renseignePar": "Anas Tazi"
+  },
+  {
+    "id": 6,
+    "alerteId": 8,
+    "cause": "AUTRE",
+    "commentaire": "Retard administratif lié aux documents de transport.",
+    "date": "2026-07-18T15:17:00",
+    "service": "MAINTENANCE",
+    "renseignePar": "Omar Karimi"
+  },
+  {
+    "id": 7,
+    "alerteId": 11,
+    "cause": "FORTE_AFFLUENCE",
+    "commentaire": "Pic d'affluence au pont-bascule, plusieurs camions en file.",
+    "date": "2026-07-21T17:14:00",
+    "service": "PRODUCTION",
+    "renseignePar": "Anas Tazi"
+  },
+  {
+    "id": 8,
+    "alerteId": 12,
+    "cause": "MACHINE_EN_PANNE",
+    "commentaire": "Arrêt du broyeur ciment ligne 2, intervention en cours.",
+    "date": "2026-07-18T14:44:00",
+    "service": "EXPEDITION",
+    "renseignePar": "Khalid Naji"
+  }
+]

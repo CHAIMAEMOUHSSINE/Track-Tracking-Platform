@@ -1,30 +1,69 @@
 <nav class="navbar-shell">
   <div class="brand-block">
-    <img src="/holcim-logo.png" alt="Holcim Maroc" class="logo" />
-    <div>
+    <img src="holcim-logo.png" alt="Trucking Truck" class="logo" />
+    <div class="brand-copy">
       <p class="eyebrow">Control Tower</p>
-
-      <span>Meknès Operations Center</span>
+      <span>Trucking Truck</span>
     </div>
   </div>
 
   <div class="action-block">
     <div class="status-pill">
       <i class="fas fa-circle"></i>
-      <span>24 camions connectés</span>
+      <span>{{ notificationCount() }} activités</span>
     </div>
 
-    <button class="icon-button" type="button" aria-label="Notifications">
-      <i class="fas fa-bell"></i>
-      <span class="badge">3</span>
-    </button>
+    <div class="menu-anchor">
+      <button class="icon-button" type="button" aria-label="Notifications" (click)="toggleNotifications()">
+        <i class="fas fa-bell"></i>
+        <span class="badge">{{ notificationCount() }}</span>
+      </button>
 
-    <a class="profile-card" routerLink="/dashboard">
-      <i class="fas fa-user-circle"></i>
-      <div>
-        <strong>Responsable Logistique</strong>
-        <small>Vue opérateur</small>
-      </div>
-    </a>
+      @if (notificationsOpen()) {
+        <div class="dropdown-panel notifications-panel">
+          <div class="dropdown-header">
+            <strong>Activités récentes</strong>
+            <span>{{ notificationCount() }} actives</span>
+          </div>
+
+          <div class="dropdown-list">
+            <div class="dropdown-item" *ngFor="let notification of notifications()">
+              <i class="fas fa-circle-notch"></i>
+              <p>{{ notification }}</p>
+            </div>
+          </div>
+
+          <a routerLink="/dashboard/cartographie" class="dropdown-link" (click)="closeMenus()">
+            Ouvrir la cartographie
+          </a>
+        </div>
+      }
+    </div>
+
+    <div class="menu-anchor">
+      <button class="profile-card" type="button" (click)="toggleProfile()">
+        <span class="profile-avatar"><i class="fas fa-user-tie"></i></span>
+        <div>
+          <strong>{{ displayName() }}</strong>
+          <small>{{ roleLabel() }}</small>
+        </div>
+      </button>
+
+      @if (profileOpen()) {
+        <div class="dropdown-panel profile-panel">
+          <div class="dropdown-header profile-header">
+            <div>
+              <strong>{{ displayName() }}</strong>
+              <span>{{ roleLabel() }}</span>
+            </div>
+            <i class="fas fa-id-card"></i>
+          </div>
+
+          <a routerLink="/dashboard" class="dropdown-link" (click)="closeMenus()">Tableau de bord</a>
+          <a routerLink="/dashboard/expedition" class="dropdown-link" (click)="closeMenus()">Service expédition</a>
+          <button type="button" class="dropdown-link danger" (click)="logout()">Déconnexion</button>
+        </div>
+      }
+    </div>
   </div>
 </nav>

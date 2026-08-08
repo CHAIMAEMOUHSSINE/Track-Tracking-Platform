@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -8,6 +8,7 @@ import {
   ChartConfiguration,
   ChartData
 } from 'chart.js';
+import { FleetDataService } from '../../core/services/fleet-data.service';
 
 interface Camion {
 
@@ -62,6 +63,7 @@ interface Alert {
 })
 
 export class ExpeditionComponent {
+  private readonly fleet = inject(FleetDataService);
 
   recherche = '';
 
@@ -70,116 +72,8 @@ export class ExpeditionComponent {
   causeJustification = '';
 
   messageConfirmation = signal('');
-  trucks = signal<Camion[]>([
-
-    {
-
-      plate:'CAM-001',
-
-      product:'CPJ 45',
-
-      chauffeur:'Ahmed Benali',
-
-      destination:'Meknès',
-
-      quai:'Quai 1',
-
-      temps:15,
-
-      progress:82,
-
-      status:'En cours',
-
-      color:'ok'
-
-    },
-
-    {
-
-      plate:'CAM-014',
-
-      product:'CPA 55',
-
-      chauffeur:'Youssef',
-
-      destination:'Fès',
-
-      quai:'Quai 2',
-
-      temps:22,
-
-      progress:55,
-
-      status:'Retard',
-
-      color:'warning'
-
-    },
-
-    {
-
-      plate:'CAM-027',
-
-      product:'CPJ 35',
-
-      chauffeur:'Hamza',
-
-      destination:'Rabat',
-
-      quai:'Quai 3',
-
-      temps:34,
-
-      progress:97,
-
-      status:'Critique',
-
-      color:'danger'
-
-    },
-
-    {
-
-      plate:'CAM-033',
-
-      product:'CPJ 45',
-
-      chauffeur:'Mustapha',
-
-      destination:'Khénifra',
-
-      quai:'Quai 1',
-
-      temps:8,
-
-      progress:28,
-
-      status:'En cours',
-
-      color:'ok'
-
-    }
-
-  ]);
-  alerts = signal<Alert[]>([
-
-    {
-
-      truck:'CAM-014',
-
-      reason:'Rupture de stock'
-
-    },
-
-    {
-
-      truck:'CAM-027',
-
-      reason:'Temps de chargement dépassé'
-
-    }
-
-  ]);
+  trucks = signal<Camion[]>([]);
+  alerts = signal<Alert[]>([]);
   docks=[
 
     {
@@ -213,6 +107,60 @@ export class ExpeditionComponent {
     }
 
   ];
+
+  constructor() {
+
+    effect(() => {
+
+      this.fleet.trucks();
+      this.fleet.alerts();
+      this.syncFromFleet();
+
+    });
+
+  }
+
+  private syncFromFleet(): void {
+
+    this.trucks.set(
+
+      this.fleet.trucks().map((truck) => ({
+
+        plate: truck.id,
+
+        product: truck.product,
+
+        chauffeur: truck.driver,
+
+        destination: truck.destination,
+
+        quai: truck.quay,
+
+        temps: truck.time,
+
+        progress: truck.progress,
+
+        status: truck.status === 'green' ? 'En cours' : truck.status === 'orange' ? 'Retard' : 'Critique',
+
+        color: truck.color
+
+      }))
+
+    );
+
+    this.alerts.set(
+
+      this.fleet.alerts().map((alert) => ({
+
+        truck: alert.immatriculation,
+
+        reason: `${alert.etape} - ${alert.service}`
+
+      }))
+
+    );
+
+  }
   camionsFiltres = computed(() => {
 
     const q=this.recherche.toLowerCase();
@@ -278,6 +226,18 @@ export class ExpeditionComponent {
       return;
 
     }
+
+    const created = this.fleet.updateJustification(this.camionJustification.trim(), this.causeJustification.trim());
+
+    if (!created) {
+
+      this.messageConfirmation.set('Camion introuvable.');
+
+      return;
+
+    }
+
+    this.syncFromFleet();
 
     this.messageConfirmation.set(
 
@@ -387,7 +347,17 @@ export class ExpeditionComponent {
   };
   refresh(){
 
-    console.log("Actualisation...");
+    this.fleet.refreshTrucks();
+
+    this.syncFromFleet();
+
+  }
+
+  openAlert(alert: Alert): void {
+
+    this.camionJustification = alert.truck;
+
+    this.causeJustification = alert.reason;
 
   }
 

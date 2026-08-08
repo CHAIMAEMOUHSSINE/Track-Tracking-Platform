@@ -1,0 +1,32 @@
+[
+  {
+    "nom": "PORTE_ENTREE",
+    "ordre": 1,
+    "dureeMax": null
+  },
+  {
+    "nom": "PARKING",
+    "ordre": 2,
+    "dureeMax": 15
+  },
+  {
+    "nom": "AGENT_COMMERCIAL_ENTREE",
+    "ordre": 3,
+    "dureeMax": 5
+  },
+  {
+    "nom": "EXPEDITION",
+    "ordre": 4,
+    "dureeMax": 20
+  },
+  {
+    "nom": "AGENT_COMMERCIAL_SORTIE",
+    "ordre": 5,
+    "dureeMax": 5
+  },
+  {
+    "nom": "PORTE_SORTIE",
+    "ordre": 6,
+    "dureeMax": null
+  }
+]

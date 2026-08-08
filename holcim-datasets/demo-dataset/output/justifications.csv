@@ -1,0 +1,9 @@
+id,alerteId,cause,commentaire,date,service,renseignePar
+1,3,PROBLEME_PESEE,"Écart de poids détecté, second passage au pont-bascule requis.",2026-07-22T10:25:00,MAINTENANCE,Amal Benali
+2,4,FORTE_AFFLUENCE,"Pic d'affluence au pont-bascule, plusieurs camions en file.",2026-07-21T09:16:00,MAINTENANCE,Omar Karimi
+3,5,AUTRE,Retard administratif lié aux documents de transport.,2026-07-18T11:24:00,EXPEDITION,Khalid Chraibi
+4,6,PROBLEME_PESEE,"Écart de poids détecté, second passage au pont-bascule requis.",2026-07-21T19:52:00,EXPEDITION,Khalid Chraibi
+5,7,FORTE_AFFLUENCE,"Pic d'affluence au pont-bascule, plusieurs camions en file.",2026-07-22T11:39:00,PRODUCTION,Anas Tazi
+6,8,AUTRE,Retard administratif lié aux documents de transport.,2026-07-18T15:17:00,MAINTENANCE,Omar Karimi
+7,11,FORTE_AFFLUENCE,"Pic d'affluence au pont-bascule, plusieurs camions en file.",2026-07-21T17:14:00,PRODUCTION,Anas Tazi
+8,12,MACHINE_EN_PANNE,"Arrêt du broyeur ciment ligne 2, intervention en cours.",2026-07-18T14:44:00,EXPEDITION,Khalid Naji

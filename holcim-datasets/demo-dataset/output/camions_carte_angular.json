@@ -1,0 +1,402 @@
+[
+  {
+    "id": "6514-B-12",
+    "driver": "Karim Semlali",
+    "product": "CPJ 45 N",
+    "destination": "Meknès centre",
+    "status": "orange",
+    "time": 41,
+    "lat": 33.910927,
+    "lng": -5.494765
+  },
+  {
+    "id": "4814-B-49",
+    "driver": "Karim Moutawakil",
+    "product": "CPA 55",
+    "destination": "Meknès centre",
+    "status": "green",
+    "time": 21,
+    "lat": 33.910326,
+    "lng": -5.494666
+  },
+  {
+    "id": "4598-F-99",
+    "driver": "Mohamed Bouzid",
+    "product": "CPJ 35",
+    "destination": "Casablanca",
+    "status": "green",
+    "time": 19,
+    "lat": 33.908022,
+    "lng": -5.49157
+  },
+  {
+    "id": "9830-E-96",
+    "driver": "Anas Alaoui",
+    "product": "CPJ 45 N",
+    "destination": "Meknès centre",
+    "status": "red",
+    "time": 63,
+    "lat": 33.911697,
+    "lng": -5.497185
+  },
+  {
+    "id": "9669-E-71",
+    "driver": "Rachid Karimi",
+    "product": "CPA 55",
+    "destination": "Meknès centre",
+    "status": "green",
+    "time": 28,
+    "lat": 33.909467,
+    "lng": -5.495856
+  },
+  {
+    "id": "2743-E-82",
+    "driver": "Hassan Karimi",
+    "product": "Chaux hydraulique",
+    "destination": "Fès",
+    "status": "red",
+    "time": 53,
+    "lat": 33.911394,
+    "lng": -5.494672
+  },
+  {
+    "id": "2133-C-17",
+    "driver": "Khalid Chraibi",
+    "product": "CPJ 35",
+    "destination": "Sefrou",
+    "status": "green",
+    "time": 24,
+    "lat": 33.911172,
+    "lng": -5.491292
+  },
+  {
+    "id": "5061-D-9",
+    "driver": "Khalid Bouzid",
+    "product": "CPJ 45",
+    "destination": "Sefrou",
+    "status": "green",
+    "time": 23,
+    "lat": 33.908036,
+    "lng": -5.491995
+  },
+  {
+    "id": "3167-H-32",
+    "driver": "Nawal Benali",
+    "product": "CPJ 45 N",
+    "destination": "El Hajeb",
+    "status": "green",
+    "time": 19,
+    "lat": 33.908758,
+    "lng": -5.490625
+  },
+  {
+    "id": "5073-D-25",
+    "driver": "Ahmed Lahlou",
+    "product": "CPJ 45",
+    "destination": "Azrou",
+    "status": "orange",
+    "time": 45,
+    "lat": 33.90924,
+    "lng": -5.491705
+  },
+  {
+    "id": "7570-A-22",
+    "driver": "Ahmed Tazi",
+    "product": "CPJ 45 N",
+    "destination": "Azrou",
+    "status": "red",
+    "time": 59,
+    "lat": 33.908071,
+    "lng": -5.496664
+  },
+  {
+    "id": "9320-B-24",
+    "driver": "Omar Naji",
+    "product": "Chaux hydraulique",
+    "destination": "Fès",
+    "status": "green",
+    "time": 23,
+    "lat": 33.909652,
+    "lng": -5.49001
+  },
+  {
+    "id": "6147-D-34",
+    "driver": "Youssef El Amrani",
+    "product": "CPJ 45 N",
+    "destination": "Meknès centre",
+    "status": "green",
+    "time": 17,
+    "lat": 33.909146,
+    "lng": -5.498088
+  },
+  {
+    "id": "3584-H-70",
+    "driver": "Khalid Tazi",
+    "product": "CPJ 45",
+    "destination": "Ifrane",
+    "status": "red",
+    "time": 59,
+    "lat": 33.909401,
+    "lng": -5.496221
+  },
+  {
+    "id": "1832-B-82",
+    "driver": "Fatima Moutawakil",
+    "product": "CPA 55",
+    "destination": "Ifrane",
+    "status": "green",
+    "time": 15,
+    "lat": 33.90947,
+    "lng": -5.494337
+  },
+  {
+    "id": "1590-F-75",
+    "driver": "Hassan Berrada",
+    "product": "CPA 55",
+    "destination": "Sefrou",
+    "status": "red",
+    "time": 46,
+    "lat": 33.908968,
+    "lng": -5.496443
+  },
+  {
+    "id": "5065-E-21",
+    "driver": "Mohamed Lahlou",
+    "product": "CPJ 45 N",
+    "destination": "Casablanca",
+    "status": "red",
+    "time": 51,
+    "lat": 33.907581,
+    "lng": -5.492874
+  },
+  {
+    "id": "2889-E-23",
+    "driver": "Imane Benali",
+    "product": "CPA 55",
+    "destination": "El Hajeb",
+    "status": "green",
+    "time": 15,
+    "lat": 33.909573,
+    "lng": -5.497281
+  },
+  {
+    "id": "9518-D-47",
+    "driver": "Karim Semlali",
+    "product": "CPA 55",
+    "destination": "Rabat",
+    "status": "green",
+    "time": 21,
+    "lat": 33.910633,
+    "lng": -5.499085
+  },
+  {
+    "id": "7211-C-79",
+    "driver": "Khalid Naji",
+    "product": "CPJ 45 N",
+    "destination": "Casablanca",
+    "status": "green",
+    "time": 19,
+    "lat": 33.910472,
+    "lng": -5.4928
+  },
+  {
+    "id": "6491-B-97",
+    "driver": "Omar El Amrani",
+    "product": "CPJ 35",
+    "destination": "Azrou",
+    "status": "green",
+    "time": 24,
+    "lat": 33.910819,
+    "lng": -5.495832
+  },
+  {
+    "id": "4997-C-84",
+    "driver": "Rachid Karimi",
+    "product": "Chaux hydraulique",
+    "destination": "Azrou",
+    "status": "green",
+    "time": 22,
+    "lat": 33.910051,
+    "lng": -5.491703
+  },
+  {
+    "id": "9270-G-71",
+    "driver": "Sara Lahlou",
+    "product": "CPA 55",
+    "destination": "Azrou",
+    "status": "green",
+    "time": 20,
+    "lat": 33.9117,
+    "lng": -5.494794
+  },
+  {
+    "id": "9849-B-18",
+    "driver": "Hassan Chraibi",
+    "product": "CPA 55",
+    "destination": "Azrou",
+    "status": "green",
+    "time": 22,
+    "lat": 33.906793,
+    "lng": -5.494728
+  },
+  {
+    "id": "6763-E-97",
+    "driver": "Amal Karimi",
+    "product": "Chaux hydraulique",
+    "destination": "Sefrou",
+    "status": "green",
+    "time": 21,
+    "lat": 33.909669,
+    "lng": -5.491238
+  },
+  {
+    "id": "3091-A-51",
+    "driver": "Mohamed Lahlou",
+    "product": "CPJ 45 N",
+    "destination": "Ifrane",
+    "status": "green",
+    "time": 22,
+    "lat": 33.911146,
+    "lng": -5.495317
+  },
+  {
+    "id": "5133-B-61",
+    "driver": "Mohamed Karimi",
+    "product": "CPJ 45",
+    "destination": "Fès",
+    "status": "red",
+    "time": 52,
+    "lat": 33.909335,
+    "lng": -5.495159
+  },
+  {
+    "id": "3683-E-14",
+    "driver": "Youssef Chraibi",
+    "product": "CPJ 35",
+    "destination": "Meknès centre",
+    "status": "green",
+    "time": 18,
+    "lat": 33.910357,
+    "lng": -5.495605
+  },
+  {
+    "id": "9728-G-85",
+    "driver": "Karim Bouzid",
+    "product": "CPJ 45 N",
+    "destination": "Casablanca",
+    "status": "red",
+    "time": 67,
+    "lat": 33.910005,
+    "lng": -5.498034
+  },
+  {
+    "id": "5022-B-36",
+    "driver": "Said Benali",
+    "product": "CPJ 45",
+    "destination": "Azrou",
+    "status": "green",
+    "time": 21,
+    "lat": 33.909041,
+    "lng": -5.490293
+  },
+  {
+    "id": "1166-D-11",
+    "driver": "Said Moutawakil",
+    "product": "CPJ 45 N",
+    "destination": "Azrou",
+    "status": "red",
+    "time": 56,
+    "lat": 33.908361,
+    "lng": -5.492919
+  },
+  {
+    "id": "6419-F-90",
+    "driver": "Youssef Benali",
+    "product": "CPJ 45",
+    "destination": "Ifrane",
+    "status": "green",
+    "time": 19,
+    "lat": 33.909979,
+    "lng": -5.491408
+  },
+  {
+    "id": "4727-F-23",
+    "driver": "Khalid Alaoui",
+    "product": "CPA 55",
+    "destination": "Ifrane",
+    "status": "red",
+    "time": 58,
+    "lat": 33.911032,
+    "lng": -5.491336
+  },
+  {
+    "id": "5136-H-15",
+    "driver": "Rachid Idrissi",
+    "product": "CPJ 35",
+    "destination": "Rabat",
+    "status": "green",
+    "time": 25,
+    "lat": 33.908576,
+    "lng": -5.496492
+  },
+  {
+    "id": "8253-E-76",
+    "driver": "Anas Karimi",
+    "product": "CPJ 35",
+    "destination": "Sefrou",
+    "status": "red",
+    "time": 46,
+    "lat": 33.910337,
+    "lng": -5.492286
+  },
+  {
+    "id": "5632-H-10",
+    "driver": "Youssef Moutawakil",
+    "product": "CPJ 35",
+    "destination": "El Hajeb",
+    "status": "green",
+    "time": 13,
+    "lat": 33.911136,
+    "lng": -5.499159
+  },
+  {
+    "id": "5728-H-16",
+    "driver": "Ahmed Fassi",
+    "product": "CPJ 45",
+    "destination": "Fès",
+    "status": "green",
+    "time": 13,
+    "lat": 33.906956,
+    "lng": -5.493504
+  },
+  {
+    "id": "1659-C-61",
+    "driver": "Youssef Moutawakil",
+    "product": "CPJ 45 N",
+    "destination": "Meknès centre",
+    "status": "green",
+    "time": 20,
+    "lat": 33.911389,
+    "lng": -5.490024
+  },
+  {
+    "id": "9117-E-85",
+    "driver": "Fatima Benali",
+    "product": "CPJ 45",
+    "destination": "El Hajeb",
+    "status": "green",
+    "time": 23,
+    "lat": 33.910483,
+    "lng": -5.495377
+  },
+  {
+    "id": "9494-F-80",
+    "driver": "Mohamed Berrada",
+    "product": "CPA 55",
+    "destination": "Azrou",
+    "status": "red",
+    "time": 51,
+    "lat": 33.907112,
+    "lng": -5.493479
+  }
+]

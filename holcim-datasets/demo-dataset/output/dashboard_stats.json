@@ -1,0 +1,14 @@
+{
+  "totalCamions": 40,
+  "camionsEnCours": 14,
+  "camionsTermines": 26,
+  "nombreRetards": 12,
+  "tempsMoyenParcoursMinutes": 31.9,
+  "pourcentageRetards": 30.0,
+  "alertesActives": 4,
+  "repartitionParEtat": {
+    "VERT": 26,
+    "ORANGE": 2,
+    "ROUGE": 12
+  }
+}

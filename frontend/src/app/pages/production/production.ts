@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { FleetDataService } from '../../core/services/fleet-data.service';
 
 interface Produit {
 
@@ -59,6 +60,8 @@ interface Ligne{
 })
 
 export class ProductionComponent{
+
+  private readonly fleet = inject(FleetDataService);
 
   recherche='';
 
@@ -292,6 +295,11 @@ export class ProductionComponent{
 
     this.message="Demande envoyée avec succès.";
 
+    this.fleet.publishActivity(
+      'Production',
+      `${this.demande.produit} x ${this.demande.quantite} - ${this.demande.priorite}`
+    );
+
     this.demande={
 
       produit:'',
@@ -314,7 +322,7 @@ export class ProductionComponent{
 
   refresh(){
 
-    console.log("Actualisation Production...");
+    this.fleet.publishActivity('Production', 'Actualisation de la page production');
 
   }
 

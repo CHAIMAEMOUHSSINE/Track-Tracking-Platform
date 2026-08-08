@@ -1,19 +1,66 @@
-:host {
-  display: block;
-}
+:host { display: block; }
 
 .sidebar {
+  position: relative;
   width: 290px;
   min-height: calc(100vh - 92px);
-  padding: 24px 18px;
   background: linear-gradient(180deg, #09111f 0%, #0d1830 100%);
   color: #f6f9ff;
   border-right: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  /* overflow: visible ici — le bouton ne doit JAMAIS être coupé */
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.menu-section + .menu-section {
-  margin-top: 28px;
+.sidebar.collapsed {
+  width: 84px;
 }
+
+/* ===== ZONE INTERNE : seule cette zone recadre le texte pendant l'animation ===== */
+.sidebar-inner {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 24px 18px;
+  overflow: hidden;
+}
+.sidebar.collapsed .sidebar-inner {
+  padding: 24px 12px;
+}
+
+/* ===== BOUTON PLIER / DÉPLIER ===== */
+.toggle-btn {
+  position: absolute;
+  top: 18px;
+  right: -14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #0d1830;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #8fc7ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  z-index: 10;               /* passe au-dessus de tout, jamais recouvert */
+  transition: background 0.2s, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.toggle-btn:hover { background: #142549; }
+.toggle-btn i { transition: transform 0.25s ease; }
+
+/* Rotation de l'icône au lieu de la switcher — plus fluide */
+.sidebar.collapsed .toggle-btn i {
+  transform: rotate(180deg);
+}
+
+/* ===== SECTIONS ===== */
+.menu-section { margin-top: 20px; }
+.menu-section + .menu-section { margin-top: 28px; }
+.footer-section { margin-top: auto; }
 
 .section-label {
   margin: 0 0 12px;
@@ -22,8 +69,18 @@
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 0.72rem;
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+.sidebar.collapsed .section-label {
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
 }
 
+/* ===== LIENS DU MENU ===== */
 .menu-item {
   display: flex;
   align-items: center;
@@ -32,37 +89,39 @@
   border-radius: 16px;
   color: rgba(246, 249, 255, 0.84);
   text-decoration: none;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, justify-content 0.2s, padding 0.2s;
 }
+.menu-item:hover { background: rgba(255, 255, 255, 0.06); transform: translateX(2px); }
 
-.menu-item:hover {
-  background: rgba(255, 255, 255, 0.06);
-  transform: translateX(2px);
-}
+.menu-item i { width: 18px; text-align: center; color: #8fc7ff; font-size: 16px; flex-shrink: 0; }
 
-.menu-item i {
-  width: 18px;
-  text-align: center;
-  color: #8fc7ff;
+.menu-item span { opacity: 1; transition: opacity 0.15s ease 0.05s; }
+
+.sidebar.collapsed .menu-item {
+  justify-content: center;
+  padding: 14px 0;
+  gap: 0;
 }
+.sidebar.collapsed .menu-item span {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+.sidebar.collapsed .menu-item:hover { transform: none; }
 
 .menu-item.active {
   background: linear-gradient(135deg, rgba(0, 59, 142, 0.42), rgba(0, 87, 214, 0.26));
   color: #ffffff;
   box-shadow: inset 0 0 0 1px rgba(143, 199, 255, 0.14);
 }
+.menu-item.active i { color: #ffffff; }
 
-.menu-item.active i {
-  color: #ffffff;
-}
+.logout i { color: #ffb3b3; }
 
-.logout i {
-  color: #ffb3b3;
-}
-
+/* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
-  .sidebar {
-    width: 100%;
-    min-height: auto;
-  }
+  .sidebar { width: 100%; min-height: auto; }
+  .sidebar.collapsed { width: 100%; }
+  .toggle-btn { display: none; }
 }

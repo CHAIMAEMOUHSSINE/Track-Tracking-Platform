@@ -4,7 +4,7 @@ import { NavbarComponent } from './navbar';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
-  let fixture: ComponentFixture<Navbar>;
+  let fixture: ComponentFixture<NavbarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

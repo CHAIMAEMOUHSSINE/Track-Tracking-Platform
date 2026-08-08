@@ -1,0 +1,5 @@
+path: /home/claude/anpr-dataset
+train: images/train
+val: images/val
+nc: 1
+names: ['plate']

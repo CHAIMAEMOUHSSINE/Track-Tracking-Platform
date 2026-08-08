@@ -1,21 +1,11 @@
-import { AfterViewInit, Component, OnDestroy, computed, signal } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, computed, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import * as L from 'leaflet';
+import { FleetDataService, FleetTruck } from '../../core/services/fleet-data.service';
 
 type StatutCamion = 'green' | 'orange' | 'red';
 type FiltreStatut = 'tous' | StatutCamion;
-
-interface Truck {
-  id: string;
-  driver: string;
-  product: string;
-  destination: string;
-  status: StatutCamion;
-  time: number;
-  lat: number;
-  lng: number;
-}
 
 /**
  * Position réelle de l'usine LafargeHolcim Meknès :
@@ -45,12 +35,6 @@ const ZONES = [
   { name: 'Sortie poids lourds', lat: 33.9072, lng: -5.4918, color: '#e53935', icon: 'fa-door-closed' },
 ];
 
-const TRUCKS_DEMO: Truck[] = [
-  { id: 'CAM-025', driver: 'Mohamed', product: 'CPJ 45', destination: 'Fès', status: 'green', time: 18, lat: 33.9105, lng: -5.4972 },
-  { id: 'CAM-031', driver: 'Youssef', product: 'CPA 55', destination: 'Rabat', status: 'orange', time: 38, lat: 33.9095, lng: -5.4957 },
-  { id: 'CAM-044', driver: 'Ahmed', product: 'CPJ 35', destination: 'Casablanca', status: 'red', time: 52, lat: 33.9083, lng: -5.4936 },
-];
-
 @Component({
   selector: 'app-cartography',
   standalone: true,
@@ -59,15 +43,24 @@ const TRUCKS_DEMO: Truck[] = [
   styleUrl: './cartography.css',
 })
 export class CartographyComponent implements AfterViewInit, OnDestroy {
+  private readonly fleet = inject(FleetDataService);
   private map!: L.Map;
   private markers = new Map<string, L.Marker>();
   private movementInterval?: ReturnType<typeof setInterval>;
 
-  trucks = signal<Truck[]>(TRUCKS_DEMO);
-  selectedTruck = signal<Truck | null>(null);
+  trucks = computed(() => this.fleet.trucks());
+  selectedTruck = signal<FleetTruck | null>(null);
   filtre = signal<FiltreStatut>('tous');
   recherche = signal('');
   isRefreshing = signal(false);
+
+  private readonly syncMarkers = effect(() => {
+    if (!this.map) {
+      return;
+    }
+
+    this.syncTrucks(this.trucks());
+  });
 
   kpis = computed(() => {
     const list = this.trucks();
@@ -93,7 +86,7 @@ export class CartographyComponent implements AfterViewInit, OnDestroy {
     this.initMap();
     this.drawFactoryZone();
     this.drawCheckpoints();
-    this.drawTrucks();
+    this.syncTrucks(this.trucks());
     this.simulateMovement();
   }
 
@@ -139,11 +132,24 @@ export class CartographyComponent implements AfterViewInit, OnDestroy {
     });
   }
 
-  private drawTrucks(): void {
-    this.trucks().forEach((truck) => this.drawOrUpdateTruckMarker(truck));
+  private syncTrucks(trucks: FleetTruck[]): void {
+    trucks.forEach((truck) => this.drawOrUpdateTruckMarker(truck));
+
+    this.markers.forEach((marker, truckId) => {
+      if (!trucks.some((truck) => truck.id === truckId)) {
+        marker.remove();
+        this.markers.delete(truckId);
+      }
+    });
+
+    const selected = this.selectedTruck();
+    if (selected) {
+      const refreshed = trucks.find((truck) => truck.id === selected.id) ?? null;
+      this.selectedTruck.set(refreshed);
+    }
   }
 
-  private drawOrUpdateTruckMarker(truck: Truck): void {
+  private drawOrUpdateTruckMarker(truck: FleetTruck): void {
     const existing = this.markers.get(truck.id);
     if (existing) {
       existing.setLatLng([truck.lat, truck.lng]);
@@ -156,11 +162,11 @@ export class CartographyComponent implements AfterViewInit, OnDestroy {
     this.markers.set(truck.id, marker);
   }
 
-  private popupContent(truck: Truck): string {
+  private popupContent(truck: FleetTruck): string {
     return `<b>${truck.id}</b><br>Produit : ${truck.product}<br>Chauffeur : ${truck.driver}<br>Destination : ${truck.destination}<br>Temps : ${truck.time} min`;
   }
 
-  private truckIcon(truck: Truck): L.DivIcon {
+  private truckIcon(truck: FleetTruck): L.DivIcon {
     const estSelectionne = this.selectedTruck()?.id === truck.id;
     return L.divIcon({
       className: 'truck-icon',
@@ -170,7 +176,7 @@ export class CartographyComponent implements AfterViewInit, OnDestroy {
     });
   }
 
-  selectTruck(truck: Truck): void {
+  selectTruck(truck: FleetTruck): void {
     this.selectedTruck.set(truck);
     this.trucks().forEach((t) => this.markers.get(t.id)?.setIcon(this.truckIcon(t)));
     this.map.flyTo([truck.lat, truck.lng], 18);
@@ -187,26 +193,14 @@ export class CartographyComponent implements AfterViewInit, OnDestroy {
 
   refresh(): void {
     this.isRefreshing.set(true);
+    this.fleet.refreshTrucks();
     setTimeout(() => this.isRefreshing.set(false), 700);
   }
 
   /** Le déplacement simulé reste confiné dans les bornes de l'usine. */
   private simulateMovement(): void {
     this.movementInterval = setInterval(() => {
-      const updated = this.trucks().map((t) => ({
-        ...t,
-        lat: this.clamp(t.lat + (Math.random() - 0.5) / 12000, 33.9066, 33.9118),
-        lng: this.clamp(t.lng + (Math.random() - 0.5) / 12000, -5.4995, -5.4900),
-      }));
-      this.trucks.set(updated);
-      updated.forEach((t) => this.drawOrUpdateTruckMarker(t));
-
-      const selected = this.selectedTruck();
-      if (selected) this.selectedTruck.set(updated.find((t) => t.id === selected.id) ?? null);
+      this.fleet.refreshTrucks(false);
     }, 5000);
-  }
-
-  private clamp(value: number, min: number, max: number): number {
-    return Math.min(Math.max(value, min), max);
   }
 }

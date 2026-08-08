@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1,
+    "nom": "Semlali",
+    "prenom": "Mohamed",
+    "email": "mohamed.semlali@holcim.ma",
+    "role": "RH"
+  },
+  {
+    "id": 2,
+    "nom": "Idrissi",
+    "prenom": "Omar",
+    "email": "omar.idrissi@holcim.ma",
+    "role": "RH"
+  },
+  {
+    "id": 3,
+    "nom": "Bouzid",
+    "prenom": "Khalid",
+    "email": "khalid.bouzid@holcim.ma",
+    "role": "RH"
+  },
+  {
+    "id": 4,
+    "nom": "El Amrani",
+    "prenom": "Mohamed",
+    "email": "mohamed.elamrani@holcim.ma",
+    "role": "AGENT_COMMERCIAL"
+  },
+  {
+    "id": 5,
+    "nom": "Alaoui",
+    "prenom": "Omar",
+    "email": "omar.alaoui@holcim.ma",
+    "role": "AGENT_COMMERCIAL"
+  },
+  {
+    "id": 6,
+    "nom": "Naji",
+    "prenom": "Khalid",
+    "email": "khalid.naji@holcim.ma",
+    "role": "EXPEDITION"
+  },
+  {
+    "id": 7,
+    "nom": "Chraibi",
+    "prenom": "Khalid",
+    "email": "khalid.chraibi@holcim.ma",
+    "role": "EXPEDITION"
+  },
+  {
+    "id": 8,
+    "nom": "Tazi",
+    "prenom": "Anas",
+    "email": "anas.tazi@holcim.ma",
+    "role": "PRODUCTION"
+  },
+  {
+    "id": 9,
+    "nom": "Karimi",
+    "prenom": "Fatima",
+    "email": "fatima.karimi@holcim.ma",
+    "role": "PRODUCTION"
+  },
+  {
+    "id": 10,
+    "nom": "Benali",
+    "prenom": "Amal",
+    "email": "amal.benali@holcim.ma",
+    "role": "MAINTENANCE"
+  },
+  {
+    "id": 11,
+    "nom": "Karimi",
+    "prenom": "Omar",
+    "email": "omar.karimi@holcim.ma",
+    "role": "MAINTENANCE"
+  }
+]

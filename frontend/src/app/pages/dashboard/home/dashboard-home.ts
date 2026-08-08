@@ -1,41 +1,10 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild, effect, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { finalize } from 'rxjs';
 import { Chart, ChartConfiguration, registerables } from 'chart.js';
+import { DashboardAlertRow, DashboardStats, DashboardTruckRow, FleetDataService } from '../../../core/services/fleet-data.service';
 
 Chart.register(...registerables);
-
-interface DashboardStatsResponse {
-  totalCamions: number;
-  camionsEnCours: number;
-  camionsTermines: number;
-  nombreRetards: number;
-  tempsMoyenParcoursMinutes: number;
-  pourcentageRetards: number;
-  alertesActives: number;
-  repartitionParEtat: Record<string, number>;
-}
-
-interface TruckRow {
-  immatriculation: string;
-  heureEntree: string;
-  pointControleActuel: string;
-  tempsEcouleMinutes: number;
-  statut: 'VERT' | 'ORANGE' | 'ROUGE';
-  responsable: string;
-  justification?: string;
-}
-
-interface AlertRow {
-  immatriculation: string;
-  etape: string;
-  tempsTotalMinutes: number;
-  service: string;
-  priorite: 'Haute' | 'Moyenne' | 'Basse';
-  statut: 'ACTIVE' | 'JUSTIFIEE';
-}
 
 @Component({
   selector: 'app-dashboard-home',
@@ -45,6 +14,7 @@ interface AlertRow {
   styleUrl: './dashboard-home.css'
 })
 export class DashboardHomeComponent implements AfterViewInit, OnDestroy {
+  private readonly fleet = inject(FleetDataService);
   @ViewChild('trendChart') trendChartRef?: ElementRef<HTMLCanvasElement>;
   @ViewChild('statusChart') statusChartRef?: ElementRef<HTMLCanvasElement>;
   @ViewChild('serviceChart') serviceChartRef?: ElementRef<HTMLCanvasElement>;
@@ -55,16 +25,7 @@ export class DashboardHomeComponent implements AfterViewInit, OnDestroy {
 
   loading = false;
 
-  stats: DashboardStatsResponse = {
-    totalCamions: 0,
-    camionsEnCours: 0,
-    camionsTermines: 0,
-    nombreRetards: 0,
-    tempsMoyenParcoursMinutes: 0,
-    pourcentageRetards: 0,
-    alertesActives: 0,
-    repartitionParEtat: { VERT: 0, ORANGE: 0, ROUGE: 0 }
-  };
+  stats: DashboardStats = this.fleet.stats();
 
   kpis = [
     { label: 'Total camions', value: () => this.stats.totalCamions, tone: 'blue', icon: 'fa-truck-fast' },
@@ -74,32 +35,43 @@ export class DashboardHomeComponent implements AfterViewInit, OnDestroy {
     { label: 'Alertes actives', value: () => this.stats.alertesActives, tone: 'blue', icon: 'fa-bell' }
   ];
 
-  trackers: TruckRow[] = [
-    { immatriculation: 'TRK-018', heureEntree: '08:10', pointControleActuel: 'Atelier d’expédition', tempsEcouleMinutes: 67, statut: 'ROUGE', responsable: 'Expédition', justification: 'Retard de quai' },
-    { immatriculation: 'TRK-011', heureEntree: '08:42', pointControleActuel: 'Parking', tempsEcouleMinutes: 43, statut: 'ORANGE', responsable: 'Production' },
-    { immatriculation: 'TRK-026', heureEntree: '09:05', pointControleActuel: 'Porte de sortie', tempsEcouleMinutes: 24, statut: 'VERT', responsable: 'Sécurité' },
-    { immatriculation: 'TRK-004', heureEntree: '09:12', pointControleActuel: 'Agent Commercial', tempsEcouleMinutes: 51, statut: 'ROUGE', responsable: 'Maintenance', justification: 'Intervention en cours' },
-    { immatriculation: 'TRK-031', heureEntree: '09:30', pointControleActuel: 'Porte d’entrée', tempsEcouleMinutes: 18, statut: 'VERT', responsable: 'Expédition' }
-  ];
+  trackers: DashboardTruckRow[] = this.fleet.dashboardRows();
 
-  alerts = [
-    { immatriculation: 'TRK-018', etape: 'Atelier d’expédition', tempsTotalMinutes: 67, service: 'Expédition', priorite: 'Haute', statut: 'ACTIVE' },
-    { immatriculation: 'TRK-004', etape: 'Agent Commercial', tempsTotalMinutes: 51, service: 'Maintenance', priorite: 'Haute', statut: 'ACTIVE' },
-    { immatriculation: 'TRK-011', etape: 'Parking', tempsTotalMinutes: 43, service: 'Production', priorite: 'Moyenne', statut: 'ACTIVE' }
-  ];
+  alerts: DashboardAlertRow[] = this.fleet.alerts();
 
-  notifications = [
-    'Nouveau camion arrivé à la porte d’entrée',
-    'Justification ajoutée pour TRK-004',
-    'Alerte rouge levée sur TRK-026'
-  ];
+  notifications: string[] = this.fleet.notifications();
 
   trackingFilter = '';
   statusFilter = 'Tous';
 
-  constructor(private readonly http: HttpClient) {}
+  constructor() {
+    effect(() => {
+      this.stats = this.fleet.stats();
+      this.trackers = this.fleet.dashboardRows();
+      this.alerts = this.fleet.alerts();
+      this.notifications = this.fleet.notifications();
 
-  get filteredTrackers(): TruckRow[] {
+      if (this.statusChart) {
+        this.syncStatusChart();
+      }
+
+      if (this.serviceChart) {
+        this.serviceChart.data.datasets[0].data = [
+          this.alerts.filter((alert) => alert.service === 'Production').length,
+          this.alerts.filter((alert) => alert.service === 'Maintenance').length,
+          this.alerts.filter((alert) => alert.service === 'Expédition').length
+        ];
+        this.serviceChart.update();
+      }
+
+      if (this.trendChart) {
+        this.trendChart.data.datasets[0].data = this.fleet.trucks().map((truck) => truck.time + 40);
+        this.trendChart.update();
+      }
+    });
+  }
+
+  get filteredTrackers(): DashboardTruckRow[] {
     const search = this.trackingFilter.trim().toLowerCase();
     return this.trackers.filter((truck) => {
       const matchSearch = !search || truck.immatriculation.toLowerCase().includes(search);
@@ -112,25 +84,7 @@ export class DashboardHomeComponent implements AfterViewInit, OnDestroy {
     this.trendChart = new Chart(this.trendChartRef?.nativeElement as HTMLCanvasElement, this.trendConfig());
     this.statusChart = new Chart(this.statusChartRef?.nativeElement as HTMLCanvasElement, this.statusConfig());
     this.serviceChart = new Chart(this.serviceChartRef?.nativeElement as HTMLCanvasElement, this.serviceConfig());
-    this.loadDashboardStats();
-  }
-
-  private loadDashboardStats(): void {
-    this.loading = true;
-
-    this.http.get<DashboardStatsResponse>('http://localhost:8080/api/dashboard/stats')
-      .pipe(finalize(() => {
-        this.loading = false;
-      }))
-      .subscribe({
-        next: (response) => {
-          this.stats = response;
-          this.syncStatusChart();
-        },
-        error: () => {
-          this.loading = false;
-        }
-      });
+    this.syncStatusChart();
   }
 
   ngOnDestroy(): void {

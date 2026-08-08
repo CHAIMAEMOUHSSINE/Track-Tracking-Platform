@@ -1,0 +1,1682 @@
+[
+  {
+    "id": 1,
+    "camionId": 1,
+    "immatriculation": "6514-B-12",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-20T07:35:00"
+  },
+  {
+    "id": 2,
+    "camionId": 1,
+    "immatriculation": "6514-B-12",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-20T07:38:00"
+  },
+  {
+    "id": 3,
+    "camionId": 1,
+    "immatriculation": "6514-B-12",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-20T07:41:00"
+  },
+  {
+    "id": 4,
+    "camionId": 1,
+    "immatriculation": "6514-B-12",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-20T07:43:00"
+  },
+  {
+    "id": 5,
+    "camionId": 1,
+    "immatriculation": "6514-B-12",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-20T08:12:00"
+  },
+  {
+    "id": 6,
+    "camionId": 1,
+    "immatriculation": "6514-B-12",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-20T08:15:00"
+  },
+  {
+    "id": 7,
+    "camionId": 2,
+    "immatriculation": "4814-B-49",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-19T16:10:00"
+  },
+  {
+    "id": 8,
+    "camionId": 2,
+    "immatriculation": "4814-B-49",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-19T16:11:00"
+  },
+  {
+    "id": 9,
+    "camionId": 2,
+    "immatriculation": "4814-B-49",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-19T16:14:00"
+  },
+  {
+    "id": 10,
+    "camionId": 2,
+    "immatriculation": "4814-B-49",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-19T16:17:00"
+  },
+  {
+    "id": 11,
+    "camionId": 2,
+    "immatriculation": "4814-B-49",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-19T16:25:00"
+  },
+  {
+    "id": 12,
+    "camionId": 2,
+    "immatriculation": "4814-B-49",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-19T16:28:00"
+  },
+  {
+    "id": 13,
+    "camionId": 3,
+    "immatriculation": "4598-F-99",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-22T16:31:00"
+  },
+  {
+    "id": 14,
+    "camionId": 3,
+    "immatriculation": "4598-F-99",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-22T16:34:00"
+  },
+  {
+    "id": 15,
+    "camionId": 3,
+    "immatriculation": "4598-F-99",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-22T16:39:00"
+  },
+  {
+    "id": 16,
+    "camionId": 3,
+    "immatriculation": "4598-F-99",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-22T16:41:00"
+  },
+  {
+    "id": 17,
+    "camionId": 3,
+    "immatriculation": "4598-F-99",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-22T16:47:00"
+  },
+  {
+    "id": 18,
+    "camionId": 3,
+    "immatriculation": "4598-F-99",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-22T16:49:00"
+  },
+  {
+    "id": 19,
+    "camionId": 4,
+    "immatriculation": "9830-E-96",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-17T06:55:00"
+  },
+  {
+    "id": 20,
+    "camionId": 4,
+    "immatriculation": "9830-E-96",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-17T06:58:00"
+  },
+  {
+    "id": 21,
+    "camionId": 4,
+    "immatriculation": "9830-E-96",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-17T07:42:00"
+  },
+  {
+    "id": 22,
+    "camionId": 4,
+    "immatriculation": "9830-E-96",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-17T07:44:00"
+  },
+  {
+    "id": 23,
+    "camionId": 4,
+    "immatriculation": "9830-E-96",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-17T07:52:00"
+  },
+  {
+    "id": 24,
+    "camionId": 4,
+    "immatriculation": "9830-E-96",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-17T07:55:00"
+  },
+  {
+    "id": 25,
+    "camionId": 5,
+    "immatriculation": "9669-E-71",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-21T12:10:00"
+  },
+  {
+    "id": 26,
+    "camionId": 5,
+    "immatriculation": "9669-E-71",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-21T12:13:00"
+  },
+  {
+    "id": 27,
+    "camionId": 5,
+    "immatriculation": "9669-E-71",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-21T12:20:00"
+  },
+  {
+    "id": 28,
+    "camionId": 5,
+    "immatriculation": "9669-E-71",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-21T12:23:00"
+  },
+  {
+    "id": 29,
+    "camionId": 5,
+    "immatriculation": "9669-E-71",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-21T12:33:00"
+  },
+  {
+    "id": 30,
+    "camionId": 5,
+    "immatriculation": "9669-E-71",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-21T12:35:00"
+  },
+  {
+    "id": 31,
+    "camionId": 6,
+    "immatriculation": "2743-E-82",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-19T11:31:00"
+  },
+  {
+    "id": 32,
+    "camionId": 6,
+    "immatriculation": "2743-E-82",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-19T11:33:00"
+  },
+  {
+    "id": 33,
+    "camionId": 6,
+    "immatriculation": "2743-E-82",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-19T11:36:00"
+  },
+  {
+    "id": 34,
+    "camionId": 6,
+    "immatriculation": "2743-E-82",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-19T11:38:00"
+  },
+  {
+    "id": 35,
+    "camionId": 6,
+    "immatriculation": "2743-E-82",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-19T12:21:00"
+  },
+  {
+    "id": 36,
+    "camionId": 6,
+    "immatriculation": "2743-E-82",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-19T12:23:00"
+  },
+  {
+    "id": 37,
+    "camionId": 7,
+    "immatriculation": "2133-C-17",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-18T10:25:00"
+  },
+  {
+    "id": 38,
+    "camionId": 7,
+    "immatriculation": "2133-C-17",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-18T10:28:00"
+  },
+  {
+    "id": 39,
+    "camionId": 7,
+    "immatriculation": "2133-C-17",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-18T10:32:00"
+  },
+  {
+    "id": 40,
+    "camionId": 7,
+    "immatriculation": "2133-C-17",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-18T10:35:00"
+  },
+  {
+    "id": 41,
+    "camionId": 7,
+    "immatriculation": "2133-C-17",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-18T10:45:00"
+  },
+  {
+    "id": 42,
+    "camionId": 7,
+    "immatriculation": "2133-C-17",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-18T10:48:00"
+  },
+  {
+    "id": 43,
+    "camionId": 8,
+    "immatriculation": "5061-D-9",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-23T06:55:00"
+  },
+  {
+    "id": 44,
+    "camionId": 8,
+    "immatriculation": "5061-D-9",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-23T06:58:00"
+  },
+  {
+    "id": 45,
+    "camionId": 8,
+    "immatriculation": "5061-D-9",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-23T07:01:00"
+  },
+  {
+    "id": 46,
+    "camionId": 8,
+    "immatriculation": "5061-D-9",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-23T07:04:00"
+  },
+  {
+    "id": 47,
+    "camionId": 8,
+    "immatriculation": "5061-D-9",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-23T07:13:00"
+  },
+  {
+    "id": 48,
+    "camionId": 8,
+    "immatriculation": "5061-D-9",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-23T07:15:00"
+  },
+  {
+    "id": 49,
+    "camionId": 9,
+    "immatriculation": "3167-H-32",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-20T17:03:00"
+  },
+  {
+    "id": 50,
+    "camionId": 9,
+    "immatriculation": "3167-H-32",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-20T17:06:00"
+  },
+  {
+    "id": 51,
+    "camionId": 9,
+    "immatriculation": "3167-H-32",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-20T17:08:00"
+  },
+  {
+    "id": 52,
+    "camionId": 9,
+    "immatriculation": "3167-H-32",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-20T17:10:00"
+  },
+  {
+    "id": 53,
+    "camionId": 9,
+    "immatriculation": "3167-H-32",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-20T17:18:00"
+  },
+  {
+    "id": 54,
+    "camionId": 9,
+    "immatriculation": "3167-H-32",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-20T17:21:00"
+  },
+  {
+    "id": 55,
+    "camionId": 10,
+    "immatriculation": "5073-D-25",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-17T14:06:00"
+  },
+  {
+    "id": 56,
+    "camionId": 10,
+    "immatriculation": "5073-D-25",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-17T14:07:00"
+  },
+  {
+    "id": 57,
+    "camionId": 10,
+    "immatriculation": "5073-D-25",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-17T14:35:00"
+  },
+  {
+    "id": 58,
+    "camionId": 10,
+    "immatriculation": "5073-D-25",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-17T14:38:00"
+  },
+  {
+    "id": 59,
+    "camionId": 10,
+    "immatriculation": "5073-D-25",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-17T14:47:00"
+  },
+  {
+    "id": 60,
+    "camionId": 10,
+    "immatriculation": "5073-D-25",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-17T14:50:00"
+  },
+  {
+    "id": 61,
+    "camionId": 11,
+    "immatriculation": "7570-A-22",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-22T09:18:00"
+  },
+  {
+    "id": 62,
+    "camionId": 11,
+    "immatriculation": "7570-A-22",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-22T09:21:00"
+  },
+  {
+    "id": 63,
+    "camionId": 11,
+    "immatriculation": "7570-A-22",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-22T10:05:00"
+  },
+  {
+    "id": 64,
+    "camionId": 11,
+    "immatriculation": "7570-A-22",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-22T10:07:00"
+  },
+  {
+    "id": 65,
+    "camionId": 11,
+    "immatriculation": "7570-A-22",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-22T10:14:00"
+  },
+  {
+    "id": 66,
+    "camionId": 11,
+    "immatriculation": "7570-A-22",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-22T10:16:00"
+  },
+  {
+    "id": 67,
+    "camionId": 12,
+    "immatriculation": "9320-B-24",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-19T07:26:00"
+  },
+  {
+    "id": 68,
+    "camionId": 12,
+    "immatriculation": "9320-B-24",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-19T07:29:00"
+  },
+  {
+    "id": 69,
+    "camionId": 12,
+    "immatriculation": "9320-B-24",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-19T07:35:00"
+  },
+  {
+    "id": 70,
+    "camionId": 12,
+    "immatriculation": "9320-B-24",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-19T07:38:00"
+  },
+  {
+    "id": 71,
+    "camionId": 12,
+    "immatriculation": "9320-B-24",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-19T07:44:00"
+  },
+  {
+    "id": 72,
+    "camionId": 12,
+    "immatriculation": "9320-B-24",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-19T07:46:00"
+  },
+  {
+    "id": 73,
+    "camionId": 13,
+    "immatriculation": "6147-D-34",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-23T14:13:00"
+  },
+  {
+    "id": 74,
+    "camionId": 13,
+    "immatriculation": "6147-D-34",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-23T14:14:00"
+  },
+  {
+    "id": 75,
+    "camionId": 13,
+    "immatriculation": "6147-D-34",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-23T14:18:00"
+  },
+  {
+    "id": 76,
+    "camionId": 13,
+    "immatriculation": "6147-D-34",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-23T14:20:00"
+  },
+  {
+    "id": 77,
+    "camionId": 13,
+    "immatriculation": "6147-D-34",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-23T14:25:00"
+  },
+  {
+    "id": 78,
+    "camionId": 13,
+    "immatriculation": "6147-D-34",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-23T14:28:00"
+  },
+  {
+    "id": 79,
+    "camionId": 14,
+    "immatriculation": "3584-H-70",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-21T07:56:00"
+  },
+  {
+    "id": 80,
+    "camionId": 14,
+    "immatriculation": "3584-H-70",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-21T07:58:00"
+  },
+  {
+    "id": 81,
+    "camionId": 14,
+    "immatriculation": "3584-H-70",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-21T08:41:00"
+  },
+  {
+    "id": 82,
+    "camionId": 14,
+    "immatriculation": "3584-H-70",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-21T08:43:00"
+  },
+  {
+    "id": 83,
+    "camionId": 14,
+    "immatriculation": "3584-H-70",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-21T08:50:00"
+  },
+  {
+    "id": 84,
+    "camionId": 14,
+    "immatriculation": "3584-H-70",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-21T08:52:00"
+  },
+  {
+    "id": 85,
+    "camionId": 15,
+    "immatriculation": "1832-B-82",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-18T13:35:00"
+  },
+  {
+    "id": 86,
+    "camionId": 15,
+    "immatriculation": "1832-B-82",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-18T13:38:00"
+  },
+  {
+    "id": 87,
+    "camionId": 15,
+    "immatriculation": "1832-B-82",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-18T13:40:00"
+  },
+  {
+    "id": 88,
+    "camionId": 15,
+    "immatriculation": "1832-B-82",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-18T13:42:00"
+  },
+  {
+    "id": 89,
+    "camionId": 15,
+    "immatriculation": "1832-B-82",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-18T13:45:00"
+  },
+  {
+    "id": 90,
+    "camionId": 15,
+    "immatriculation": "1832-B-82",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-18T13:47:00"
+  },
+  {
+    "id": 91,
+    "camionId": 16,
+    "immatriculation": "1590-F-75",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-18T09:42:00"
+  },
+  {
+    "id": 92,
+    "camionId": 16,
+    "immatriculation": "1590-F-75",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-18T09:45:00"
+  },
+  {
+    "id": 93,
+    "camionId": 16,
+    "immatriculation": "1590-F-75",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-18T09:52:00"
+  },
+  {
+    "id": 94,
+    "camionId": 16,
+    "immatriculation": "1590-F-75",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-18T09:54:00"
+  },
+  {
+    "id": 95,
+    "camionId": 16,
+    "immatriculation": "1590-F-75",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-18T10:24:00"
+  },
+  {
+    "id": 96,
+    "camionId": 16,
+    "immatriculation": "1590-F-75",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-18T10:26:00"
+  },
+  {
+    "id": 97,
+    "camionId": 17,
+    "immatriculation": "5065-E-21",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-21T18:55:00"
+  },
+  {
+    "id": 98,
+    "camionId": 17,
+    "immatriculation": "5065-E-21",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-21T18:58:00"
+  },
+  {
+    "id": 99,
+    "camionId": 17,
+    "immatriculation": "5065-E-21",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-21T19:33:00"
+  },
+  {
+    "id": 100,
+    "camionId": 17,
+    "immatriculation": "5065-E-21",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-21T19:36:00"
+  },
+  {
+    "id": 101,
+    "camionId": 17,
+    "immatriculation": "5065-E-21",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-21T19:42:00"
+  },
+  {
+    "id": 102,
+    "camionId": 17,
+    "immatriculation": "5065-E-21",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-21T19:44:00"
+  },
+  {
+    "id": 103,
+    "camionId": 18,
+    "immatriculation": "2889-E-23",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-19T14:07:00"
+  },
+  {
+    "id": 104,
+    "camionId": 18,
+    "immatriculation": "2889-E-23",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-19T14:10:00"
+  },
+  {
+    "id": 105,
+    "camionId": 18,
+    "immatriculation": "2889-E-23",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-19T14:13:00"
+  },
+  {
+    "id": 106,
+    "camionId": 18,
+    "immatriculation": "2889-E-23",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-19T14:16:00"
+  },
+  {
+    "id": 107,
+    "camionId": 18,
+    "immatriculation": "2889-E-23",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-19T14:18:00"
+  },
+  {
+    "id": 108,
+    "camionId": 18,
+    "immatriculation": "2889-E-23",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-19T14:21:00"
+  },
+  {
+    "id": 109,
+    "camionId": 19,
+    "immatriculation": "9518-D-47",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-18T12:20:00"
+  },
+  {
+    "id": 110,
+    "camionId": 19,
+    "immatriculation": "9518-D-47",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-18T12:22:00"
+  },
+  {
+    "id": 111,
+    "camionId": 19,
+    "immatriculation": "9518-D-47",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-18T12:28:00"
+  },
+  {
+    "id": 112,
+    "camionId": 19,
+    "immatriculation": "9518-D-47",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-18T12:30:00"
+  },
+  {
+    "id": 113,
+    "camionId": 19,
+    "immatriculation": "9518-D-47",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-18T12:35:00"
+  },
+  {
+    "id": 114,
+    "camionId": 19,
+    "immatriculation": "9518-D-47",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-18T12:38:00"
+  },
+  {
+    "id": 115,
+    "camionId": 20,
+    "immatriculation": "7211-C-79",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-20T13:28:00"
+  },
+  {
+    "id": 116,
+    "camionId": 20,
+    "immatriculation": "7211-C-79",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-20T13:31:00"
+  },
+  {
+    "id": 117,
+    "camionId": 20,
+    "immatriculation": "7211-C-79",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-20T13:36:00"
+  },
+  {
+    "id": 118,
+    "camionId": 20,
+    "immatriculation": "7211-C-79",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-20T13:38:00"
+  },
+  {
+    "id": 119,
+    "camionId": 20,
+    "immatriculation": "7211-C-79",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-20T13:41:00"
+  },
+  {
+    "id": 120,
+    "camionId": 20,
+    "immatriculation": "7211-C-79",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-20T13:44:00"
+  },
+  {
+    "id": 121,
+    "camionId": 21,
+    "immatriculation": "6491-B-97",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-19T18:04:00"
+  },
+  {
+    "id": 122,
+    "camionId": 21,
+    "immatriculation": "6491-B-97",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-19T18:07:00"
+  },
+  {
+    "id": 123,
+    "camionId": 21,
+    "immatriculation": "6491-B-97",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-19T18:13:00"
+  },
+  {
+    "id": 124,
+    "camionId": 21,
+    "immatriculation": "6491-B-97",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-19T18:15:00"
+  },
+  {
+    "id": 125,
+    "camionId": 21,
+    "immatriculation": "6491-B-97",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-19T18:23:00"
+  },
+  {
+    "id": 126,
+    "camionId": 21,
+    "immatriculation": "6491-B-97",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-19T18:26:00"
+  },
+  {
+    "id": 127,
+    "camionId": 22,
+    "immatriculation": "4997-C-84",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-23T14:15:00"
+  },
+  {
+    "id": 128,
+    "camionId": 22,
+    "immatriculation": "4997-C-84",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-23T14:16:00"
+  },
+  {
+    "id": 129,
+    "camionId": 22,
+    "immatriculation": "4997-C-84",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-23T14:21:00"
+  },
+  {
+    "id": 130,
+    "camionId": 22,
+    "immatriculation": "4997-C-84",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-23T14:23:00"
+  },
+  {
+    "id": 131,
+    "camionId": 22,
+    "immatriculation": "4997-C-84",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-23T14:32:00"
+  },
+  {
+    "id": 132,
+    "camionId": 22,
+    "immatriculation": "4997-C-84",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-23T14:35:00"
+  },
+  {
+    "id": 133,
+    "camionId": 23,
+    "immatriculation": "9270-G-71",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-18T09:17:00"
+  },
+  {
+    "id": 134,
+    "camionId": 23,
+    "immatriculation": "9270-G-71",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-18T09:20:00"
+  },
+  {
+    "id": 135,
+    "camionId": 23,
+    "immatriculation": "9270-G-71",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-18T09:24:00"
+  },
+  {
+    "id": 136,
+    "camionId": 23,
+    "immatriculation": "9270-G-71",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-18T09:26:00"
+  },
+  {
+    "id": 137,
+    "camionId": 23,
+    "immatriculation": "9270-G-71",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-18T09:32:00"
+  },
+  {
+    "id": 138,
+    "camionId": 23,
+    "immatriculation": "9270-G-71",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-18T09:35:00"
+  },
+  {
+    "id": 139,
+    "camionId": 24,
+    "immatriculation": "9849-B-18",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-20T06:13:00"
+  },
+  {
+    "id": 140,
+    "camionId": 24,
+    "immatriculation": "9849-B-18",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-20T06:15:00"
+  },
+  {
+    "id": 141,
+    "camionId": 24,
+    "immatriculation": "9849-B-18",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-20T06:21:00"
+  },
+  {
+    "id": 142,
+    "camionId": 24,
+    "immatriculation": "9849-B-18",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-20T06:23:00"
+  },
+  {
+    "id": 143,
+    "camionId": 24,
+    "immatriculation": "9849-B-18",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-20T06:31:00"
+  },
+  {
+    "id": 144,
+    "camionId": 24,
+    "immatriculation": "9849-B-18",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-20T06:34:00"
+  },
+  {
+    "id": 145,
+    "camionId": 25,
+    "immatriculation": "6763-E-97",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-20T09:17:00"
+  },
+  {
+    "id": 146,
+    "camionId": 25,
+    "immatriculation": "6763-E-97",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-20T09:18:00"
+  },
+  {
+    "id": 147,
+    "camionId": 25,
+    "immatriculation": "6763-E-97",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-20T09:23:00"
+  },
+  {
+    "id": 148,
+    "camionId": 25,
+    "immatriculation": "6763-E-97",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-20T09:26:00"
+  },
+  {
+    "id": 149,
+    "camionId": 25,
+    "immatriculation": "6763-E-97",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-20T09:34:00"
+  },
+  {
+    "id": 150,
+    "camionId": 25,
+    "immatriculation": "6763-E-97",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-20T09:36:00"
+  },
+  {
+    "id": 151,
+    "camionId": 26,
+    "immatriculation": "3091-A-51",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-23T10:24:00"
+  },
+  {
+    "id": 152,
+    "camionId": 26,
+    "immatriculation": "3091-A-51",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-23T10:26:00"
+  },
+  {
+    "id": 153,
+    "camionId": 26,
+    "immatriculation": "3091-A-51",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-23T10:30:00"
+  },
+  {
+    "id": 154,
+    "camionId": 26,
+    "immatriculation": "3091-A-51",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-23T10:33:00"
+  },
+  {
+    "id": 155,
+    "camionId": 26,
+    "immatriculation": "3091-A-51",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-23T10:41:00"
+  },
+  {
+    "id": 156,
+    "camionId": 26,
+    "immatriculation": "3091-A-51",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-23T10:44:00"
+  },
+  {
+    "id": 157,
+    "camionId": 27,
+    "immatriculation": "5133-B-61",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-22T09:53:00"
+  },
+  {
+    "id": 158,
+    "camionId": 27,
+    "immatriculation": "5133-B-61",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-22T09:54:00"
+  },
+  {
+    "id": 159,
+    "camionId": 27,
+    "immatriculation": "5133-B-61",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-22T10:32:00"
+  },
+  {
+    "id": 160,
+    "camionId": 27,
+    "immatriculation": "5133-B-61",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-22T10:34:00"
+  },
+  {
+    "id": 161,
+    "camionId": 27,
+    "immatriculation": "5133-B-61",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-22T10:39:00"
+  },
+  {
+    "id": 162,
+    "camionId": 27,
+    "immatriculation": "5133-B-61",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-22T10:42:00"
+  },
+  {
+    "id": 163,
+    "camionId": 28,
+    "immatriculation": "3683-E-14",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-19T17:53:00"
+  },
+  {
+    "id": 164,
+    "camionId": 28,
+    "immatriculation": "3683-E-14",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-19T17:54:00"
+  },
+  {
+    "id": 165,
+    "camionId": 28,
+    "immatriculation": "3683-E-14",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-19T18:01:00"
+  },
+  {
+    "id": 166,
+    "camionId": 28,
+    "immatriculation": "3683-E-14",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-19T18:04:00"
+  },
+  {
+    "id": 167,
+    "camionId": 28,
+    "immatriculation": "3683-E-14",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-19T18:07:00"
+  },
+  {
+    "id": 168,
+    "camionId": 28,
+    "immatriculation": "3683-E-14",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-19T18:09:00"
+  },
+  {
+    "id": 169,
+    "camionId": 29,
+    "immatriculation": "9728-G-85",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-18T13:45:00"
+  },
+  {
+    "id": 170,
+    "camionId": 29,
+    "immatriculation": "9728-G-85",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-18T13:48:00"
+  },
+  {
+    "id": 171,
+    "camionId": 29,
+    "immatriculation": "9728-G-85",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-18T14:34:00"
+  },
+  {
+    "id": 172,
+    "camionId": 29,
+    "immatriculation": "9728-G-85",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-18T14:37:00"
+  },
+  {
+    "id": 173,
+    "camionId": 29,
+    "immatriculation": "9728-G-85",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-18T14:47:00"
+  },
+  {
+    "id": 174,
+    "camionId": 29,
+    "immatriculation": "9728-G-85",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-18T14:50:00"
+  },
+  {
+    "id": 175,
+    "camionId": 30,
+    "immatriculation": "5022-B-36",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-17T11:11:00"
+  },
+  {
+    "id": 176,
+    "camionId": 30,
+    "immatriculation": "5022-B-36",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-17T11:13:00"
+  },
+  {
+    "id": 177,
+    "camionId": 30,
+    "immatriculation": "5022-B-36",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-17T11:17:00"
+  },
+  {
+    "id": 178,
+    "camionId": 30,
+    "immatriculation": "5022-B-36",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-17T11:20:00"
+  },
+  {
+    "id": 179,
+    "camionId": 30,
+    "immatriculation": "5022-B-36",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-17T11:26:00"
+  },
+  {
+    "id": 180,
+    "camionId": 30,
+    "immatriculation": "5022-B-36",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-17T11:29:00"
+  },
+  {
+    "id": 181,
+    "camionId": 31,
+    "immatriculation": "1166-D-11",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-17T06:05:00"
+  },
+  {
+    "id": 182,
+    "camionId": 31,
+    "immatriculation": "1166-D-11",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-17T06:08:00"
+  },
+  {
+    "id": 183,
+    "camionId": 31,
+    "immatriculation": "1166-D-11",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-17T06:11:00"
+  },
+  {
+    "id": 184,
+    "camionId": 31,
+    "immatriculation": "1166-D-11",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-17T06:14:00"
+  },
+  {
+    "id": 185,
+    "camionId": 31,
+    "immatriculation": "1166-D-11",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-17T06:56:00"
+  },
+  {
+    "id": 186,
+    "camionId": 31,
+    "immatriculation": "1166-D-11",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-17T06:59:00"
+  },
+  {
+    "id": 187,
+    "camionId": 32,
+    "immatriculation": "6419-F-90",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-22T09:47:00"
+  },
+  {
+    "id": 188,
+    "camionId": 32,
+    "immatriculation": "6419-F-90",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-22T09:50:00"
+  },
+  {
+    "id": 189,
+    "camionId": 32,
+    "immatriculation": "6419-F-90",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-22T09:56:00"
+  },
+  {
+    "id": 190,
+    "camionId": 32,
+    "immatriculation": "6419-F-90",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-22T09:59:00"
+  },
+  {
+    "id": 191,
+    "camionId": 32,
+    "immatriculation": "6419-F-90",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-22T10:02:00"
+  },
+  {
+    "id": 192,
+    "camionId": 32,
+    "immatriculation": "6419-F-90",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-22T10:04:00"
+  },
+  {
+    "id": 193,
+    "camionId": 33,
+    "immatriculation": "4727-F-23",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-18T18:31:00"
+  },
+  {
+    "id": 194,
+    "camionId": 33,
+    "immatriculation": "4727-F-23",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-18T18:34:00"
+  },
+  {
+    "id": 195,
+    "camionId": 33,
+    "immatriculation": "4727-F-23",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-18T19:13:00"
+  },
+  {
+    "id": 196,
+    "camionId": 33,
+    "immatriculation": "4727-F-23",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-18T19:16:00"
+  },
+  {
+    "id": 197,
+    "camionId": 33,
+    "immatriculation": "4727-F-23",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-18T19:25:00"
+  },
+  {
+    "id": 198,
+    "camionId": 33,
+    "immatriculation": "4727-F-23",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-18T19:28:00"
+  },
+  {
+    "id": 199,
+    "camionId": 34,
+    "immatriculation": "5136-H-15",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-23T09:07:00"
+  },
+  {
+    "id": 200,
+    "camionId": 34,
+    "immatriculation": "5136-H-15",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-23T09:09:00"
+  },
+  {
+    "id": 201,
+    "camionId": 34,
+    "immatriculation": "5136-H-15",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-23T09:15:00"
+  },
+  {
+    "id": 202,
+    "camionId": 34,
+    "immatriculation": "5136-H-15",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-23T09:17:00"
+  },
+  {
+    "id": 203,
+    "camionId": 34,
+    "immatriculation": "5136-H-15",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-23T09:27:00"
+  },
+  {
+    "id": 204,
+    "camionId": 34,
+    "immatriculation": "5136-H-15",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-23T09:30:00"
+  },
+  {
+    "id": 205,
+    "camionId": 35,
+    "immatriculation": "8253-E-76",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-21T16:05:00"
+  },
+  {
+    "id": 206,
+    "camionId": 35,
+    "immatriculation": "8253-E-76",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-21T16:08:00"
+  },
+  {
+    "id": 207,
+    "camionId": 35,
+    "immatriculation": "8253-E-76",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-21T16:35:00"
+  },
+  {
+    "id": 208,
+    "camionId": 35,
+    "immatriculation": "8253-E-76",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-21T16:37:00"
+  },
+  {
+    "id": 209,
+    "camionId": 35,
+    "immatriculation": "8253-E-76",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-21T16:45:00"
+  },
+  {
+    "id": 210,
+    "camionId": 35,
+    "immatriculation": "8253-E-76",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-21T16:48:00"
+  },
+  {
+    "id": 211,
+    "camionId": 36,
+    "immatriculation": "5632-H-10",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-23T14:14:00"
+  },
+  {
+    "id": 212,
+    "camionId": 36,
+    "immatriculation": "5632-H-10",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-23T14:16:00"
+  },
+  {
+    "id": 213,
+    "camionId": 36,
+    "immatriculation": "5632-H-10",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-23T14:19:00"
+  },
+  {
+    "id": 214,
+    "camionId": 36,
+    "immatriculation": "5632-H-10",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-23T14:21:00"
+  },
+  {
+    "id": 215,
+    "camionId": 36,
+    "immatriculation": "5632-H-10",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-23T14:23:00"
+  },
+  {
+    "id": 216,
+    "camionId": 36,
+    "immatriculation": "5632-H-10",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-23T14:25:00"
+  },
+  {
+    "id": 217,
+    "camionId": 37,
+    "immatriculation": "5728-H-16",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-20T17:20:00"
+  },
+  {
+    "id": 218,
+    "camionId": 37,
+    "immatriculation": "5728-H-16",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-20T17:21:00"
+  },
+  {
+    "id": 219,
+    "camionId": 37,
+    "immatriculation": "5728-H-16",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-20T17:23:00"
+  },
+  {
+    "id": 220,
+    "camionId": 37,
+    "immatriculation": "5728-H-16",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-20T17:25:00"
+  },
+  {
+    "id": 221,
+    "camionId": 37,
+    "immatriculation": "5728-H-16",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-20T17:27:00"
+  },
+  {
+    "id": 222,
+    "camionId": 37,
+    "immatriculation": "5728-H-16",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-20T17:30:00"
+  },
+  {
+    "id": 223,
+    "camionId": 38,
+    "immatriculation": "1659-C-61",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-20T11:26:00"
+  },
+  {
+    "id": 224,
+    "camionId": 38,
+    "immatriculation": "1659-C-61",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-20T11:29:00"
+  },
+  {
+    "id": 225,
+    "camionId": 38,
+    "immatriculation": "1659-C-61",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-20T11:31:00"
+  },
+  {
+    "id": 226,
+    "camionId": 38,
+    "immatriculation": "1659-C-61",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-20T11:33:00"
+  },
+  {
+    "id": 227,
+    "camionId": 38,
+    "immatriculation": "1659-C-61",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-20T11:40:00"
+  },
+  {
+    "id": 228,
+    "camionId": 38,
+    "immatriculation": "1659-C-61",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-20T11:43:00"
+  },
+  {
+    "id": 229,
+    "camionId": 39,
+    "immatriculation": "9117-E-85",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-17T14:52:00"
+  },
+  {
+    "id": 230,
+    "camionId": 39,
+    "immatriculation": "9117-E-85",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-17T14:55:00"
+  },
+  {
+    "id": 231,
+    "camionId": 39,
+    "immatriculation": "9117-E-85",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-17T15:01:00"
+  },
+  {
+    "id": 232,
+    "camionId": 39,
+    "immatriculation": "9117-E-85",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-17T15:04:00"
+  },
+  {
+    "id": 233,
+    "camionId": 39,
+    "immatriculation": "9117-E-85",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-17T15:12:00"
+  },
+  {
+    "id": 234,
+    "camionId": 39,
+    "immatriculation": "9117-E-85",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-17T15:14:00"
+  },
+  {
+    "id": 235,
+    "camionId": 40,
+    "immatriculation": "9494-F-80",
+    "pointControle": "PORTE_ENTREE",
+    "dateHeure": "2026-07-18T13:07:00"
+  },
+  {
+    "id": 236,
+    "camionId": 40,
+    "immatriculation": "9494-F-80",
+    "pointControle": "PARKING",
+    "dateHeure": "2026-07-18T13:10:00"
+  },
+  {
+    "id": 237,
+    "camionId": 40,
+    "immatriculation": "9494-F-80",
+    "pointControle": "AGENT_COMMERCIAL_ENTREE",
+    "dateHeure": "2026-07-18T13:42:00"
+  },
+  {
+    "id": 238,
+    "camionId": 40,
+    "immatriculation": "9494-F-80",
+    "pointControle": "EXPEDITION",
+    "dateHeure": "2026-07-18T13:44:00"
+  },
+  {
+    "id": 239,
+    "camionId": 40,
+    "immatriculation": "9494-F-80",
+    "pointControle": "AGENT_COMMERCIAL_SORTIE",
+    "dateHeure": "2026-07-18T13:54:00"
+  },
+  {
+    "id": 240,
+    "camionId": 40,
+    "immatriculation": "9494-F-80",
+    "pointControle": "PORTE_SORTIE",
+    "dateHeure": "2026-07-18T13:57:00"
+  }
+]
