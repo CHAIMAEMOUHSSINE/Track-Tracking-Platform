@@ -297,7 +297,8 @@ export class ProductionComponent{
 
     this.fleet.publishActivity(
       'Production',
-      `${this.demande.produit} x ${this.demande.quantite} - ${this.demande.priorite}`
+      `${this.demande.produit} x ${this.demande.quantite} - ${this.demande.priorite}`,
+      '/dashboard/production'
     );
 
     this.demande={
@@ -322,7 +323,7 @@ export class ProductionComponent{
 
   refresh(){
 
-    this.fleet.publishActivity('Production', 'Actualisation de la page production');
+    this.fleet.publishActivity('Production', 'Actualisation de la page production', '/dashboard/production');
 
   }
 

@@ -9,9 +9,10 @@ body {
 	margin: 0;
 	background:
 	  radial-gradient(circle at top left, rgba(0, 87, 214, 0.12), transparent 32%),
-	  linear-gradient(180deg, #eef3fb 0%, #f7f9fc 48%, #eef2f7 100%);
+	  var(--tt-bg);
 	color: #0b1a33;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	overflow-x: hidden;
 }
 
 * {
@@ -34,6 +35,235 @@ app-root {
 	min-height: 100%;
 }
 
+:root {
+	--tt-page-pad: 20px;
+	--tt-card-pad: 16px;
+	--tt-section-gap: 16px;
+	--tt-radius: 16px;
+	--tt-shadow: 0 10px 24px rgba(15, 29, 51, 0.07);
+	--tt-text-muted: #60708a;
+	--tt-text-strong: #0b1a33;
+}
+
+app-dashboard,
+app-cartography,
+app-production,
+app-maintenance,
+app-expedition {
+	display: block;
+	min-height: 100vh;
+}
+
+app-dashboard .content {
+	padding: var(--tt-page-pad) !important;
+}
+
+app-dashboard .hero-panel,
+app-cartography .header-card,
+app-production .header,
+app-maintenance .header,
+app-expedition .header {
+	padding: 18px 20px !important;
+	border-radius: var(--tt-radius) !important;
+	box-shadow: var(--tt-shadow) !important;
+}
+
+app-dashboard .hero-panel h2,
+app-cartography .header-card h2,
+app-production .header h2,
+app-maintenance .header h2,
+app-expedition .header h2 {
+	font-size: 26px !important;
+}
+
+app-dashboard .hero-panel p,
+app-cartography .header-card p,
+app-production .header p,
+app-maintenance .header p,
+app-expedition .header p {
+	font-size: 13px !important;
+}
+
+app-dashboard .stats-grid,
+app-cartography .kpi-grid,
+app-production .kpi-container,
+app-maintenance .kpi-container {
+	gap: 14px !important;
+}
+
+app-dashboard .stats-grid {
+	grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+}
+
+app-dashboard .stat-card,
+app-cartography .kpi-card,
+app-production .kpi,
+app-maintenance .kpi {
+	padding: 14px 16px !important;
+	min-height: 110px !important;
+	border-radius: 16px !important;
+	box-shadow: var(--tt-shadow) !important;
+}
+
+app-dashboard .stat-icon,
+app-cartography .kpi-card i,
+app-production .kpi i,
+app-maintenance .kpi i {
+	width: 44px !important;
+	height: 44px !important;
+	font-size: 18px !important;
+}
+
+app-dashboard .stat-card h3,
+app-cartography .kpi-card h3,
+app-production .kpi h3,
+app-maintenance .kpi h3 {
+	font-size: 24px !important;
+}
+
+app-dashboard .charts-grid,
+app-dashboard .dashboard-grid,
+app-production .content,
+app-maintenance .content,
+app-expedition .content {
+	gap: 16px !important;
+}
+
+app-dashboard .panel,
+app-cartography .map-card,
+app-cartography .legend-card,
+app-cartography .truck-details,
+app-cartography .table-card,
+app-production .card,
+app-production .table-card,
+app-maintenance .card,
+app-maintenance .table-card,
+app-expedition .card,
+app-expedition .table-card {
+	padding: 16px !important;
+	border-radius: 16px !important;
+	box-shadow: var(--tt-shadow) !important;
+}
+
+app-dashboard .chart-wrap {
+	height: 290px !important;
+}
+
+app-dashboard .donut-wrap {
+	height: 300px !important;
+}
+
+app-cartography #map {
+	height: 580px !important;
+}
+
+app-cartography table,
+app-production table,
+app-maintenance table,
+app-expedition table {
+	min-width: 760px !important;
+	font-size: 12.5px !important;
+}
+
+app-cartography th,
+app-cartography td,
+app-production th,
+app-production td,
+app-maintenance th,
+app-maintenance td,
+app-expedition th,
+app-expedition td {
+	padding: 10px 12px !important;
+}
+
+app-production .right-panel,
+app-maintenance .right-panel,
+app-expedition .right-panel {
+	gap: 14px !important;
+}
+
+@media (max-width: 1200px) {
+	app-dashboard .stats-grid,
+	app-cartography .kpi-grid,
+	app-production .kpi-container,
+	app-maintenance .kpi-container {
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+	}
+
+	app-dashboard .charts-grid,
+	app-dashboard .dashboard-grid,
+	app-production .content,
+	app-maintenance .content,
+	app-expedition .content {
+		grid-template-columns: 1fr !important;
+	}
+}
+
+@media (max-width: 900px) {
+	app-dashboard .content,
+	app-cartography .cartography-page,
+	app-production .production-page,
+	app-maintenance .maintenance-page,
+	app-expedition .expedition-page {
+		padding: 16px !important;
+	}
+
+	app-dashboard .stats-grid,
+	app-cartography .kpi-grid,
+	app-production .kpi-container,
+	app-maintenance .kpi-container {
+		grid-template-columns: 1fr !important;
+	}
+
+	app-cartography #map {
+		height: 480px !important;
+	}
+}
+
+@media (max-width: 650px) {
+	app-dashboard .content,
+	app-cartography .cartography-page,
+	app-production .production-page,
+	app-maintenance .maintenance-page,
+	app-expedition .expedition-page {
+		padding: 12px !important;
+	}
+
+	app-dashboard .hero-panel h2,
+	app-cartography .header-card h2,
+	app-production .header h2,
+	app-maintenance .header h2,
+	app-expedition .header h2 {
+		font-size: 24px !important;
+	}
+
+	app-cartography #map {
+		height: 430px !important;
+	}
+}
+
+ :root {
+	--tt-bg: linear-gradient(180deg, #eef3fb 0%, #f7f9fc 48%, #eef2f7 100%);
+	--tt-surface: rgba(255, 255, 255, 0.9);
+	--tt-surface-strong: rgba(255, 255, 255, 0.98);
+	--tt-surface-dark: linear-gradient(145deg, rgba(9, 21, 46, 0.98), rgba(15, 29, 51, 0.92));
+	--tt-border: rgba(8, 17, 31, 0.08);
+	--tt-border-strong: rgba(8, 17, 31, 0.12);
+	--tt-shadow: 0 10px 24px rgba(15, 29, 51, 0.07);
+	--tt-shadow-lg: 0 18px 40px rgba(15, 29, 51, 0.08);
+	--tt-radius: 16px;
+	--tt-radius-sm: 12px;
+	--tt-gap: 16px;
+	--tt-gap-lg: 20px;
+	--tt-page-pad: 20px;
+	--tt-card-pad: 16px;
+	--tt-table-pad: 12px;
+	--tt-header-pad: 20px;
+	--tt-section-gap: 16px;
+	--tt-text-muted: #60708a;
+	--tt-text-strong: #0b1a33;
+}
+
 .truck-marker-shell {
 	background: transparent !important;
 	border: 0 !important;
@@ -50,6 +280,950 @@ app-root {
 	border: 2px solid rgba(255, 255, 255, 0.9);
 }
 
+app-dashboard,
+app-cartography,
+app-production,
+app-maintenance,
+app-expedition {
+	display: block;
+	min-height: 100vh;
+	background: transparent;
+}
+
+app-dashboard .dashboard-shell {
+	min-height: 100vh;
+	background:
+	  radial-gradient(circle at top left, rgba(0, 59, 142, 0.18), transparent 32%),
+	  linear-gradient(180deg, #08111f 0%, #0b1527 100%);
+}
+
+app-dashboard .dashboard-body {
+	display: flex;
+	align-items: stretch;
+}
+
+app-dashboard .content {
+	flex: 1;
+	padding: var(--tt-page-pad);
+	background: linear-gradient(180deg, rgba(245, 248, 255, 0.98), rgba(238, 243, 250, 0.98));
+	min-height: calc(100vh - 92px);
+	overflow-x: auto;
+}
+
+app-cartography .cartography-page,
+app-production .production-page,
+app-maintenance .maintenance-page,
+app-expedition .expedition-page,
+app-dashboard .dashboard-home,
+app-dashboard-home {
+	padding: var(--tt-page-pad);
+	background: transparent;
+	min-height: calc(100vh - 92px);
+	display: block;
+}
+
+app-cartography .cartography-page,
+app-production .production-page,
+app-maintenance .maintenance-page,
+app-expedition .expedition-page {
+	display: flex;
+	flex-direction: column;
+	gap: var(--tt-section-gap);
+}
+
+app-cartography .header-card,
+app-production .header,
+app-maintenance .header,
+app-expedition .header,
+app-dashboard .hero-panel,
+.panel,
+.card,
+.chart-card,
+.table-card,
+.map-card,
+.legend-card,
+.kpi,
+.kpi-card,
+.stat-card,
+.info-card {
+	border-radius: var(--tt-radius);
+	box-shadow: var(--tt-shadow);
+}
+
+app-dashboard .hero-panel,
+app-dashboard .panel,
+app-dashboard .stat-card,
+.panel,
+.card,
+.table-card,
+.chart-card,
+.map-card,
+.legend-card,
+.kpi,
+.kpi-card,
+.stat-card,
+.info-card {
+	border: 1px solid var(--tt-border);
+	background: var(--tt-surface);
+}
+
+app-dashboard .hero-panel,
+app-production .header,
+app-maintenance .header,
+app-expedition .header,
+app-cartography .header-card {
+	padding: 20px 22px;
+	gap: 16px;
+}
+
+app-dashboard .hero-panel h2,
+app-cartography .header-card h2,
+app-production .header h2,
+app-maintenance .header h2,
+app-expedition .header h2 {
+	font-size: 26px;
+	line-height: 1.15;
+}
+
+app-dashboard .hero-panel p,
+app-cartography .header-card p,
+app-production .header p,
+app-maintenance .header p,
+app-expedition .header p {
+	font-size: 13px;
+	line-height: 1.45;
+	margin-bottom: 0;
+}
+
+app-dashboard .stats-grid,
+app-cartography .kpi-grid,
+app-production .kpi-container,
+app-maintenance .kpi-container {
+	gap: 14px;
+}
+
+app-dashboard .stats-grid {
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+app-dashboard .stat-card,
+app-cartography .kpi-card,
+app-production .kpi,
+app-maintenance .kpi {
+	min-height: 108px;
+	padding: 14px 16px;
+	gap: 14px;
+}
+
+app-dashboard .stat-icon,
+app-cartography .kpi-card i,
+app-production .kpi i,
+app-maintenance .kpi i {
+	width: 44px;
+	height: 44px;
+	font-size: 18px;
+	border-radius: 14px;
+}
+
+app-dashboard .stat-card h3,
+app-cartography .kpi-card h3,
+app-production .kpi h3,
+app-maintenance .kpi h3 {
+	font-size: 24px;
+	margin-top: 4px;
+}
+
+app-dashboard .stat-card p,
+app-dashboard .stat-card span,
+app-cartography .kpi-card span,
+app-production .kpi span,
+app-maintenance .kpi span {
+	font-size: 12px;
+}
+
+app-dashboard .charts-grid,
+app-dashboard .dashboard-grid,
+app-cartography .legend-card,
+app-cartography .details-grid,
+app-production .content,
+app-maintenance .content,
+app-expedition .content {
+	gap: var(--tt-section-gap);
+}
+
+app-dashboard .panel,
+app-cartography .header-card,
+app-cartography .legend-card,
+app-cartography .map-card,
+app-cartography .truck-details,
+app-cartography .table-card,
+app-production .table-card,
+app-production .card,
+app-maintenance .table-card,
+app-maintenance .card,
+app-expedition .table-card,
+app-expedition .card {
+	padding: var(--tt-card-pad);
+}
+
+app-dashboard .panel-header,
+app-cartography .table-header,
+app-production .table-header,
+app-maintenance .table-header,
+app-expedition .table-header {
+	margin-bottom: 14px;
+}
+
+app-dashboard .chart-wrap {
+	height: 300px;
+}
+
+app-dashboard .donut-wrap {
+	height: 320px;
+}
+
+app-cartography #map {
+	height: 560px;
+}
+
+app-cartography .table-card,
+app-production .table-card,
+app-maintenance .table-card,
+app-expedition .table-card {
+	overflow-x: auto;
+}
+
+app-cartography table,
+app-production table,
+app-maintenance table,
+app-expedition table {
+	min-width: 780px;
+	font-size: 12.5px;
+}
+
+app-cartography th,
+app-production th,
+app-maintenance th,
+app-expedition th,
+app-cartography td,
+app-production td,
+app-maintenance td,
+app-expedition td {
+	padding: 10px 12px;
+}
+
+app-cartography .table-header input,
+app-production .table-header input,
+app-maintenance .table-header input,
+app-expedition .table-header input,
+app-dashboard .tracking-tools input,
+app-dashboard .tracking-tools select {
+	padding: 10px 12px;
+	border-radius: 12px;
+}
+
+app-production .right-panel,
+app-maintenance .right-panel,
+app-expedition .right-panel {
+	gap: 14px;
+}
+
+app-production .card,
+app-maintenance .card,
+app-expedition .card,
+app-dashboard .panel,
+app-cartography .header-card,
+app-cartography .legend-card,
+app-cartography .truck-details,
+app-cartography .map-card {
+	box-shadow: var(--tt-shadow);
+}
+
+app-cartography .legend-card {
+	padding: 14px 16px;
+}
+
+app-cartography .truck-details .details-grid {
+	gap: 14px;
+}
+
+app-cartography .details-grid label {
+	font-size: 11px;
+}
+
+app-cartography .details-grid strong {
+	font-size: 14px;
+}
+
+app-production .refresh,
+app-maintenance .refresh,
+app-expedition .refresh,
+app-cartography .refresh-btn,
+app-dashboard .focus-btn,
+app-production .save,
+app-maintenance .save {
+	height: 42px;
+	padding: 10px 16px;
+	border-radius: 12px;
+}
+
+app-dashboard .notification-list,
+app-dashboard .alert-list,
+app-production .alert,
+app-maintenance .incident,
+app-maintenance .tech,
+app-expedition .alert {
+	gap: 12px;
+}
+
+app-dashboard .fleet-row,
+app-dashboard .notification-item,
+app-dashboard .alert-item,
+app-production .alert,
+app-maintenance .incident,
+app-maintenance .tech,
+app-expedition .alert {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+@media (max-width: 1200px) {
+	app-dashboard .stats-grid,
+	app-cartography .kpi-grid,
+	app-production .kpi-container,
+	app-maintenance .kpi-container {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	app-dashboard .charts-grid,
+	app-dashboard .dashboard-grid,
+	app-production .content,
+	app-maintenance .content,
+	app-expedition .content {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 900px) {
+	app-dashboard .content,
+	app-cartography .cartography-page,
+	app-production .production-page,
+	app-maintenance .maintenance-page,
+	app-expedition .expedition-page {
+		padding: 16px;
+	}
+
+	app-dashboard .hero-panel,
+	app-cartography .header-card,
+	app-production .header,
+	app-maintenance .header,
+	app-expedition .header {
+		padding: 18px;
+	}
+
+	app-dashboard .stats-grid,
+	app-cartography .kpi-grid,
+	app-production .kpi-container,
+	app-maintenance .kpi-container {
+		grid-template-columns: 1fr;
+	}
+
+	app-cartography #map {
+		height: 480px;
+	}
+
+	app-dashboard .chart-wrap,
+	app-dashboard .donut-wrap {
+		height: 260px;
+	}
+}
+
+@media (max-width: 650px) {
+	app-dashboard .content,
+	app-cartography .cartography-page,
+	app-production .production-page,
+	app-maintenance .maintenance-page,
+	app-expedition .expedition-page {
+		padding: 12px;
+	}
+
+	app-dashboard .hero-panel h2,
+	app-cartography .header-card h2,
+	app-production .header h2,
+	app-maintenance .header h2,
+	app-expedition .header h2 {
+		font-size: 24px;
+	}
+
+	app-cartography #map {
+		height: 430px;
+	}
+}
+
 .truck-marker i {
 	font-size: 0.8rem;
+}
+/* =========================================================
+   DASHBOARD - PROFESSIONAL COMPACT LAYOUT
+   ========================================================= */
+
+app-dashboard .content {
+  width: 100%;
+  padding: 14px 18px !important;
+  overflow-x: hidden;
+}
+
+/* Main dashboard */
+app-dashboard .dashboard-home {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 !important;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+app-dashboard .hero-panel {
+  width: 100%;
+  min-height: 120px;
+  padding: 18px 22px !important;
+  margin-bottom: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  border-radius: 14px !important;
+  border: 1px solid var(--tt-border);
+  background: var(--tt-surface);
+  box-shadow: var(--tt-shadow) !important;
+}
+
+app-dashboard .hero-panel h2 {
+  margin: 3px 0 6px;
+  font-size: 22px !important;
+  line-height: 1.2;
+}
+
+app-dashboard .hero-panel p {
+  margin: 0;
+  font-size: 12px !important;
+  line-height: 1.4;
+}
+
+app-dashboard .hero-metrics {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-shrink: 0;
+}
+
+app-dashboard .hero-metrics div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+app-dashboard .hero-metrics span {
+  font-size: 10px;
+  color: var(--tt-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+app-dashboard .hero-metrics strong {
+  font-size: 14px;
+  color: var(--tt-text-strong);
+}
+
+
+/* =========================================================
+   KPI CARDS
+   ========================================================= */
+
+app-dashboard .stats-grid {
+  width: 100%;
+  display: grid !important;
+
+  /* 5 cards on ONE line */
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+
+  gap: 12px !important;
+  margin-bottom: 14px;
+}
+
+app-dashboard .stat-card {
+  min-width: 0;
+  min-height: 88px !important;
+
+  padding: 12px 14px !important;
+
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  border-radius: 12px !important;
+  border: 1px solid var(--tt-border);
+  background: var(--tt-surface);
+  box-shadow: var(--tt-shadow) !important;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+app-dashboard .stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--tt-shadow-lg) !important;
+}
+
+app-dashboard .stat-icon {
+  width: 38px !important;
+  height: 38px !important;
+
+  min-width: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 10px !important;
+  font-size: 15px !important;
+}
+
+app-dashboard .stat-card p {
+  margin: 0 0 2px;
+  font-size: 10px !important;
+  color: var(--tt-text-muted);
+  white-space: nowrap;
+}
+
+app-dashboard .stat-card h3 {
+  margin: 0 0 2px;
+  font-size: 21px !important;
+  line-height: 1.1;
+}
+
+app-dashboard .stat-card span {
+  font-size: 9px !important;
+  color: var(--tt-text-muted);
+}
+
+
+/* =========================================================
+   CHARTS
+   ========================================================= */
+
+app-dashboard .charts-grid {
+  width: 100%;
+
+  display: grid !important;
+
+  /* 3 charts NEXT TO EACH OTHER */
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr)) !important;
+
+  gap: 12px !important;
+
+  margin-bottom: 14px;
+}
+
+app-dashboard .chart-panel {
+  min-width: 0;
+  width: 100%;
+
+  padding: 14px !important;
+
+  border-radius: 12px !important;
+  border: 1px solid var(--tt-border);
+  background: var(--tt-surface);
+  box-shadow: var(--tt-shadow) !important;
+}
+
+app-dashboard .panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 8px !important;
+}
+
+app-dashboard .panel-header h3 {
+  margin: 2px 0 0;
+  font-size: 14px;
+}
+
+app-dashboard .panel-kicker {
+  margin: 0;
+  font-size: 9px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--tt-text-muted);
+}
+
+app-dashboard .panel-header > i {
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+
+/* Smaller charts */
+app-dashboard .chart-wrap {
+  position: relative;
+  width: 100%;
+  height: 190px !important;
+}
+
+app-dashboard .donut-wrap {
+  height: 190px !important;
+}
+
+app-dashboard .chart-wrap canvas {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+/* =========================================================
+   ALERTS + TRUCK TABLE
+   ========================================================= */
+
+app-dashboard .dashboard-grid {
+  width: 100%;
+
+  display: grid !important;
+
+  /*
+     Alerts = smaller
+     Truck table = bigger
+  */
+  grid-template-columns:
+    minmax(260px, 0.75fr)
+    minmax(0, 2fr) !important;
+
+  gap: 12px !important;
+
+  margin-bottom: 14px;
+}
+
+app-dashboard .dashboard-grid .panel {
+  min-width: 0;
+  width: 100%;
+
+  padding: 14px !important;
+
+  border-radius: 12px !important;
+  border: 1px solid var(--tt-border);
+  background: var(--tt-surface);
+  box-shadow: var(--tt-shadow) !important;
+}
+
+
+/* =========================================================
+   ALERT LIST
+   ========================================================= */
+
+app-dashboard .alert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px !important;
+}
+
+app-dashboard .alert-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 8px 9px !important;
+
+  border-radius: 8px;
+  background: rgba(245, 248, 252, 0.8);
+}
+
+app-dashboard .alert-item strong {
+  font-size: 11px;
+}
+
+app-dashboard .alert-item p {
+  margin: 2px 0 0;
+  font-size: 9px;
+  color: var(--tt-text-muted);
+}
+
+app-dashboard .alert-dot {
+  width: 7px;
+  height: 7px;
+  min-width: 7px;
+  border-radius: 50%;
+}
+
+
+/* =========================================================
+   TRACKING TOOLS
+   ========================================================= */
+
+app-dashboard .tracking-tools {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+app-dashboard .tracking-tools input,
+app-dashboard .tracking-tools select {
+  height: 34px;
+  padding: 7px 10px !important;
+
+  border: 1px solid var(--tt-border-strong);
+  border-radius: 8px !important;
+
+  background: #fff;
+  font-size: 11px;
+}
+
+app-dashboard .tracking-tools input {
+  flex: 1;
+}
+
+app-dashboard .tracking-tools select {
+  width: 110px;
+}
+
+
+/* =========================================================
+   TRUCK TABLE
+   ========================================================= */
+
+app-dashboard .tracking-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+app-dashboard .fleet-row {
+  min-height: 36px;
+
+  display: grid;
+
+  grid-template-columns:
+    0.8fr
+    0.7fr
+    1.2fr
+    0.8fr
+    0.7fr
+    1fr;
+
+  align-items: center;
+  gap: 8px;
+
+  padding: 7px 8px !important;
+
+  font-size: 10px;
+}
+
+app-dashboard .fleet-head {
+  min-height: 30px;
+
+  border-radius: 7px;
+  background: #f1f4f8;
+
+  color: var(--tt-text-muted);
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+app-dashboard .tracking-row {
+  border-bottom: 1px solid rgba(8, 17, 31, 0.05);
+}
+
+app-dashboard .tracking-row:hover {
+  background: rgba(245, 248, 252, 0.7);
+}
+
+app-dashboard .truck-id {
+  font-weight: 600;
+  color: var(--tt-text-strong);
+}
+
+
+/* Status pills */
+
+app-dashboard .pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 48px;
+  padding: 3px 7px;
+
+  border-radius: 20px;
+
+  font-size: 8px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   NOTIFICATIONS
+   ========================================================= */
+
+app-dashboard .lower-grid {
+  grid-template-columns: 1fr !important;
+  margin-bottom: 0;
+}
+
+app-dashboard .notification-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 8px !important;
+}
+
+app-dashboard .notification-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 10px !important;
+
+  border-radius: 8px;
+  background: rgba(245, 248, 252, 0.8);
+}
+
+app-dashboard .notification-item p {
+  margin: 0;
+  font-size: 10px;
+}
+
+app-dashboard .notification-bullet {
+  width: 6px;
+  height: 6px;
+  min-width: 6px;
+  border-radius: 50%;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+/* Laptop */
+@media (max-width: 1200px) {
+
+  app-dashboard .stats-grid {
+    grid-template-columns:
+      repeat(5, minmax(0, 1fr)) !important;
+  }
+
+  app-dashboard .charts-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  app-dashboard .dashboard-grid {
+    grid-template-columns:
+      minmax(240px, 0.75fr)
+      minmax(0, 2fr) !important;
+  }
+
+  app-dashboard .chart-wrap,
+  app-dashboard .donut-wrap {
+    height: 175px !important;
+  }
+}
+
+
+/* Smaller laptop */
+@media (max-width: 1050px) {
+
+  app-dashboard .stats-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  app-dashboard .charts-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  app-dashboard .charts-grid .chart-panel:last-child {
+    grid-column: span 2;
+  }
+
+  app-dashboard .dashboard-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  app-dashboard .notification-list {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* Tablet */
+@media (max-width: 750px) {
+
+  app-dashboard .content {
+    padding: 10px !important;
+  }
+
+  app-dashboard .hero-panel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  app-dashboard .hero-metrics {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  app-dashboard .stats-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  app-dashboard .charts-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  app-dashboard .charts-grid .chart-panel:last-child {
+    grid-column: auto;
+  }
+
+  app-dashboard .notification-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Mobile */
+@media (max-width: 500px) {
+
+  app-dashboard .stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  app-dashboard .hero-metrics {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  app-dashboard .tracking-tools {
+    flex-direction: column;
+  }
+
+  app-dashboard .tracking-tools select {
+    width: 100%;
+  }
+
+  app-dashboard .chart-wrap,
+  app-dashboard .donut-wrap {
+    height: 200px !important;
+  }
 }

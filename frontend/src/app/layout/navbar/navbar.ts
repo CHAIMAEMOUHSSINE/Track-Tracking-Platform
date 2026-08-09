@@ -1,13 +1,14 @@
 import { Component, ElementRef, HostListener, computed, inject, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../core/services/auth';
-import { FleetDataService } from '../../core/services/fleet-data.service';
+import { FleetDataService, FleetNotification, UserProfile } from '../../core/services/fleet-data.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './navbar.html',
   styleUrl: './navbar.css'
 })
@@ -15,17 +16,19 @@ export class NavbarComponent {
   private readonly auth = inject(AuthService);
   private readonly fleet = inject(FleetDataService);
   private readonly host = inject(ElementRef<HTMLElement>);
+  private readonly router = inject(Router);
 
   readonly session = signal(this.auth.getSession());
   readonly notificationsOpen = signal(false);
   readonly profileOpen = signal(false);
-  readonly notificationCount = computed(() => this.fleet.notifications().length);
+  readonly profileDraft = signal<UserProfile>(this.fleet.profile());
+  readonly notificationCount = computed(() => this.fleet.unreadNotifications());
   readonly notifications = computed(() => this.fleet.notifications());
   readonly displayName = computed(() => {
-    const session = this.session();
-    return session ? `${session.prenom} ${session.nom}` : 'Responsable Logistique';
+    const profile = this.fleet.profile();
+    return `${profile.prenom} ${profile.nom}`;
   });
-  readonly roleLabel = computed(() => this.session()?.role ?? 'Vue opérateur');
+  readonly roleLabel = computed(() => this.fleet.profile().role ?? this.session()?.role ?? 'Vue opérateur');
 
   toggleNotifications(): void {
     this.profileOpen.set(false);
@@ -40,6 +43,30 @@ export class NavbarComponent {
   closeMenus(): void {
     this.notificationsOpen.set(false);
     this.profileOpen.set(false);
+  }
+
+  openNotification(notification: FleetNotification): void {
+    this.fleet.markNotificationAsRead(notification.id);
+    this.closeMenus();
+    void this.router.navigateByUrl(notification.route);
+  }
+
+  markAllAsRead(): void {
+    this.fleet.markAllNotificationsAsRead();
+  }
+
+  saveProfile(): void {
+    this.fleet.updateProfile(this.profileDraft());
+    this.closeMenus();
+  }
+
+  updateProfileField(field: keyof UserProfile, value: string): void {
+    this.profileDraft.update((profile) => ({ ...profile, [field]: value }));
+  }
+
+  openPasswordChange(): void {
+    this.fleet.changePassword();
+    this.closeMenus();
   }
 
   logout(): void {

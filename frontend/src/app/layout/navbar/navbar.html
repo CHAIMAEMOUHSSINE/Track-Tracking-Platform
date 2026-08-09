@@ -22,14 +22,25 @@
       @if (notificationsOpen()) {
         <div class="dropdown-panel notifications-panel">
           <div class="dropdown-header">
-            <strong>Activités récentes</strong>
-            <span>{{ notificationCount() }} actives</span>
+            <strong>Notifications</strong>
+            <span>{{ notificationCount() }} non lues</span>
           </div>
+
+          <button class="dropdown-link link-action" type="button" (click)="markAllAsRead()">
+            Tout marquer comme lu
+          </button>
 
           <div class="dropdown-list">
             <div class="dropdown-item" *ngFor="let notification of notifications()">
-              <i class="fas fa-circle-notch"></i>
-              <p>{{ notification }}</p>
+              <button type="button" class="notification-entry" (click)="openNotification(notification)">
+                <span class="notification-dot" [class.unread]="notification.unread"></span>
+                <div>
+                  <strong>{{ notification.title }}</strong>
+                  <p>{{ notification.message }}</p>
+                  <small>{{ notification.service }}</small>
+                </div>
+                <i class="fas fa-arrow-right"></i>
+              </button>
             </div>
           </div>
 
@@ -58,6 +69,20 @@
             </div>
             <i class="fas fa-id-card"></i>
           </div>
+
+          <div class="profile-form">
+            <label>Prénom</label>
+            <input type="text" [ngModel]="profileDraft().prenom" (ngModelChange)="updateProfileField('prenom', $event)" />
+
+            <label>Nom</label>
+            <input type="text" [ngModel]="profileDraft().nom" (ngModelChange)="updateProfileField('nom', $event)" />
+
+            <label>Email</label>
+            <input type="email" [ngModel]="profileDraft().email" (ngModelChange)="updateProfileField('email', $event)" />
+          </div>
+
+          <button type="button" class="dropdown-link" (click)="saveProfile()">Enregistrer le profil</button>
+          <button type="button" class="dropdown-link" (click)="openPasswordChange()">Modifier le mot de passe</button>
 
           <a routerLink="/dashboard" class="dropdown-link" (click)="closeMenus()">Tableau de bord</a>
           <a routerLink="/dashboard/expedition" class="dropdown-link" (click)="closeMenus()">Service expédition</a>

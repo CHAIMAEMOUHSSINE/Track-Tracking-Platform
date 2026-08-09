@@ -39,7 +39,7 @@ export class DashboardHomeComponent implements AfterViewInit, OnDestroy {
 
   alerts: DashboardAlertRow[] = this.fleet.alerts();
 
-  notifications: string[] = this.fleet.notifications();
+  notifications: string[] = this.fleet.notifications().map((notification) => `${notification.title} - ${notification.message}`);
 
   trackingFilter = '';
   statusFilter = 'Tous';
@@ -49,7 +49,7 @@ export class DashboardHomeComponent implements AfterViewInit, OnDestroy {
       this.stats = this.fleet.stats();
       this.trackers = this.fleet.dashboardRows();
       this.alerts = this.fleet.alerts();
-      this.notifications = this.fleet.notifications();
+      this.notifications = this.fleet.notifications().map((notification) => `${notification.title} - ${notification.message}`);
 
       if (this.statusChart) {
         this.syncStatusChart();

@@ -51,6 +51,22 @@ export interface DashboardStats {
   repartitionParEtat: Record<string, number>;
 }
 
+export interface FleetNotification {
+  id: string;
+  title: string;
+  message: string;
+  service: 'Cartographie' | 'Expédition' | 'Production' | 'Maintenance' | 'Dashboard';
+  route: string;
+  unread: boolean;
+}
+
+export interface UserProfile {
+  nom: string;
+  prenom: string;
+  role: string;
+  email: string;
+}
+
 const INITIAL_TRUCKS: FleetTruck[] = [
   {
     id: 'CAM-025',
@@ -140,14 +156,39 @@ const INITIAL_TRUCKS: FleetTruck[] = [
 })
 export class FleetDataService {
   private readonly trucksState = signal<FleetTruck[]>(INITIAL_TRUCKS);
-  private readonly notificationsState = signal<string[]>([
-    'Trucking Truck prêt pour la supervision',
-    'Justification active sur CAM-044',
-    'Surveillance renforcée sur le quai 2'
+  private readonly notificationsState = signal<FleetNotification[]>([
+    {
+      id: 'notif-1',
+      title: 'Plateforme prête',
+      message: 'Trucking Truck est prêt pour la supervision',
+      service: 'Dashboard',
+      route: '/dashboard',
+      unread: true
+    },
+    {
+      id: 'notif-2',
+      title: 'Justification active',
+      message: 'CAM-044 possède une justification en cours',
+      service: 'Expédition',
+      route: '/dashboard/expedition',
+      unread: true
+    },
+    {
+      id: 'notif-3',
+      title: 'Surveillance quai 2',
+      message: 'Le quai 2 nécessite une surveillance renforcée',
+      service: 'Cartographie',
+      route: '/dashboard/cartographie',
+      unread: true
+    }
   ]);
+  private readonly profileState = signal<UserProfile>(this.loadProfile());
 
   readonly trucks = this.trucksState.asReadonly();
   readonly notifications = this.notificationsState.asReadonly();
+  readonly profile = this.profileState.asReadonly();
+
+  readonly unreadNotifications = computed(() => this.notificationsState().filter((notification) => notification.unread).length);
 
   readonly dashboardRows = computed<DashboardTruckRow[]>(() =>
     this.trucksState().map((truck) => ({
@@ -211,7 +252,7 @@ export class FleetDataService {
       }))
     );
     if (notify) {
-      this.publishActivity('Cartographie', 'Synchronisation en temps réel');
+      this.publishActivity('Cartographie', 'Synchronisation en temps réel', '/dashboard/cartographie');
     }
   }
 
@@ -237,7 +278,7 @@ export class FleetDataService {
     );
 
     if (updated) {
-      this.publishActivity('Expédition', `Justification enregistrée pour ${plate}`);
+      this.publishActivity('Expédition', `Justification enregistrée pour ${plate}`, '/dashboard/expedition');
     }
 
     return updated;
@@ -247,8 +288,62 @@ export class FleetDataService {
     return this.trucksState().find((truck) => truck.id === plate);
   }
 
-  publishActivity(source: string, message: string): void {
-    this.notificationsState.update((notifications) => [`${source} : ${message}`, ...notifications].slice(0, 6));
+  publishActivity(source: string, message: string, route: string): void {
+    const notification: FleetNotification = {
+      id: `notif-${Date.now()}-${Math.random().toString(16).slice(2, 8)}`,
+      title: source,
+      message,
+      service: source as FleetNotification['service'],
+      route,
+      unread: true
+    };
+
+    this.notificationsState.update((notifications) => [notification, ...notifications].slice(0, 8));
+  }
+
+  markNotificationAsRead(id: string): void {
+    this.notificationsState.update((notifications) =>
+      notifications.map((notification) =>
+        notification.id === id ? { ...notification, unread: false } : notification
+      )
+    );
+  }
+
+  markAllNotificationsAsRead(): void {
+    this.notificationsState.update((notifications) => notifications.map((notification) => ({ ...notification, unread: false })));
+  }
+
+  updateProfile(partial: Partial<UserProfile>): void {
+    const updatedProfile = { ...this.profileState(), ...partial };
+    this.profileState.set(updatedProfile);
+    localStorage.setItem('fleet_profile', JSON.stringify(updatedProfile));
+  }
+
+  changePassword(): void {
+    this.publishActivity('Dashboard', 'Demande de changement de mot de passe ouverte', '/dashboard');
+  }
+
+  private loadProfile(): UserProfile {
+    const rawProfile = localStorage.getItem('fleet_profile') ?? localStorage.getItem('auth_user');
+    if (!rawProfile) {
+      return {
+        nom: 'Logistique',
+        prenom: 'Responsable',
+        role: 'Responsable Logistique',
+        email: 'responsable@trucking-truck.local'
+      };
+    }
+
+    try {
+      return JSON.parse(rawProfile) as UserProfile;
+    } catch {
+      return {
+        nom: 'Logistique',
+        prenom: 'Responsable',
+        role: 'Responsable Logistique',
+        email: 'responsable@trucking-truck.local'
+      };
+    }
   }
 
   private toDashboardStatus(status: TruckStatus): 'VERT' | 'ORANGE' | 'ROUGE' {

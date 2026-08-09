@@ -217,7 +217,8 @@ export class MaintenanceComponent {
 
     this.fleet.publishActivity(
       'Maintenance',
-      `${this.intervention.equipment} - ${this.intervention.type} - ${this.intervention.priority}`
+      `${this.intervention.equipment} - ${this.intervention.type} - ${this.intervention.priority}`,
+      '/dashboard/maintenance'
     );
 
     setTimeout(() => {
@@ -242,7 +243,7 @@ export class MaintenanceComponent {
 
   refresh(){
 
-    this.fleet.publishActivity('Maintenance', 'Actualisation de la page maintenance');
+    this.fleet.publishActivity('Maintenance', 'Actualisation de la page maintenance', '/dashboard/maintenance');
 
   }
 
